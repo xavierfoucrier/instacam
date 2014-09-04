@@ -1,0 +1,129 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Instacam by xavierfoucrier</title>
+    <link rel="stylesheet" href="resources/theme.css">
+		<script type="text/javascript" src="resources/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="resources/jquery.instacam.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script type="text/javascript">
+			$(function() {
+				
+				// instanciates the plugin
+				$('#canvas1').instacam({
+					done: function() {
+						$('.log').html('Instacam is working fine!').show();
+					},
+					fail: function() {
+						$('.log').html('Sorry, Instacam failed to start because you didn\'t accept the requested permissions to access to your camera, or something went wrong...').show();
+					},
+					unsupported: function() {
+						$('.log').html('Sorry, but it seems that your browser doesn\'t support natively the HTML5 <code>canvas</code> tag, <code>requestAnimationFrame</code> API and <code>getUserMedia</code> API.').show();
+					}
+				});
+				
+				// binds the format options to disable the quality option if the format is png
+				$('input[name="format"]').click(function() {
+					$('.quality input').attr('disabled', $(this).val() == 'png');
+				});
+				
+				// binds the snapshot button
+				$('input[name="format"],input[name="quality"]').change(function() {
+					
+					// save the viewport
+					var data = $('#canvas1').data('instacam').save($('input[name="format"]:checked').val(), parseFloat($('input[name="quality"]:checked').val()));
+					
+					// create an image with previous data informations as source
+					var thumbnail = document.createElement('img');
+					thumbnail.setAttribute('width', $('#canvas1').instacam('width'));
+					thumbnail.setAttribute('height', $('#canvas1').instacam('height'));
+					thumbnail.setAttribute('src', data);
+					$('.thumb').html(thumbnail);
+					
+					// estimate the image filesize
+					$('.filesize').text(Math.round(((data.length * 3) / 4) / 1024) + ' ko');
+				});
+			});
+		</script>
+	</head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Instacam</h1>
+				<p>Instacam is a jQuery plugin to perform <strong>instant canvas video</strong> through the WebRTC API with a fresh touch of CSS filters.</p>
+        <p class="view"><a href="https://github.com/xavierfoucrier/instacam">View the Project on GitHub <small>xavierfoucrier/instacam</small></a></p>
+        <ul>
+          <li><a href="https://github.com/xavierfoucrier/instacam/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/xavierfoucrier/instacam/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/xavierfoucrier/instacam">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+			<section>
+				<h2>Save demo</h2>
+				<p>Save the viewport in different format and quality. <strong>Enjoy!</strong></p>
+				<canvas id="canvas1"></canvas>
+				<br />
+				<form>
+					<div>
+						Format:<label><input type="radio" name="format" value="png" />png</label>
+						<label><input type="radio" name="format" value="jpeg" checked="checked" />jpeg</label>
+						<label><input type="radio" name="format" value="webp" />webp</label>
+					</div>
+					<div class="quality">
+						Quality:<label><input type="radio" name="quality" value="0.1" />poor (0.1)</label>
+						<label><input type="radio" name="quality" value="0.3" />low (0.3)</label>
+						<label><input type="radio" name="quality" value="0.7" checked="checked" />middle (0.7)</label>
+						<label><input type="radio" name="quality" value="1" />good (1)</label>
+					</div>
+					<div>
+						Estimated filesize: <em class="filesize">*</em>
+					</div>
+				</form>
+				<div class="thumb"></div>
+				<blockquote class="log"></blockquote>
+				<h3>Source code</h3>
+<pre><code>$(function() {
+  $('#canvas1').instacam();
+  
+  $('input[name="format"],input[name="quality"]').change(function() {
+    var data = $('#canvas1').data('instacam').save($('input[name="format"]:checked').val(), parseFloat($('input[name="quality"]:checked').val()));
+    var thumbnail = document.createElement('img');
+    thumbnail.setAttribute('width', $('#canvas1').instacam('width'));
+    thumbnail.setAttribute('height', $('#canvas1').instacam('height'));
+    thumbnail.setAttribute('src', data);
+    $('.thumb').html(thumbnail);
+    $('.filesize').text(Math.round(((data.length * 3) / 4) / 1024) + ' ko');
+  });
+});
+</code></pre>
+				<br />
+				<h3>Documentation</h3>
+				<p>Instacam can do <strong>much more</strong> than display a camera stream! CSS filtering, custom filtering applied on HTML5 canvas, snapshots, etc. <a href="https://github.com/xavierfoucrier/instacam">View the project on Github</a> to see the documentation about available options, methods and callbacks.</p>
+				<br />
+				<h3>Other demonstrations</h3>
+				<ul>
+					<li><a href="index.html">Basic demo</a> - a simple demo with the camera</li>
+					<li><a href="css-filter.html">CSS filter demo</a> - pretty css filtering demo</li>
+					<li><a href="custom-filter.html">Custom filter demo</a> - pretty custom filtering demo</li>
+					<li><a href="snap.html">Snap demo</a> - capture the viewport image data</li>
+					<li><a href="save.html">Save demo</a> - save the viewport in different format and quality</li>
+				</ul>
+			</section>
+			<footer>
+				<p>This project is maintained by <a href="https://github.com/xavierfoucrier">xavierfoucrier</a></p>
+				<p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+			</footer>
+		</div>
+    <script type="text/javascript" src="resources/scale.fix.js"></script>
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("UA-54245092-4");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+	<head>
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Instacam by xavierfoucrier</title>
+    <link rel="stylesheet" href="resources/theme.css">
+		<script type="text/javascript" src="resources/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="resources/jquery.instacam.min.js"></script>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script type="text/javascript">
+			$(function() {
+				
+				// instanciates the plugin
+				$('#canvas1').instacam({
+					done: function() {
+						$('.log').html('Instacam is working fine!').show();
+					},
+					fail: function() {
+						$('.log').html('Sorry, Instacam failed to start because you didn\'t accept the requested permissions to access to your camera, or something went wrong...').show();
+					},
+					unsupported: function() {
+						$('.log').html('Sorry, but it seems that your browser doesn\'t support natively the HTML5 <code>canvas</code> tag, <code>requestAnimationFrame</code> API and <code>getUserMedia</code> API.').show();
+					}
+				});
+				
+				// binds the snapshot button
+				$('input[name="snap"]').click(function() {
+					
+					// snap/copy the viewport
+					var snapshot = $('#canvas1').data('instacam').snap();
+					
+					// paste the viewport
+					var thumbnail = document.createElement('canvas');
+					thumbnail.setAttribute('width', $('#canvas1').instacam('width'));
+					thumbnail.setAttribute('height', $('#canvas1').instacam('height'));
+					$(thumbnail)[0].getContext('2d').putImageData(snapshot, 0, 0);
+					$('.thumbs').append(thumbnail);
+				});
+			});
+		</script>
+	</head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Instacam</h1>
+				<p>Instacam is a jQuery plugin to perform <strong>instant canvas video</strong> through the WebRTC API with a fresh touch of CSS filters.</p>
+        <p class="view"><a href="https://github.com/xavierfoucrier/instacam">View the Project on GitHub <small>xavierfoucrier/instacam</small></a></p>
+        <ul>
+          <li><a href="https://github.com/xavierfoucrier/instacam/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/xavierfoucrier/instacam/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/xavierfoucrier/instacam">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+			<section>
+				<h2>Snap demo</h2>
+				<p>Capture the viewport image data. <strong>Enjoy!</strong></p>
+				<canvas id="canvas1"></canvas>
+				<br />
+				<form>
+					<input type="button" name="snap" value="Take a snapshot!" />
+				</form>
+				<div class="thumbs"></div>
+				<blockquote class="log"></blockquote>
+				<h3>Source code</h3>
+<pre><code>$(function() {
+  $('#canvas1').instacam();
+  
+  $('input[name="snap"]').click(function() {
+    var snapshot = $('#canvas1').data('instacam').snap();
+    var thumbnail = document.createElement('canvas');
+    thumbnail.setAttribute('width', $('#canvas1').instacam('width'));
+    thumbnail.setAttribute('height', $('#canvas1').instacam('height'));
+    $(thumbnail)[0].getContext('2d').putImageData(snapshot, 0, 0);
+    $('.thumbs').append(thumbnail);
+  });
+});
+</code></pre>
+				<br />
+				<h3>Documentation</h3>
+				<p>Instacam can do <strong>much more</strong> than display a camera stream! CSS filtering, custom filtering applied on HTML5 canvas, snapshots, etc. <a href="https://github.com/xavierfoucrier/instacam">View the project on Github</a> to see the documentation about available options, methods and callbacks.</p>
+				<br />
+				<h3>Other demonstrations</h3>
+				<ul>
+					<li><a href="index.html">Basic demo</a> - a simple demo with the camera</li>
+					<li><a href="css-filter.html">CSS filter demo</a> - pretty css filtering demo</li>
+					<li><a href="custom-filter.html">Custom filter demo</a> - pretty custom filtering demo</li>
+					<li><a href="snap.html">Snap demo</a> - capture the viewport image data</li>
+					<li><a href="save.html">Save demo</a> - save the viewport in different format and quality</li>
+				</ul>
+			</section>
+			<footer>
+				<p>This project is maintained by <a href="https://github.com/xavierfoucrier">xavierfoucrier</a></p>
+				<p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+			</footer>
+		</div>
+    <script type="text/javascript" src="resources/scale.fix.js"></script>
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("UA-54245092-4");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	</body>
+</html>
