@@ -10,6 +10,7 @@
 		var defaults = {
 			width: 400,
 			height: 300,
+			mirror: false,
 			sound: false,
 			opacity: 1,
 			brightness: 1,
@@ -109,7 +110,7 @@
 							viewport.getContext('2d').putImageData(filter(plugin.buffer.getContext('2d').getImageData(0, 0, plugin.settings.width, plugin.settings.height)), 0, 0);
 						}
 						
-						// creates css filter effects over the viewport
+						// creates the css filter effects on the viewport
 						var filters = plugin.settings.opacity != defaults.opacity ? 'opacity(' + plugin.settings.opacity + ') ' : '';
 						filters += plugin.settings.brightness != defaults.brightness ? 'brightness(' + plugin.settings.brightness + ') ' : '';
 						filters += plugin.settings.contrast != defaults.contrast ? 'contrast(' + plugin.settings.contrast + ') ' : '';
@@ -121,7 +122,7 @@
 						filters += plugin.settings.blur != defaults.blur ? 'blur(' + plugin.settings.blur + 'px) ' : '';
 						filters += plugin.settings.url != defaults.url ? 'url(' + plugin.settings.url + ') ' : '';
 						
-						// adds the css filter effects to the viewport
+						// applies the css filter effects on the viewport
 						if (filters !== '' && plugin.css != filters) {
 							$(viewport).css({
 								'filter': filters,
@@ -129,16 +130,26 @@
 							});
 							
 							plugin.css = filters;
-						}
-						
-						// removes the css filter effects from the viewport if there is no filters
-						if (filters === '') {
+						} else if (filters === '') {
 							$(viewport).css({
 								'filter': '',
 								'-webkit-filter': ''
 							});
 							
 							plugin.css = '';
+						}
+						
+						// applies the css mirror mode on the viewport
+						if (plugin.settings.mirror === true) {
+							$(viewport).css({
+								'transform': 'scale(-1, 1)',
+								'-webkit-transform': 'scale(-1, 1)'
+							});
+						} else {
+							$(viewport).css({
+								'transform': '',
+								'-webkit-transform': ''
+							});
 						}
 					};
 					

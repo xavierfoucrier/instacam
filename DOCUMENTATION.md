@@ -95,6 +95,9 @@ $('#canvas1').instacam({
 	// height of the viewport
 	height: 300,
 	
+	// miror mode
+	mirror: false,
+	
 	// audio property of the getUserMedia API
 	sound: false,
 	
@@ -156,6 +159,11 @@ Type: `Numeric`
 Default: `300`
 
 The height represents **the height of the viewport**. It must fit to a **4:3 ratio** to render a proper image of the media stream, depending on the webcam.
+
+#### mirror
+Type: `Boolean`
+Default: `false`
+The mirror mode allows you to **flip the viewport horizontally**. This mode is using css transform property.
 
 #### sound
 Type: `Boolean`
