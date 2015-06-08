@@ -98,6 +98,9 @@ $('#canvas1').instacam({
 	// miror mode
 	mirror: false,
 	
+	// video property of the getUserMedia API
+	camera: true,
+	
 	// audio property of the getUserMedia API
 	sound: false,
 	
@@ -165,11 +168,17 @@ Type: `Boolean`
 Default: `false`
 The mirror mode allows you to **flip the viewport horizontally**. This mode is using css transform property.
 
+#### camera
+Type: `Boolean`
+Default: `true`
+
+The camera option allows you to **capture video from the camera**. By default, Instacam is only capturing media stream from the webcam. If you want to capture only the microphone, you must set this option to `false` and set the sound option to `true`.
+
 #### sound
 Type: `Boolean`
 Default: `false`
 
-The sound option allows you to **capture audio from the microphone**. By default, Instacam is only capturing media stream from the webcam. If you want to capture both the microphone and the camera, you must set this option to `true`. 
+The sound option allows you to **capture audio from the microphone**. By default, Instacam is only capturing media stream from the webcam. If you want to capture both the microphone and the camera, you must set this option to `true`.
 
 #### opacity
 Type: `Numeric`

@@ -11,6 +11,7 @@
 			width: 400,
 			height: 300,
 			mirror: false,
+			camera: true,
 			sound: false,
 			opacity: 1,
 			brightness: 1,
@@ -79,7 +80,7 @@
 				
 				// captures the media stream
 				navigator.getUserMedia({
-					video: true,
+					video: plugin.settings.camera,
 					audio: plugin.settings.sound
 				}, function(stream) {
 					
