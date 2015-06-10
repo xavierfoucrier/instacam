@@ -101,8 +101,17 @@ $('#canvas1').instacam({
 	// video property of the getUserMedia API
 	camera: true,
 	
+	// refresh rate property of the camera in frames per second
+	framerate: 30,
+	
+	// ratio of the viewport
+	ratio: 4/3,
+	
 	// audio property of the getUserMedia API
 	sound: false,
+	
+	// volume property of the camera
+	volume: 100,
 	
 	// css filter used to set the opacity of the viewport
 	opacity: 1,
@@ -155,13 +164,13 @@ Instacam reference that details all options of the plugin.
 Type: `Numeric`
 Default: `400`
 
-The width represents **the width of the viewport**. It must fit to a **4:3 ratio** to render a proper image of the media stream, depending on the webcam.
+The width represents **the width of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam.
 
 #### height
 Type: `Numeric`
 Default: `300`
 
-The height represents **the height of the viewport**. It must fit to a **4:3 ratio** to render a proper image of the media stream, depending on the webcam.
+The height represents **the height of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam.
 
 #### mirror
 Type: `Boolean`
@@ -174,11 +183,33 @@ Default: `true`
 
 The camera option allows you to **capture video from the camera**. By default, Instacam is only capturing media stream from the webcam. If you want to capture only the microphone, you must set this option to `false` and set the sound option to `true`.
 
+#### framerate
+Type: `Numeric`
+Default: `30`
+Minimum: `1`
+Maximum: `None`
+
+The framerate option allows you to **change the refresh rate of the camera**. By default, Instacam will capture **30 frames per second**. The maximum framerate depends on the camera capabilities.
+
+#### ratio
+Type: `Numeric`
+Default: `4/3`
+
+The ratio option allows you yo **change the aspect ratio of the camera**. It must fit to the width/height ratio to render a proper image of the media stream. You can use float numbers (like 1.1, 1.7) or fractions (like 4/3, 16/9) for better reading.
+
 #### sound
 Type: `Boolean`
 Default: `false`
 
 The sound option allows you to **capture audio from the microphone**. By default, Instacam is only capturing media stream from the webcam. If you want to capture both the microphone and the camera, you must set this option to `true`.
+
+#### volume
+Type: `Numeric`
+Default: `100`
+Minimum: `0`
+Maximum: `100`
+
+The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100%. Note that the volume is set **one time**, when the camera is ready.
 
 #### opacity
 Type: `Numeric`

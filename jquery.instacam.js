@@ -1,5 +1,5 @@
 (function($) {
-	"use strict";
+	'use strict';
 	
 	$.instacam = function(viewport, options) {
 		
@@ -12,7 +12,10 @@
 			height: 300,
 			mirror: false,
 			camera: true,
+			framerate: 30,
+			ratio: 4/3,
 			sound: false,
+			volume: 100,
 			opacity: 1,
 			brightness: 1,
 			contrast: 1,
@@ -51,19 +54,17 @@
 			}
 			
 			// initializes the viewport
-			viewport.setAttribute('width', plugin.settings.width);
-			viewport.setAttribute('height', plugin.settings.height);
+			viewport.width = plugin.settings.width;
+			viewport.height = plugin.settings.height;
 			
 			// creates the media element
 			var media = document.createElement('video');
 			
 			// sets media element properties
-			media.setAttribute('autoplay', '1');
-			media.setAttribute('width', plugin.settings.width);
-			media.setAttribute('height', plugin.settings.height);
-			
-			// hides the media element
-			$(media).hide();
+			media.style.display = 'none';
+			media.autoplay = true;
+			media.width = plugin.settings.width;
+			media.height = plugin.settings.height;
 			
 			// attaches the media element to the DOM
 			viewport.parentNode.insertBefore(media, viewport.nextSibling);
@@ -80,12 +81,30 @@
 				
 				// captures the media stream
 				navigator.getUserMedia({
-					video: plugin.settings.camera,
+					video: function() {
+						if (plugin.settings.camera === false) {
+							return false;
+						}
+						
+						return {
+							mandatory: {
+								minFrameRate: typeof plugin.settings.framerate == 'number' && plugin.settings.framerate > 0 ? plugin.settings.framerate : defaults.framerate,
+								maxFrameRate: typeof plugin.settings.framerate == 'number' && plugin.settings.framerate > 0 ? plugin.settings.framerate : defaults.framerate,
+								minAspectRatio: typeof plugin.settings.ratio == 'number' && plugin.settings.ratio > 0 ? plugin.settings.ratio : defaults.ratio,
+								maxAspectRatio: typeof plugin.settings.ratio == 'number' && plugin.settings.ratio > 0 ? plugin.settings.ratio : defaults.ratio
+							}
+						};
+					}(),
 					audio: plugin.settings.sound
 				}, function(stream) {
 					
 					// captures the blob stream
 					media.src = window.URL.createObjectURL(stream);
+					
+					// binds the play event to set the default volume at start
+					media.addEventListener('play', function() {
+						media.volume = (typeof plugin.settings.volume == 'number' && plugin.settings.volume >= 0 && plugin.settings.volume <= 100 ? plugin.settings.volume : defaults.volume) / 100;
+					});
 					
 					// animation loop used to properly render the viewport
 					var loop = function() {
@@ -101,10 +120,10 @@
 							// use of a buffer when applying a custom filter to prevent from some blinkings or flashes of the canvas
 							if (typeof plugin.buffer == 'undefined') {
 								plugin.buffer = document.createElement('canvas');
-								plugin.buffer.setAttribute('width', plugin.settings.width);
-								plugin.buffer.setAttribute('height', plugin.settings.height);
+								plugin.buffer.style.display = 'none';
+								plugin.buffer.width = plugin.settings.width;
+								plugin.buffer.height = plugin.settings.height;
 								viewport.parentNode.insertBefore(plugin.buffer, viewport.nextSibling);
-								$(plugin.buffer).hide();
 							}
 							
 							plugin.buffer.getContext('2d').drawImage(media, 0, 0, plugin.settings.width, plugin.settings.height);
