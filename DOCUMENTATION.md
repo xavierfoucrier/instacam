@@ -310,7 +310,7 @@ Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own function here. This function can takes two parameters: `media` that represents the `video` element created to stream the webcam, and `viewport` that represents the `canvas` element passed to the plugin when Instacam is instanciated.
+Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own function here. This function can takes three parameters: `exception` that represent the NavigatorUserMediaError object, `media` that represents the `video` element created to stream the webcam, and `viewport` that represents the `canvas` element passed to the plugin when Instacam is instanciated.
 
 #### unsupported
 Type: `Function`
