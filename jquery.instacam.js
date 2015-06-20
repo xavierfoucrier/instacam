@@ -179,14 +179,14 @@
 					if (typeof plugin.settings.done == 'function') {
 						plugin.settings.done(media, viewport);
 					}
-				}, function() {
+				}, function(exception) {
 					if (typeof plugin.settings.fail == 'function') {
-						plugin.settings.fail(media, viewport);
+						plugin.settings.fail(exception, media, viewport);
 					}
 				});
-			} catch(e) {
+			} catch(exception) {
 				if (typeof plugin.settings.fail == 'function') {
-					plugin.settings.fail(media, viewport);
+					plugin.settings.fail(exception, media, viewport);
 				}
 			}
 		};
