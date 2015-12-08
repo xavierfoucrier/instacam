@@ -11,6 +11,11 @@
 		<script type="text/javascript">
 			$(function() {
 				
+				// https redirect
+				if (window.location.protocol != "https") {
+					window.location.protocol = "https";
+				}
+				
 				// instanciates the plugin
 				$('#canvas1').instacam({
 					done: function() {
