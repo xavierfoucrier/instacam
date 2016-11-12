@@ -57,12 +57,13 @@ If you want to report a bug or if you just want to request for a new feature / i
 
 License
 -------
-The project is developed under the **Creative Commons** license with the reference [BY-NC 4.0](http://creativecommons.org/licenses/by-nc/4.0/) which means that you are free to share, copy, distribute, adapt, remix and transmit the work under the following conditions:
+The project is developed under the **MIT** license:
 
-- **Attribution**: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-- **Noncommercial**: You may not use the material for commercial purposes.
+- **Permissions**: This software and derivatives may be used for commercial purposes, you may distribute this software, this software may be modified and you may use and modify the software without distributing it.
+- **Conditions**: Include a copy of the license and copyright notice with the code.
+- **Limitations**: Software is provided without warranty and the software author/license owner cannot be held liable for damages.
 
-See the [full legal code](http://creativecommons.org/licenses/by-nc/4.0/) of the license for more information about your rights.
+Read the [full license](https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md) for more information about your rights.
 
 
 Questions?
