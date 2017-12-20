@@ -11,12 +11,6 @@
 		<script type="text/javascript">
 			$(function() {
 				
-				// fix https redirect
-				var host = 'xavierfoucrier.github.io';
-				if (window.location.host == host && window.location.protocol != 'https:') {
-					window.location.protocol = 'https:';
-				}
-				
 				// instanciates the plugin
 				$('#canvas1').instacam({
 					done: function() {
