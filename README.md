@@ -2,7 +2,7 @@ Instacam
 ========
 Instacam is a jQuery plugin to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
-![Instacam](https://raw.github.com/xavierfoucrier/instacam/master/logo.png "Instacam")
+[![Instacam](https://raw.github.com/xavierfoucrier/instacam/master/logo.png "Instacam")](https://xavierfoucrier.github.io/instacam)
 
 
 Compatibility
