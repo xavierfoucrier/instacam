@@ -99,7 +99,7 @@
 				}, function(stream) {
 
 					// captures the blob stream
-					media.src = window.URL.createObjectURL(stream);
+					media.srcObject = stream;
 
 					// binds the play event to set the default volume at start
 					media.addEventListener('play', function() {
