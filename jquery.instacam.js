@@ -38,14 +38,11 @@
 			// extends default plugin options with user's custom options
 			plugin.settings = $.extend({}, defaults, options);
 
-			// detects user media
-			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
 			// detects request animation frame
 			window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame;
 
-			// exit the plugin if it does not support getUserMedia or requestAnimationFrame features
-			if (!navigator.getUserMedia || !window.requestAnimationFrame) {
+			// exits the plugin if it does not support the prerequisite features
+			if (!navigator.mediaDevices || !window.requestAnimationFrame) {
 				if (typeof plugin.settings.unsupported == 'function') {
 					plugin.settings.unsupported();
 				}
@@ -80,7 +77,7 @@
 			try {
 
 				// captures the media stream
-				navigator.getUserMedia({
+				navigator.mediaDevices.getUserMedia({
 					video: function() {
 						if (plugin.settings.camera === false) {
 							return false;
@@ -96,7 +93,7 @@
 						};
 					}(),
 					audio: plugin.settings.sound
-				}, function(stream) {
+				}).then(function(stream) {
 
 					// captures the blob stream
 					if ('srcObject' in media) {
@@ -183,7 +180,7 @@
 					if (typeof plugin.settings.done == 'function') {
 						plugin.settings.done(media, viewport);
 					}
-				}, function(exception) {
+				}).catch(function(exception) {
 					if (typeof plugin.settings.fail == 'function') {
 						plugin.settings.fail(exception, media, viewport);
 					}
