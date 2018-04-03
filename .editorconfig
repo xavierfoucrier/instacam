@@ -1,0 +1,9 @@
+# top-most editorconfig file
+root = true
+
+# editor configuration
+[*.js]
+charset = utf-8
+indent_style = tab
+tab_width = 2
+insert_final_newline = false
