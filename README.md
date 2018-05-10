@@ -9,7 +9,7 @@ Compatibility
 -------------
 Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*, on a **Google Nexus 7** tablet and on a **Google Nexus 5** phone. Both Android devices are running `Android "Lollipop" 5.1`. The plugin is compatible with browser that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API and `getUserMedia` API. The CSS filtering requires the `CSS filter` features to properly work.
 
-Official support on Chrome 36+, Firefox 31+, and Opera 23+. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](http://caniuse.com/) about the partial or full support of these features.
+Official support on Chrome 36+, Firefox 31+, and Opera 23+. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
 
 
 Dependencies
@@ -29,7 +29,7 @@ Latest stable release:
 - [Production `jquery.instacam.min.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.min.js) - 4.25KB, 1.42KB gzipped
 - [Development `jquery.instacam.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.js) - 8.83KB, 2.39KB gzipped
 
-The version's notation is based on `Semantic versioning`, [http://semver.org](http://semver.org).
+The version's notation is based on `Semantic versioning`, [https://semver.org](https://semver.org).
 
 
 Documentation
@@ -47,7 +47,7 @@ Here you will find the documentation describing **how to use** the jQuery plugin
 
 Updates
 -------
-You can **track the project** on [Github](http://github.com/xavierfoucrier) and/or **follow me** on [Twitter](http://twitter.com/xavierfoucrier).
+You can **track the project** on [Github](https://github.com/xavierfoucrier) and/or **follow me** on [Twitter](https://twitter.com/xavierfoucrier).
 
 
 Contribute
@@ -69,4 +69,4 @@ Read the [full license](https://github.com/xavierfoucrier/instacam/blob/master/L
 Questions?
 ----------
 If you have any questions, please **feel free to contact me!**  
-Check out my website at [http://en.xavierfoucrier.fr](http://en.xavierfoucrier.fr).
+Check out my website at [https://en.xavierfoucrier.fr](https://en.xavierfoucrier.fr).
