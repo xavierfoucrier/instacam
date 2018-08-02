@@ -26,8 +26,8 @@ Download
 --------
 Latest stable release:
 
-- [Production `jquery.instacam.min.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.min.js) - 4.25KB, 1.42KB gzipped
-- [Development `jquery.instacam.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.js) - 8.83KB, 2.39KB gzipped
+- [Production `jquery.instacam.min.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.min.js) - 4.07KB, 1.38KB gzipped
+- [Development `jquery.instacam.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.js) - 8.79KB, 2.42KB gzipped
 
 The version's notation is based on `Semantic versioning`, [https://semver.org](https://semver.org).
 
