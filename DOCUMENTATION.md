@@ -16,7 +16,7 @@ Summary
 
 How it works
 ------------
-Instacam allows you to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters: this means you can capture the webcam video stream *(media stream)* and broadcast it on an HTML5 `canvas` tag. Unlike the conventional HTML5 `video` tag, Instacam offers you the opportunity to **interact with the broadcasted media stream** by having the possibility to edit each pixels before they are drawn to the canvas. Moreover, Instacam can beautify the media stream by adding a fresh touch of CSS. Don't forget that Instacam only works on browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API and `getUserMedia` API.
+Instacam allows you to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters: this means you can capture the webcam video stream *(media stream)* and broadcast it on an HTML5 `canvas` tag. Unlike the conventional HTML5 `video` tag, Instacam offers you the opportunity to **interact with the broadcasted media stream** by having the possibility to edit each pixels before they are drawn to the canvas. Moreover, Instacam can beautify the media stream by adding a fresh touch of CSS. Don't forget that Instacam only works on browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API.
 
 
 Markup
@@ -317,7 +317,7 @@ Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Unsupported is a callback method **called when a browser doesn't support getUserMedia or requestAnimationFrame features**. You can override the default method of Instacam by adding your own function here.
+Unsupported is a callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own function here.
 
 
 Methods
