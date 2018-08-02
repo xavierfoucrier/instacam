@@ -88,70 +88,70 @@ Instacam call with all default options as defined in the source.
 
 ```js
 $('#canvas1').instacam({
-	
+
 	// width of the viewport
 	width: 400,
-	
+
 	// height of the viewport
 	height: 300,
-	
+
 	// miror mode
 	mirror: false,
-	
+
 	// video property of the getUserMedia API
 	camera: true,
-	
+
 	// refresh rate property of the camera in frames per second
 	framerate: 30,
-	
+
 	// ratio of the viewport
 	ratio: 4/3,
-	
+
 	// audio property of the getUserMedia API
 	sound: false,
-	
+
 	// volume property of the camera
 	volume: 100,
-	
+
 	// css filter used to set the opacity of the viewport
 	opacity: 1,
-	
+
 	// css filter used to set the brightness of the viewport
 	brightness: 1,
-	
+
 	// css filter used to set the contrast of the viewport
 	contrast: 1,
-	
+
 	// css filter used to set the saturatation of the viewport
 	saturation: 0,
-	
+
 	// css filter used to set the hue of the viewport
 	hue: 0,
-	
+
 	// css filter used to invert colors of the viewport
 	invert: 0,
-	
+
 	// css filter used to add a grayscale effect on the viewport
 	grayscale: 0,
-	
+
 	// css filter used to add a sepia effect on the viewport
 	sepia: 0,
-	
+
 	// css filter used to blur the viewport
 	blur: 0,
-	
+
 	// css filter used to specify svg filtering on the viewport
 	url: 0,
-	
+
 	// custom filter applied to the viewport
 	filter: null,
-	
+
 	// callback's method used when the stream is fully captured
 	done: null,
-	
+
 	// callback's method used when the stream capture failed
 	fail: null,
-	
+
 	// callback's method used when a browser doesn't support getUserMedia or requestAnimationFrame features
 	unsupported: null
 });
@@ -328,16 +328,16 @@ Instacam methods with all default parameters as defined in the source.
 #### Snap
 ```js
 $('#canvas1').data('instacam').snap(
-	
+
 	// left position of the snapping zone
 	left: 0,
-	
+
 	// top position of the snapping zone
 	top: 0,
-	
+
 	// width of the snapping zone
 	width: plugin.settings.width,
-	
+
 	// height of the snapping zone
 	height: plugin.settings.height
 );
@@ -346,10 +346,10 @@ $('#canvas1').data('instacam').snap(
 #### Save
 ```js
 $('#canvas1').data('instacam').save(
-	
+
 	// image file format
 	format: 'png',
-	
+
 	// image quality
 	quality: 1
 );
