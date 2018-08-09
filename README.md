@@ -1,19 +1,16 @@
-Instacam
-========
+# Instacam
 Instacam is a jQuery plugin to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
 [![Instacam](https://raw.github.com/xavierfoucrier/instacam/master/logo.png "Instacam")](https://xavierfoucrier.github.io/instacam)
 
 
-Compatibility
--------------
+## Compatibility
 Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*. The plugin is compatible with browser that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API. The CSS filtering requires the `CSS filter` features to properly work.
 
 Official support on Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
 
 
-Dependencies
-------------
+## Dependencies
 To ensure a stable running of Instacam, you need to have **some requirements** setted on your website.
 
 1. Javascript library `jQuery 1.3` minimum required, tested on 1.11+ and working fine with 2.0+
@@ -22,8 +19,7 @@ To ensure a stable running of Instacam, you need to have **some requirements** s
 Note that jQuery 2.0 or higher doesn't support IE 6/7/8 anymore.
 
 
-Download
---------
+## Download
 Latest stable release:
 
 - [Production `jquery.instacam.min.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.min.js) - 4.07KB, 1.38KB gzipped
@@ -32,8 +28,7 @@ Latest stable release:
 The version's notation is based on `Semantic versioning`, [https://semver.org](https://semver.org).
 
 
-Documentation
--------------
+## Documentation
 Here you will find the documentation describing **how to use** the jQuery plugin.
 
 1. [How it works](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works) - how the plugin do the stuff
@@ -45,18 +40,15 @@ Here you will find the documentation describing **how to use** the jQuery plugin
 7. [Demos](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#demos) - some demos in action
 
 
-Updates
--------
+## Updates
 You can **track the project** on [Github](https://github.com/xavierfoucrier) and/or **follow me** on [Twitter](https://twitter.com/xavierfoucrier).
 
 
-Contribute
-----------
+## Contribute
 If you want to report a bug or if you just want to request for a new feature / improvement, you can simply use the **Github tracker**: please describe as much as possible the issue you encountered.
 
 
-License
--------
+## License
 The project is developed under the **MIT** license:
 
 - **Permissions**: This software and derivatives may be used for commercial purposes, you may distribute this software, this software may be modified and you may use and modify the software without distributing it.
@@ -66,7 +58,6 @@ The project is developed under the **MIT** license:
 Read the [full license](https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md) for more information about your rights.
 
 
-Questions?
-----------
+## Questions?
 If you have any questions, please **feel free to contact me!**  
 Check out my website at [https://en.xavierfoucrier.fr](https://en.xavierfoucrier.fr).
