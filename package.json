@@ -2,8 +2,8 @@
   "name": "instacam",
   "version": "1.0.0",
   "description": "Instant canvas video",
-  "main": "dist/app.js",
   "scripts": {},
+  "main": "dist/instacam.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xavierfoucrier/instacam.git"
