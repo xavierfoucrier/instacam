@@ -2,9 +2,14 @@
 root = true
 
 # editor configuration
-[*.js]
+[*]
 charset = utf-8
-indent_style = tab
-tab_width = 2
+end_of_line = lf
+indent_style = space
+indent_size = 2
 trim_trailing_whitespace = true
-insert_final_newline = false
+insert_final_newline = true
+
+# preserves markdown line break
+[*.md]
+trim_trailing_whitespace = false
