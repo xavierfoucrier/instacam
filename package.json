@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/xavierfoucrier/instacam/issues"
   },
-  "homepage": "https://github.com/xavierfoucrier/instacam#readme"
+  "homepage": "https://github.com/xavierfoucrier/instacam#readme",
+  "devDependencies": {
+    "webpack": "^4.16.5"
+  }
 }
