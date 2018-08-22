@@ -1,6 +1,6 @@
 'use strict';
 
-export default class Instacam {
+export class Instacam {
 
   // class constructor
   constructor() {}
