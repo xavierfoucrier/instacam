@@ -6,7 +6,8 @@ module.exports = {
   mode: 'production',
   watch: false,
   output: {
-    filename: 'instacam.min.js'
+    filename: 'instacam.min.js',
+    libraryExport: 'Instacam'
   },
   optimization: {
     minimizer: [
