@@ -1,6 +1,7 @@
 'use strict';
 
 import {defaults} from './defaults.js';
+import {requirement} from './support.js';
 
 export class Instacam {
 
@@ -9,6 +10,15 @@ export class Instacam {
 
     // assigns custom user options to defaults
     this.options = Object.assign(defaults, options);
+
+    // checks for browser support
+    if (!requirement) {
+      if (typeof this.options.unsupported === 'function') {
+        this.options.unsupported();
+      }
+
+      return;
+    }
 
     // checks the viewport element
     if (typeof viewport === 'undefined' || viewport === null || viewport.nodeName.toLowerCase() !== 'canvas') {
