@@ -8,7 +8,7 @@ export class Instacam {
   constructor(options) {
 
     // assigns custom user options to defaults
-    this.options = Object.assign(options, defaults);
+    this.options = Object.assign(defaults, options);
   }
 
   // captures the media stream to the viewport through getUserMedia API
