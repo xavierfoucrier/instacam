@@ -19,6 +19,18 @@ export class Instacam {
     this.viewport = viewport;
     this.viewport.width = this.options.width;
     this.viewport.height = this.options.height;
+
+    // creates the media element
+    let media = document.createElement('video');
+
+    // sets some media element properties
+    media.style.display = 'none';
+    media.autoplay = true;
+    media.width = this.options.width;
+    media.height = this.options.height;
+
+    // attaches the media element to the DOM
+    this.viewport.parentNode.insertBefore(media, this.viewport.nextSibling);
   }
 
   // captures the media stream to the viewport through getUserMedia API
