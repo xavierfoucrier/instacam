@@ -1,9 +1,15 @@
 'use strict';
 
+import {defaults} from './defaults.js';
+
 export class Instacam {
 
   // class constructor
-  constructor() {}
+  constructor(options) {
+
+    // assigns custom user options to defaults
+    this.options = Object.assign(options, defaults);
+  }
 
   // captures the media stream to the viewport through getUserMedia API
   capture() {}
