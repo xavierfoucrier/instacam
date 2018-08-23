@@ -41,6 +41,9 @@ export class Instacam {
 
     // attaches the media element to the DOM
     this.viewport.parentNode.insertBefore(media, this.viewport.nextSibling);
+
+    // captures the webcam stream
+    this.capture(media);
   }
 
   // captures the media stream to the viewport through getUserMedia API
