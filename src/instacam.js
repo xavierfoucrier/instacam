@@ -47,7 +47,23 @@ export class Instacam {
   }
 
   // captures the media stream to the viewport through getUserMedia API
-  capture() {}
+  capture() {
+
+    // prevents from streaming errors
+    try {
+
+      // captures the media stream
+      navigator.mediaDevices.getUserMedia({
+        //
+      }).then(function(stream) {
+        //
+      }).catch(function(exception) {
+        //
+      });
+    } catch(exception) {
+      //
+    }
+  }
 
   // applies a custom filter to the viewport
   filter() {}
