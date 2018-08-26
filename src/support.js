@@ -1,3 +1,3 @@
 'use strict';
 
-export let requirement = window.requestAnimationFrame && navigator.mediaDevices && window.Promises;
+export let requirement = 'requestAnimationFrame' in window && 'mediaDevices' in navigator && 'Promise' in window;
