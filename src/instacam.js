@@ -54,10 +54,26 @@ export class Instacam {
 
       // captures the media stream
       navigator.mediaDevices.getUserMedia({
-        //
-      }).then(function() {
         audio: true,
         video: true
+      }).then(function(stream) {
+
+        // captures the blob stream
+        media.srcObject = stream;
+
+        // animation loop used to properly render the viewport
+        let loop = function() {
+
+          // renders the viewport
+          this.viewport.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+
+          // makes this function run at 60fps
+          requestAnimationFrame(loop);
+        };
+
+        // renders the first frame
+        requestAnimationFrame(loop);
+
         if (typeof this.options.done === 'function') {
           this.options.done();
         }
