@@ -56,6 +56,8 @@ export class Instacam {
       navigator.mediaDevices.getUserMedia({
         //
       }).then(function() {
+        audio: true,
+        video: true
         if (typeof this.options.done === 'function') {
           this.options.done();
         }
