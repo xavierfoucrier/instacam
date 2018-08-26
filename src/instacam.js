@@ -55,13 +55,19 @@ export class Instacam {
       // captures the media stream
       navigator.mediaDevices.getUserMedia({
         //
-      }).then(function(stream) {
-        //
+      }).then(function() {
+        if (typeof this.options.done === 'function') {
+          this.options.done();
+        }
       }).catch(function(exception) {
-        //
+        if (typeof this.options.fail === 'function') {
+          this.options.fail(exception);
+        }
       });
     } catch(exception) {
-      //
+      if (typeof this.options.fail === 'function') {
+        this.options.fail(exception);
+      }
     }
   }
 
