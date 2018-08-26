@@ -47,7 +47,7 @@ export class Instacam {
   }
 
   // captures the media stream to the viewport through getUserMedia API
-  capture() {
+  capture(media) {
 
     // prevents from streaming errors
     try {
