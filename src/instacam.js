@@ -62,7 +62,7 @@ export class Instacam {
         media.srcObject = stream;
 
         // animation loop used to properly render the viewport
-        let loop = () => {
+        const loop = () => {
 
           // renders the viewport
           this.viewport.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
