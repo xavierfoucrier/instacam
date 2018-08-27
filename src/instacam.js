@@ -105,5 +105,7 @@ export class Instacam {
   snap() {}
 
   // saves the viewport to a specific image file format : png and high quality by default
-  save() {}
+  save(format = 'png', quality = '1') {
+    return this.viewport.toDataURL('image/' + format, quality);
+  }
 }
