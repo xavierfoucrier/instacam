@@ -54,7 +54,7 @@ export class Instacam {
 
       // captures the media stream
       navigator.mediaDevices.getUserMedia({
-        audio: true,
+        audio: this.options.sound,
         video: true
       }).then((stream) => {
 
