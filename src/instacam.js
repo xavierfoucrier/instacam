@@ -67,6 +67,9 @@ export class Instacam {
         // captures the blob stream
         media.srcObject = stream;
 
+        // sets the volume at start
+        media.volume = (typeof this.options.volume === 'number' && this.options.volume >= 0 && this.options.volume <= 100 ? this.options.volume : defaults.volume) / 100;
+
         // animation loop used to properly render the viewport
         const loop = () => {
 
