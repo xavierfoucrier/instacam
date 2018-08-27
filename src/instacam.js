@@ -60,10 +60,7 @@ export class Instacam {
             return false;
           }
 
-          return {
-            width: this.options.width,
-            height: this.options.height
-          };
+          return true;
         })()
       }).then((stream) => {
 
