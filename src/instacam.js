@@ -101,8 +101,10 @@ export class Instacam {
   // applies a custom filter to the viewport
   filter() {}
 
-  // snaps the viewport and returns the image data
-  snap() {}
+  // snaps and crops the viewport to return image data
+  snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
+    return this.viewport.getContext('2d').getImageData(left, top, width, height);
+  }
 
   // saves the viewport to a specific image file format : png and high quality by default
   save(format = 'png', quality = '1') {
