@@ -115,35 +115,43 @@ export class Instacam {
 
   // applies a custom filter to the viewport
   _filter(image) {
+
+    // gets the image data
     let data = image.data;
 
-    // loops through all pixels and applies the filter
-    for (let y = 0; y < this.options.height; y++) {
-      for (let x = 0; x < this.options.width; x++) {
+    // prevents from filtering errors
+    try {
 
-        // detects the pixel offset
-        const offset = ((this.options.width * y) + x) * 4;
+      // loops through all pixels and applies the filter
+      for (let y = 0; y < this.options.height; y++) {
+        for (let x = 0; x < this.options.width; x++) {
 
-        // calls the filter
-        const filter = this.options.filter({
-          'offset': offset,
-          'x': x,
-          'y': y,
-          'red': data[offset],
-          'green': data[offset + 1],
-          'blue': data[offset + 2],
-          'alpha': data[offset + 3]
-        });
+          // detects the pixel offset
+          const offset = ((this.options.width * y) + x) * 4;
 
-        // applies the filter
-        data[offset] = filter[0];
-        data[offset + 1] = filter[1];
-        data[offset + 2] = filter[2];
-        data[offset + 3] = filter[3];
+          // calls the filter
+          const filter = this.options.filter({
+            'offset': offset,
+            'x': x,
+            'y': y,
+            'red': data[offset],
+            'green': data[offset + 1],
+            'blue': data[offset + 2],
+            'alpha': data[offset + 3]
+          });
+
+          // applies the filter
+          data[offset] = filter[0];
+          data[offset + 1] = filter[1];
+          data[offset + 2] = filter[2];
+          data[offset + 3] = filter[3];
+        }
       }
-    }
 
-    return image;
+      return image;
+    } catch(exception) {
+      throw new Error('Invalid filter, you need to return a valid [red, green, blue, alpha] pixel array');
+    }
   }
 
   // snaps and crops the viewport to return image data
