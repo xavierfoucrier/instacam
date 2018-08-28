@@ -43,11 +43,11 @@ export class Instacam {
     this.viewport.parentNode.insertBefore(media, this.viewport.nextSibling);
 
     // captures the webcam stream
-    this.capture(media);
+    this._capture(media);
   }
 
   // captures the media stream to the viewport through getUserMedia API
-  capture(media) {
+  _capture(media) {
 
     // prevents from streaming errors
     try {
@@ -99,7 +99,7 @@ export class Instacam {
   }
 
   // applies a custom filter to the viewport
-  filter() {}
+  _filter() {}
 
   // snaps and crops the viewport to return image data
   snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
