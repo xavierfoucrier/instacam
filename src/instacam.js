@@ -73,8 +73,23 @@ export class Instacam {
         // animation loop used to properly render the viewport
         const loop = () => {
 
-          // renders the viewport
-          this.viewport.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+          // renders the viewport with or without custom filter
+          if (typeof this.options.filter !== 'function') {
+            this.viewport.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+          } else {
+
+            // uses a buffer when applying a custom filter to prevent the viewport from blinkings or flashes
+            if (typeof this._buffer === 'undefined') {
+              this._buffer = document.createElement('canvas');
+              this._buffer.style.display = 'none';
+              this._buffer.width = this.options.width;
+              this._buffer.height = this.options.height;
+              this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
+            }
+
+            this._buffer.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.options.width, this.options.height)), 0, 0);
+          }
 
           // makes this function run at 60fps
           requestAnimationFrame(loop);
@@ -99,7 +114,37 @@ export class Instacam {
   }
 
   // applies a custom filter to the viewport
-  _filter() {}
+  _filter(image) {
+    let data = image.data;
+
+    // loops through all pixels and applies the filter
+    for (let y = 0; y < this.options.height; y++) {
+      for (let x = 0; x < this.options.width; x++) {
+
+        // detects the pixel offset
+        const offset = ((this.options.width * y) + x) * 4;
+
+        // calls the filter
+        const filter = this.options.filter({
+          'offset': offset,
+          'x': x,
+          'y': y,
+          'red': data[offset],
+          'green': data[offset + 1],
+          'blue': data[offset + 2],
+          'alpha': data[offset + 3]
+        });
+
+        // applies the filter
+        data[offset] = filter[0];
+        data[offset + 1] = filter[1];
+        data[offset + 2] = filter[2];
+        data[offset + 3] = filter[3];
+      }
+    }
+
+    return image;
+  }
 
   // snaps and crops the viewport to return image data
   snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
