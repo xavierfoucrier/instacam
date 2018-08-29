@@ -60,9 +60,7 @@ export class Instacam {
             return false;
           }
 
-          return {
-            frameRate: this.options.framerate
-          };
+          return true;
         })()
       }).then((stream) => {
 
