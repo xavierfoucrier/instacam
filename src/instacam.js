@@ -61,7 +61,8 @@ export class Instacam {
           }
 
           return {
-            frameRate: this.options.framerate
+            frameRate: this.options.framerate,
+            aspectRatio: this.options.ratio
           };
         })()
       }).then((stream) => {
