@@ -91,6 +91,27 @@ export class Instacam {
             this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.options.width, this.options.height)), 0, 0);
           }
 
+          // creates the css filter effects on the viewport
+          let filters = this.options.opacity !== defaults.opacity ? 'opacity(' + this.options.opacity + ') ' : '';
+          filters += this.options.brightness !== defaults.brightness ? 'brightness(' + this.options.brightness + ') ' : '';
+          filters += this.options.contrast !== defaults.contrast ? 'contrast(' + this.options.contrast + ') ' : '';
+          filters += this.options.saturation !== defaults.saturation ? 'saturate(' + this.options.saturation + ') ' : '';
+          filters += this.options.hue !== defaults.hue ? 'hue-rotate(' + this.options.hue + 'deg) ' : '';
+          filters += this.options.invert !== defaults.invert ? 'invert(' + this.options.invert + ') ' : '';
+          filters += this.options.grayscale !== defaults.grayscale ? 'grayscale(' + this.options.grayscale + ') ' : '';
+          filters += this.options.sepia !== defaults.sepia ? 'sepia(' + this.options.sepia + ') ' : '';
+          filters += this.options.blur !== defaults.blur ? 'blur(' + this.options.blur + 'px) ' : '';
+          filters += this.options.url !== defaults.url ? 'url(' + this.options.url + ') ' : '';
+
+          // applies the css filter effects on the viewport
+          if (filters !== '' && this._css !== filters) {
+            this.viewport.style.filter = filters;
+            this._css = filters;
+          } else if (filters === '') {
+            this.viewport.style.filter = '';
+            this._css = '';
+          }
+
           // makes this function run at 60fps
           requestAnimationFrame(loop);
         };
