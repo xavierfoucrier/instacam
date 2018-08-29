@@ -112,6 +112,9 @@ export class Instacam {
             this._css = '';
           }
 
+          // applies the css mirror mode on the viewport
+          this.viewport.style.transform = this.options.mirror === true ? 'scale(-1, 1)' : '';
+
           // makes this function run at 60fps
           requestAnimationFrame(loop);
         };
