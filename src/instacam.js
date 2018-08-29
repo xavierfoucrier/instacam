@@ -9,7 +9,7 @@ export class Instacam {
   constructor(viewport, options) {
 
     // assigns custom user options to defaults
-    this.options = Object.assign(defaults, options);
+    this.options = Object.assign({}, defaults, options);
 
     // checks for browser support
     if (!requirement) {
