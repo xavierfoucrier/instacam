@@ -1,10 +1,8 @@
-Instacam documentation
-=======================
+# Instacam documentation
 Here you will find the documentation describing on how to use the jQuery plugin.
 
 
-Summary
--------
+## Summary
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
 3. [Calling](#calling)
@@ -14,13 +12,11 @@ Summary
 7. [Demos](#demos)
 
 
-How it works
-------------
+## How it works
 Instacam allows you to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters: this means you can capture the webcam video stream *(media stream)* and broadcast it on an HTML5 `canvas` tag. Unlike the conventional HTML5 `video` tag, Instacam offers you the opportunity to **interact with the broadcasted media stream** by having the possibility to edit each pixels before they are drawn to the canvas. Moreover, Instacam can beautify the media stream by adding a fresh touch of CSS. Don't forget that Instacam only works on browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API.
 
 
-Markup
-------
+## Markup
 ### Viewport
 The viewport is a canvas representation of the media stream. Instacam captures the webcam video stream and replicates it on a canvas element, the viewport defined in the jQuery selector must matched **a valid canvas element** to properly replicate the stream.
 
@@ -30,8 +26,7 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 ```
 
 
-Calling
--------
+## Calling
 Instantiate and call the plugin is **very easy**. Just start by include the jQuery library and the plugin on your web page using the generic script markup:
 
 ```js
@@ -67,8 +62,7 @@ $(function(){
 ```
 
 
-Options
--------
+## Options
 ### Getting property
 The plugin options can be **retrieved easily**. If you want to get the current level of the css saturation filter for example, you can do the following:
 
@@ -320,8 +314,7 @@ Default: `null`
 Unsupported is a callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own function here.
 
 
-Methods
--------
+## Methods
 ### Quick reference
 Instacam methods with all default parameters as defined in the source.
 
@@ -371,8 +364,7 @@ Return: `UTF-16 String`
 The save method allows you to **save the viewport to a specific image format**. This method returns a `data:` URL containing a representation of the image in the format specified by `format`, default format is set to `png`. The returned image is **96dpi**. If the height or width of the viewport is 0, the empty string `data:,` is returned. If the format requested is not `image/png`, and the returned value starts with `data:image/png`, then the requested format is not supported. Chrome supports the `image/webp` format. If the requested format is `image/jpeg` or `image/webp`, then the second argument `quality`, if it is between 0 and 1, is treated as indicating **image quality**. By default, the image quality is set to 1. If you call this function without parameters, you will get a png file of good quality. **Take a look at the save demo** to see an example of how it works.
 
 
-Examples
---------
+## Examples
 Some examples working with the default plugin options.
 
 ### Basic example
@@ -413,8 +405,7 @@ This example does the following:
 - filtering of the viewport with CSS technology to reproduce a grayscale effect
 
 
-Demos
------
+## Demos
 Some html demos are available and listed below. Please don't forget to read the **[compatibility section](https://github.com/xavierfoucrier/instacam/blob/master/README.md#compatibility)** before testing them.
 
 1. [Basic demo](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
