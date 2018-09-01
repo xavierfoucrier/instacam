@@ -33,7 +33,7 @@ Here you will find the documentation describing **how to use** the jQuery plugin
 
 1. [How it works](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works) - how the plugin do the stuff
 2. [Markup](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#markup) - how should the HTML and CSS look like
-3. [Calling](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#calling) - how to call Instacam
+3. [Usage](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#usage) - how to use Instacam
 4. [Options](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#options) - all available options
 5. [Methods](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#methods) - all available methods
 6. [Examples](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#examples) - some case studies
