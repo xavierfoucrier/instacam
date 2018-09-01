@@ -27,38 +27,33 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 
 
 ## Calling
-Instantiate and call the plugin is **very easy**. Just start by include the jQuery library and the plugin on your web page using the generic script markup:
+Instantiate and call the module is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
 
 ```js
-<script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="instacam.min.js"></script>
+<script src="instacam.min.js"></script>
 ```
 
-Then call the plugin by using the default plugin call syntax of jQuery:
+Then instanciate the class by using the javascript syntax:
 
 ```js
-$(function(){
-	$('#canvas1').instacam();
-});
+(function() {
+	let camera = new Instacam(
+		document.querySelector('#canvas1')
+	);
+})();
 ```
 
-You can call the plugin with **multiple canvas identifiers** *(comma-separated)*, like this:
+Custom options are passed through the second parameter:
 
 ```js
-$(function(){
-	$('#canvas1,#canvas2,#canvas3').instacam();
-});
-```
-
-The calling is different if you want to call the plugin with custom options:
-
-```js
-$(function(){
-	$('#canvas1').instacam({
-		width: 800,
-		height: 600
-	});
-});
+(function() {
+  let camera = new Instacam(
+    document.querySelector('#canvas1'), {
+      width: 800,
+      height: 600
+    }
+  );
+})();
 ```
 
 
