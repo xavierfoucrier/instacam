@@ -5,7 +5,7 @@ Here you will find the documentation describing on how to use the module.
 ## Summary
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
-3. [Calling](#calling)
+3. [Usage](#usage)
 4. [Options](#options)
 5. [Methods](#methods)
 6. [Examples](#examples)
@@ -25,7 +25,7 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 ```
 
 
-## Calling
+## Usage
 Instantiate and call the module is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
 
 ```html
