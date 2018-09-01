@@ -32,7 +32,7 @@ Instantiate and call the module is **very easy**. Just start by include the mini
 <script src="instacam.min.js"></script>
 ```
 
-Then instanciate the class by using the javascript syntax:
+Then **instanciate the class** by using the javascript syntax:
 
 ```js
 let camera = new Instacam(
@@ -40,7 +40,7 @@ let camera = new Instacam(
 );
 ```
 
-Custom options are passed through the second parameter:
+**Custom options** are passed through the second parameter:
 
 ```js
 let camera = new Instacam(
