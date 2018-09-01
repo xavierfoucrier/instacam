@@ -58,17 +58,17 @@ let camera = new Instacam(
 
 ## Options
 ### Getting property
-The plugin options can be **retrieved easily**. If you want to get the current level of the css saturation filter for example, you can do the following:
+The class options are stored in the `options` attribute and can be **retrieved easily**. If you want to get the current level of the saturation css filter, you can do the following:
 
 ```js
-var saturation = $('#canvas1').instacam('saturation');
+let saturation = camera.saturation; // pretends that `camera` is the instance of the Instacam class
 ```
 
 ### Setting property
-The plugin options can be **setted easily**. If you want to set the current level of the css brightness filter for example, you can do the following:
+The class options can be **setted easily**. If you want to set the current level of the brightness css filter, you can do the following:
 
 ```js
-$('#canvas1').instacam({brightness:5});
+camera.brightness = 5; // pretends that `camera` is the instance of the Instacam class
 ```
 
 ### Quick reference
