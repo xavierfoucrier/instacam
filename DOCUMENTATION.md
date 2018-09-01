@@ -26,6 +26,10 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 
 
 ## Usage
+### Use with Webpack
+Coming soon...
+
+### Use as a library
 Instantiate and call the module is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
 
 ```html
