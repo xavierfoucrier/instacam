@@ -35,24 +35,20 @@ Instantiate and call the module is **very easy**. Just start by include the mini
 Then instanciate the class by using the javascript syntax:
 
 ```js
-(function() {
-  let camera = new Instacam(
-    document.querySelector('#canvas1')
-  );
-})();
+let camera = new Instacam(
+  document.querySelector('#canvas1')
+);
 ```
 
 Custom options are passed through the second parameter:
 
 ```js
-(function() {
-  let camera = new Instacam(
-    document.querySelector('#canvas1'), {
-      width: 800,
-      height: 600
-    }
-  );
-})();
+let camera = new Instacam(
+  document.querySelector('#canvas1'), {
+    width: 800,
+    height: 600
+  }
+);
 ```
 
 
