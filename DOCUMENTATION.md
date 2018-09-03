@@ -18,7 +18,7 @@ Instacam allows you to perform **instant canvas video** through the WebRTC API w
 
 ## Markup
 ### Viewport
-The viewport is a canvas representation of the media stream. Instacam captures the webcam video stream and replicates it on a canvas element, the viewport defined in the query selector must matched **a valid canvas element** to properly replicate the stream. An exception will be thrown on invalid viewport.
+The viewport is a canvas representation of the media stream. Instacam captures the webcam media stream and replicates it on a canvas element, the viewport defined in the query selector must matched **a valid canvas element** to properly replicate the stream. An exception will be thrown on invalid viewport.
 
 ```html
 <canvas id="canvas1"></canvas>
