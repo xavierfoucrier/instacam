@@ -105,58 +105,58 @@ let camera = new Instacam(document.querySelector('#canvas1'), {
 Instacam reference that details all options of the plugin.
 
 #### width
-Type: `Numeric`
+Type: `Length`
 Default: `400`
 
-The width represents **the width of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam.
+The width represents **the width of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
 
 #### height
-Type: `Numeric`
+Type: `Length`
 Default: `300`
 
-The height represents **the height of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam.
-
-#### mirror
-Type: `Boolean`
-Default: `false`
-The mirror mode allows you to **flip the viewport horizontally**. This mode is using css transform property.
+The height represents **the height of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
 
 #### camera
 Type: `Boolean`
 Default: `true`
 
-The camera option allows you to **capture video from the camera**. By default, Instacam is only capturing media stream from the webcam. If you want to capture only the microphone, you must set this option to `false` and set the sound option to `true`.
+The camera option allows you to **capture the media stream of the camera**. By default, Instacam only captures media stream from the webcam. If you want to only capture the microphone, you need to set this option to `false` and set the sound option to `true`.
 
 #### framerate
-Type: `Numeric`
+Type: `Number`
 Default: `30`
 Minimum: `1`
 Maximum: `None`
 
-The framerate option allows you to **change the refresh rate of the camera**. By default, Instacam will capture **30 frames per second**. The maximum framerate depends on the camera capabilities.
+The framerate option allows you to **change the refresh rate of the camera**. By default, Instacam will capture the media stream at **30 frames per second**. The maximum framerate depends on the camera capabilities.
 
 #### ratio
-Type: `Numeric`
+Type: `Number`
 Default: `4/3`
 
-The ratio option allows you yo **change the aspect ratio of the camera**. It must fit to the width/height ratio to render a proper image of the media stream. You can use float numbers (like 1.1, 1.7) or fractions (like 4/3, 16/9) for better reading.
+The ratio option allows you yo **change the aspect ratio of the camera**. It must fit to the width/height ratio to render a proper image of the media stream. You can use float numbers (like 1.1, 1.7) or fractions (like 4/3, 16/9) for better syntax reading.
 
 #### sound
 Type: `Boolean`
 Default: `false`
 
-The sound option allows you to **capture audio from the microphone**. By default, Instacam is only capturing media stream from the webcam. If you want to capture both the microphone and the camera, you must set this option to `true`.
+The sound option allows you to **capture the audio stream from the microphone**. By default, Instacam only captures media stream from the webcam. If you want to capture both the microphone and the camera, you need to set this option to `true`.
 
 #### volume
-Type: `Numeric`
+Type: `Number`
 Default: `100`
 Minimum: `0`
 Maximum: `100`
 
-The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100%. Note that the volume is set **one time**, when the camera is ready.
+The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100%. Note that you can set the volume at **any time** as soon as the camera is ready.
+
+#### mirror
+Type: `Boolean`
+Default: `false`
+The mirror mode allows you to **flip the viewport horizontally**. This mode uses css transform property.
 
 #### opacity
-Type: `Numeric`
+Type: `Number`
 Default: `1`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
@@ -164,7 +164,7 @@ Maximum: `1` or `100%`
 The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0% is completely transparent. A value of 100% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the css filter won't be applied.
 
 #### brightness
-Type: `Numeric`
+Type: `Number`
 Default: `1`
 Minimum: `0` or `0%`
 Maximum: `None`
@@ -172,7 +172,7 @@ Maximum: `None`
 The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 100% are allowed, providing **brighter results**. If omitted, the css filter won't be applied.
 
 #### contrast
-Type: `Numeric`
+Type: `Number`
 Default: `1`
 Minimum: `0` or `0%`
 Maximum: `None`
@@ -180,7 +180,7 @@ Maximum: `None`
 The contrast option **adjusts the contrast** of the viewport. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Values of amount over 100% are allowed, providing **results with less contrast**. If omitted, the css filter won't be applied.
 
 #### saturation
-Type: `Numeric`
+Type: `Number`
 Default: `0`
 Minimum: `0` or `0%`
 Maximum: `None`
@@ -188,7 +188,7 @@ Maximum: `None`
 The saturation option **saturates** the viewport. A value of 0% is completely un-saturated. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing **super-saturated results**. If omitted, the css filter won't be applied.
 
 #### hue
-Type: `Numeric`
+Type: `Number`
 Unit: `Degree`
 Default: `0`
 Minimum: `0`
@@ -197,7 +197,7 @@ Maximum: `360`
 The hue option **applies a hue rotation** on the viewport. The value of angle defines the number of degrees around the color circle the viewport samples will be adjusted. A value of 0 degree leaves the viewport unchanged. The maximum value is 360 degree. If omitted, the css filter won't be applied.
 
 #### invert
-Type: `Numeric`
+Type: `Number`
 Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
@@ -205,7 +205,7 @@ Maximum: `1` or `100%`
 The invert option **inverts the samples** in the viewport. A value of 100% is completely inverted. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
 
 #### grayscale
-Type: `Numeric`
+Type: `Number`
 Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
@@ -213,7 +213,7 @@ Maximum: `1` or `100%`
 The grayscale option **converts the viewport to grayscale**. A value of 100% is completely grayscale. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
 
 #### sepia
-Type: `Numeric`
+Type: `Number`
 Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
@@ -221,7 +221,7 @@ Maximum: `1` or `100%`
 The sepia option **converts the viewport to sepia**. A value of 100% is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
 
 #### blur
-Type: `Numeric`
+Type: `Number`
 Unit: `Pixel`
 Default: `0`
 Minimum: `0`
@@ -240,21 +240,21 @@ Type: `Function`
 Return: `Array`
 Default: `null`
 
-The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option must take a `Function`, with one parameter called `pixel`, that corresponds to the current pixel parsed by the **plugin's filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel's properties** and then return the edited informations. The return type of the function must be an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied. **Take a look at the custom filter demo** to see an example of how it works.
+The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **module's filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel's properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied. **Take a look at the custom filter demo** to see an example of how it works.
 
 #### done
 Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Done is a callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own function here. This function can takes two parameters: `media` that represents the `video` element created to stream the webcam, and `viewport` that represents the `canvas` element passed to the plugin when Instacam is instanciated.
+Done is a callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own function here.
 
 #### fail
 Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own function here. This function can takes three parameters: `exception` that represent the NavigatorUserMediaError object, `media` that represents the `video` element created to stream the webcam, and `viewport` that represents the `canvas` element passed to the plugin when Instacam is instanciated.
+Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own function here. Note that this function pass an `exception` argument that represent the NavigatorUserMediaError object, allowing you to detect the source of the problem.
 
 #### unsupported
 Type: `Function`
@@ -305,7 +305,7 @@ Instacam reference that details all methods of the plugin.
 Type: `Function`
 Return: `ImageData`
 
-The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Numeric`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the plugin's options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see an example of how it works.
+The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the plugin's options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see an example of how it works.
 
 #### save ( format , quality )
 Type: `Function`
