@@ -57,15 +57,15 @@ export let defaults = {
   // {String} svg filtering of the viewport (css filter)
   url: '',
 
-  // {Method} custom filter applied to the viewport
+  // {Function} custom filter applied to the viewport
   filter: null,
 
-  // {Method} callback's method used when the stream is fully captured
+  // {Function} callback's method used when the stream is fully captured
   done: null,
 
-  // {Method} callback's method used when the stream capture fails
+  // {Function} callback's method used when the stream capture fails
   fail: null,
 
-  // {Method} callback's method used when a browser doesn't support the requirements
+  // {Function} callback's method used when a browser doesn't support the requirements
   unsupported: null
 };
