@@ -58,14 +58,14 @@ let camera = new Instacam(
 
 ## Options
 ### Getting property
-The class options are stored in the `options` attribute and can be **retrieved easily**. If you want to get the current level of the saturation css filter, you can do the following:
+The class options are stored in the `options` attribute and can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
 
 ```js
 let saturation = camera.saturation; // pretends that `camera` is the instance of the Instacam class
 ```
 
 ### Setting property
-The class options can be **setted easily**. If you want to set the current level of the brightness css filter, you can do the following:
+The class options can be **setted easily**. If you want to set the current level of the brightness CSS filter, you can do the following:
 
 ```js
 camera.brightness = 5; // pretends that `camera` is the instance of the Instacam class
@@ -153,7 +153,7 @@ The volume option allows you to **adapt the volume of the microphone**. By defau
 #### mirror
 Type: `Boolean`
 Default: `false`
-The mirror mode allows you to **flip the viewport horizontally**. This mode uses css transform property.
+The mirror mode allows you to **flip the viewport horizontally**. This mode uses CSS transform property.
 
 #### opacity
 Type: `Number`
@@ -161,7 +161,7 @@ Default: `1`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
 
-The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0% is completely transparent. A value of 100% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the css filter won't be applied.
+The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0% is completely transparent. A value of 100% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the CSS filter won't be applied.
 
 #### brightness
 Type: `Number`
@@ -169,7 +169,7 @@ Default: `1`
 Minimum: `0` or `0%`
 Maximum: `None`
 
-The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 100% are allowed, providing **brighter results**. If omitted, the css filter won't be applied.
+The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 100% are allowed, providing **brighter results**. If omitted, the CSS filter won't be applied.
 
 #### contrast
 Type: `Number`
@@ -177,7 +177,7 @@ Default: `1`
 Minimum: `0` or `0%`
 Maximum: `None`
 
-The contrast option **adjusts the contrast** of the viewport. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Values of amount over 100% are allowed, providing **results with less contrast**. If omitted, the css filter won't be applied.
+The contrast option **adjusts the contrast** of the viewport. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Values of amount over 100% are allowed, providing **results with less contrast**. If omitted, the CSS filter won't be applied.
 
 #### saturation
 Type: `Number`
@@ -185,7 +185,7 @@ Default: `0`
 Minimum: `0` or `0%`
 Maximum: `None`
 
-The saturation option **saturates** the viewport. A value of 0% is completely un-saturated. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing **super-saturated results**. If omitted, the css filter won't be applied.
+The saturation option **saturates** the viewport. A value of 0% is completely un-saturated. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing **super-saturated results**. If omitted, the CSS filter won't be applied.
 
 #### hue
 Type: `Number`
@@ -194,7 +194,7 @@ Default: `0`
 Minimum: `0`
 Maximum: `360`
 
-The hue option **applies a hue rotation** on the viewport. The value of angle defines the number of degrees around the color circle the viewport samples will be adjusted. A value of 0 degree leaves the viewport unchanged. The maximum value is 360 degree. If omitted, the css filter won't be applied.
+The hue option **applies a hue rotation** on the viewport. The value of angle defines the number of degrees around the color circle the viewport samples will be adjusted. A value of 0 degree leaves the viewport unchanged. The maximum value is 360 degree. If omitted, the CSS filter won't be applied.
 
 #### invert
 Type: `Number`
@@ -202,7 +202,7 @@ Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
 
-The invert option **inverts the samples** in the viewport. A value of 100% is completely inverted. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
+The invert option **inverts the samples** in the viewport. A value of 100% is completely inverted. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### grayscale
 Type: `Number`
@@ -210,7 +210,7 @@ Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
 
-The grayscale option **converts the viewport to grayscale**. A value of 100% is completely grayscale. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
+The grayscale option **converts the viewport to grayscale**. A value of 100% is completely grayscale. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### sepia
 Type: `Number`
@@ -218,7 +218,7 @@ Default: `0`
 Minimum: `0` or `0%`
 Maximum: `1` or `100%`
 
-The sepia option **converts the viewport to sepia**. A value of 100% is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the css filter won't be applied.
+The sepia option **converts the viewport to sepia**. A value of 100% is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### blur
 Type: `Number`
@@ -227,13 +227,13 @@ Default: `0`
 Minimum: `0`
 Maximum: `None`
 
-The blur option **applies a Gaussian blur** to the viewport. The value of radius defines the value of the standard deviation to the Gaussian function, or how many pixels on the screen blend into each other, so **a larger value will create more blur**. The option is specified as a CSS length, but does not accept percentage values. If omitted, the css filter won't be applied.
+The blur option **applies a Gaussian blur** to the viewport. The value of radius defines the value of the standard deviation to the Gaussian function, or how many pixels on the screen blend into each other, so **a larger value will create more blur**. The option is specified as a CSS length, but does not accept percentage values. If omitted, the CSS filter won't be applied.
 
 #### url
 Type: `String`
 Default: `Empty`
 
-The url option takes the **location of an XML file** that specifies an **SVG filter**, and may include an anchor to a specific filter element. If omitted, the css filter won't be applied.
+The url option takes the **location of an XML file** that specifies an **SVG filter**, and may include an anchor to a specific filter element. If omitted, the CSS filter won't be applied.
 
 #### filter
 Type: `Function`
@@ -359,7 +359,7 @@ This example does the following:
 Some html demos are available and listed below. Please don't forget to read the **[compatibility section](https://github.com/xavierfoucrier/instacam/blob/master/README.md#compatibility)** before testing them.
 
 1. [Basic demo](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
-2. [CSS filter demo](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty css filtering demo
+2. [CSS filter demo](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty CSS filtering demo
 3. [Custom filter demo](https://xavierfoucrier.github.io/instacam/custom-filter.html) - pretty custom filtering demo
 4. [Snap demo](https://xavierfoucrier.github.io/instacam/snap.html) - capture the viewport image data
 5. [Save demo](https://xavierfoucrier.github.io/instacam/save.html) - save the viewport in different format and quality
