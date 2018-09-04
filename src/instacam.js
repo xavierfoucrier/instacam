@@ -6,6 +6,11 @@ import {requirement} from './support.js';
 export class Instacam {
 
   // class constructor
+  /*
+    Class constructor
+    @param {Object} canvas element from the DOM
+    @param {Object} custom options of the class
+  */
   constructor(viewport, options) {
 
     // assigns custom user options to defaults
@@ -46,7 +51,10 @@ export class Instacam {
     this._capture(media);
   }
 
-  // captures the media stream to the viewport through getUserMedia API
+  /*
+    Captures the media stream to the viewport through getUserMedia API
+    @param {Object} video element from the DOM
+  */
   _capture(media) {
 
     // prevents from streaming errors
@@ -140,7 +148,11 @@ export class Instacam {
     }
   }
 
-  // applies a custom filter to the viewport
+  /*
+    Applies a custom filter to the viewport
+    @param {Object} image object from the canvas element
+    @returns {Object} image data object containing pixels informations
+  */
   _filter(image) {
 
     // gets the image data
@@ -181,13 +193,25 @@ export class Instacam {
     }
   }
 
-  // snaps and crops the viewport to return image data
+  /*
+    Snaps and crops the viewport to return image data.
+    @param {Number} left position of the snapping area
+    @param {Number} top position of the snapping area
+    @param {Number} width of the snapping area
+    @param {Number} height of the snapping area
+    @returns {Object} image data object containing pixels informations
+  */
   snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
     return this.viewport.getContext('2d').getImageData(left, top, width, height);
   }
 
-  // saves the viewport to a specific image file format : png and high quality by default
-  save(format = 'png', quality = '1') {
+  /*
+    Saves the viewport to a specific image file format.
+    @param {String} png|jpeg|webp image file format
+    @param {Number} [0..1] image quality
+    @returns {String} UTF-16 data image URI (DOMString)
+  */
+  save(format = 'png', quality = 1) {
     return this.viewport.toDataURL('image/' + format, quality);
   }
 }
