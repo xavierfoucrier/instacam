@@ -59,13 +59,13 @@ As of May 2017, all major browsers have shipped a working implementation of **ES
 ```
 
 ### Use as a library
-Instantiate and call the class is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
+The old way, but still relevant, is to **include the minified production** file on your web page using the generic script markup:
 
 ```html
 <script src="dist/instacam.min.js"></script>
 ```
 
-Then **instanciate the class** by using the javascript syntax:
+Then **instanciate the class** by using this javascript syntax:
 
 ```js
 let camera = new Instacam(
