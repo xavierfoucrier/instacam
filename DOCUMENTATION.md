@@ -45,6 +45,18 @@ let camera = new Instacam(
 
 Using webpack has **many advantages** like output compression, code splitting, tree shaking, etc., so I encourage you to use this great tool with Instacam.
 
+### Use with ESM
+As of May 2017, all major browsers have shipped a working implementation of **ESM** *(ECMAScript modules)*: this is another way of using Instacam directly in your browser:
+
+```html
+<script type="module">
+  import {Instacam} from 'src/instacam.js';
+
+  let camera = new Instacam(
+    document.querySelector('#canvas1')
+  );
+</script>
+```
 
 ### Use as a library
 Instantiate and call the class is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
