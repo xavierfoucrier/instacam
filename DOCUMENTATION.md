@@ -270,30 +270,18 @@ Instacam methods with all default parameters as defined in the source.
 
 #### Snap
 ```js
-$('#canvas1').data('instacam').snap(
-
-  // left position of the snapping zone
+let snapshot = camera.snap(
   left: 0,
-
-  // top position of the snapping zone
   top: 0,
-
-  // width of the snapping zone
-  width: plugin.settings.width,
-
-  // height of the snapping zone
-  height: plugin.settings.height
+  width: this.options.width,
+  height: this.options.height
 );
 ```
 
 #### Save
 ```js
-$('#canvas1').data('instacam').save(
-
-  // image file format
+let data = camera.save(
   format: 'png',
-
-  // image quality
   quality: 1
 );
 ```
@@ -305,13 +293,13 @@ Instacam reference that details all methods of the plugin.
 Type: `Function`
 Return: `ImageData`
 
-The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the plugin's options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see an example of how it works.
+The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the module options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see how it works.
 
 #### save ( format , quality )
 Type: `Function`
 Return: `UTF-16 String`
 
-The save method allows you to **save the viewport to a specific image format**. This method returns a `data:` URL containing a representation of the image in the format specified by `format`, default format is set to `png`. The returned image is **96dpi**. If the height or width of the viewport is 0, the empty string `data:,` is returned. If the format requested is not `image/png`, and the returned value starts with `data:image/png`, then the requested format is not supported. Chrome supports the `image/webp` format. If the requested format is `image/jpeg` or `image/webp`, then the second argument `quality`, if it is between 0 and 1, is treated as indicating **image quality**. By default, the image quality is set to 1. If you call this function without parameters, you will get a png file of good quality. **Take a look at the save demo** to see an example of how it works.
+The save method allows you to **save the viewport in a specific image format**. This method returns a `data:` URI containing a representation of the image in the specified `format`, default is set to `png`. The returned image is at **96dpi**. If the height or width of the viewport is 0, an empty string `data:,` is returned. If the format requested is not `image/png`, and the returned value starts with `data:image/png`, then the requested format is not supported. Chrome supports the `image/webp` format. If the requested format is `image/jpeg` or `image/webp`, then the second argument `quality`, if defined between 0 and 1, is treated as indicating **image quality**. By default, the image quality is set to 1. If you call this function without parameters, you will get a png file of good quality. **Take a look at the save demo** to see how it works.
 
 
 ## Examples
