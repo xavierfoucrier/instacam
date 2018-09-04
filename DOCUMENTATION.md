@@ -30,7 +30,7 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 Coming soon...
 
 ### Use as a library
-Instantiate and call the module is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
+Instantiate and call the class is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
 
 ```html
 <script src="instacam.min.js"></script>
@@ -102,7 +102,7 @@ let camera = new Instacam(document.querySelector('#canvas1'), {
 ```
 
 ### Complete reference
-Instacam reference that details all options of the plugin.
+Instacam reference that details all options of the class.
 
 #### width
 Type: `Length`
@@ -240,7 +240,7 @@ Type: `Function`
 Return: `Array`
 Default: `null`
 
-The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **module filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied. **Take a look at the custom filter demo** to see how it works.
+The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **class filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied. **Take a look at the custom filter demo** to see how it works.
 
 #### done
 Type: `Function`
@@ -287,13 +287,13 @@ let data = camera.save(
 ```
 
 ### Complete reference
-Instacam reference that details all methods of the plugin.
+Instacam reference that details all methods of the class.
 
 #### snap ( left , top , width , height )
 Type: `Function`
 Return: `ImageData`
 
-The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the module options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see how it works.
+The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the class options. If you call this function without parameters, you will get the image data of the entire viewport. **Take a look at the snap demo** to see how it works.
 
 #### save ( format , quality )
 Type: `Function`
@@ -303,7 +303,7 @@ The save method allows you to **save the viewport in a specific image format**. 
 
 
 ## Examples
-Some examples working with the default plugin options.
+Some examples working with the default class options.
 
 ### Basic example
 
