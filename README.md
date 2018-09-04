@@ -7,7 +7,7 @@ Instacam is a jQuery plugin to perform **instant canvas video** through the WebR
 ## Compatibility
 Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*. The plugin is compatible with browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API. The CSS filtering requires the `CSS filter` features to properly work.
 
-Official support on Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
+Official support on **Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+**. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
 
 
 ## Dependencies
