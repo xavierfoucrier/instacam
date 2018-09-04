@@ -312,15 +312,15 @@ Some examples working with the default plugin options.
 ```
 
 ```js
-$(function(){
-  $('#canvas1').instacam();
-});
+let camera = new Instacam(
+  document.querySelector('#canvas1')
+);
 ```
 
 This example does the following:
 
 - creation of an **instant canvas** instance
-- broadcasting of the media stream to the viewport *(default resolution of 400x300)*
+- broadcasting of the media stream to the viewport *(default resolution at 400x300)*
 
 ### Grayscale example
 
@@ -329,17 +329,17 @@ This example does the following:
 ```
 
 ```js
-$(function(){
-  $('#canvas1').instacam({
+let camera = new Instacam(
+  document.querySelector('#canvas1'), {
     grayscale: 1
-  });
-});
+  }
+);
 ```
 
 This example does the following:
 
 - creation of an **instant canvas** instance
-- broadcasting of the media stream to the viewport *(default resolution of 400x300)*
+- broadcasting of the media stream to the viewport *(default resolution at 400x300)*
 - filtering of the viewport with CSS technology to reproduce a grayscale effect
 
 
