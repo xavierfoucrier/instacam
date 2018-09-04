@@ -33,7 +33,7 @@ Coming soon...
 Instantiate and call the class is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
 
 ```html
-<script src="instacam.min.js"></script>
+<script src="dist/instacam.min.js"></script>
 ```
 
 Then **instanciate the class** by using the javascript syntax:
