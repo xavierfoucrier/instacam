@@ -27,7 +27,24 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 
 ## Usage
 ### Use with Webpack
-Coming soon...
+Instacam is using the **UMD** *(Unified Module Definition)* pattern, making it capable of working everywhere and compatible with webpack. The module is published on the **NPM** *(Node Package Manager)* registry, so you need to install it through the command line interpreter using:
+
+```js
+npm install instacam
+```
+
+This will **download and install** Instacam into the `node_modules` folder under your project directory. When it's done, you can start to use the module in one of your javascript file like this:
+
+```js
+import Instacam from 'instacam';
+
+let camera = new Instacam(
+  document.querySelector('#canvas1')
+);
+```
+
+Using webpack has **many advantages** like output compression, code splitting, tree shaking, etc., so I encourage you to use this great tool with Instacam.
+
 
 ### Use as a library
 Instantiate and call the class is **very easy**. Just start by include the minified production file on your web page using the generic script markup:
