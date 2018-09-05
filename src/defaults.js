@@ -3,10 +3,10 @@
 // default options
 export let defaults = {
 
-  // {Length} width of the viewport element
+  // {Number} width of the viewport element
   width: 400,
 
-  // {Length} height of the viewport element
+  // {Number} height of the viewport element
   height: 300,
 
   // {Boolean} true|false, defines if the camera video stream is enabled
