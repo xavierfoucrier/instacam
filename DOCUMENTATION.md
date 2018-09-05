@@ -375,10 +375,10 @@ This example does the following:
 ## Demos
 Some html demos are available and listed below but don't forget to read the **[compatibility section](https://github.com/xavierfoucrier/instacam/blob/master/README.md#compatibility)** before testing them.
 
-1. [Basic demo](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
-2. [CSS filter demo](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty CSS filtering demo
-3. [Custom filter demo](https://xavierfoucrier.github.io/instacam/custom-filter.html) - pretty custom filtering demo
-4. [Snap demo](https://xavierfoucrier.github.io/instacam/snap.html) - capture the viewport image data
-5. [Save demo](https://xavierfoucrier.github.io/instacam/save.html) - save the viewport in different format and quality
+1. [Basic](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
+2. [CSS filter](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty CSS filtering demo
+3. [Custom filter](https://xavierfoucrier.github.io/instacam/custom-filter.html) - pretty custom filtering demo
+4. [Snap](https://xavierfoucrier.github.io/instacam/snap.html) - capture the viewport image data
+5. [Save](https://xavierfoucrier.github.io/instacam/save.html) - save the viewport in different format and quality
 
 Note that all demos are using vanilla javascript and the latest version of Instacam from the Github repository.
