@@ -5,7 +5,7 @@ import {requirement} from './support.js';
 
 export class Instacam {
 
-  /*
+  /**
     Class constructor
     @param {Object} canvas element from the DOM
     @param {Object} custom options of the class
@@ -50,7 +50,7 @@ export class Instacam {
     this._capture(media);
   }
 
-  /*
+  /**
     Captures the media stream to the viewport through getUserMedia API
     @param {Object} video element from the DOM
   */
@@ -147,7 +147,7 @@ export class Instacam {
     }
   }
 
-  /*
+  /**
     Applies a custom filter to the viewport
     @param {Object} image object from the canvas element
     @returns {Object} image data object containing pixels informations
@@ -192,7 +192,7 @@ export class Instacam {
     }
   }
 
-  /*
+  /**
     Snaps and crops the viewport to return image data
     @param {Number} left position of the snapping area
     @param {Number} top position of the snapping area
@@ -210,7 +210,7 @@ export class Instacam {
     return this.viewport.getContext('2d').getImageData(left, top, width, height);
   }
 
-  /*
+  /**
     Saves the viewport to a specific image file format
     @param {String} png|jpeg|webp image file format
     @param {Number} [0..1] image quality
