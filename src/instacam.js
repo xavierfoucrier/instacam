@@ -5,7 +5,6 @@ import {requirement} from './support.js';
 
 export class Instacam {
 
-  // class constructor
   /*
     Class constructor
     @param {Object} canvas element from the DOM
