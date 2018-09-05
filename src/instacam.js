@@ -202,11 +202,13 @@ export class Instacam {
     @returns {Object} image data object containing pixels informations
   */
   snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
-    try {
-      return this.viewport.getContext('2d').getImageData(left, top, width, height);
-    } catch(exception) {
+
+    // checks the snap size area
+    if (width <= 0 || height <= 0) {
       throw new Error('Invalid snap area, you need to specify a positive width and height for your image capture');
     }
+
+    return this.viewport.getContext('2d').getImageData(left, top, width, height);
   }
 
   /*
