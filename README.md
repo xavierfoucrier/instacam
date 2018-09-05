@@ -1,37 +1,29 @@
 # Instacam
-Instacam is a jQuery plugin to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
+Instacam is a library to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
 [![Instacam](https://raw.github.com/xavierfoucrier/instacam/master/logo.png "Instacam")](https://xavierfoucrier.github.io/instacam)
 
 
 ## Compatibility
-Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*. The plugin is compatible with browser that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API. The CSS filtering requires the `CSS filter` features to properly work.
+Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*. The library is compatible with browser that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API. The CSS filtering requires the `CSS filter` features to properly work.
 
 Official support on **Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+**. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
 
 
-## Dependencies
-To ensure a stable running of Instacam, you need to have **some requirements** setted on your website.
+## Install
+Instacam is published on the **NPM** *(Node Package Manager)* registry, so you can install it through the command line interpreter using:
 
-1. Javascript library `jQuery 1.3` minimum required, tested on 1.11+ and working fine with 2.0+
-3. HTML5 doctype, not required, but better for a good W3C validation
+```console
+npm install instacam
+```
 
-Note that jQuery 2.0 or higher doesn't support IE 6/7/8 anymore.
-
-
-## Download
-Latest stable release:
-
-- [Production `jquery.instacam.min.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.min.js) - 4.07KB, 1.38KB gzipped
-- [Development `jquery.instacam.js`](https://raw.github.com/xavierfoucrier/instacam/master/jquery.instacam.js) - 8.79KB, 2.42KB gzipped
-
-The version's notation is based on `Semantic versioning`, [https://semver.org](https://semver.org).
+For other implementation of Instacam in your project, see the [usage documentation](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#usage).
 
 
 ## Documentation
-Here you will find the documentation describing **how to use** the jQuery plugin.
+Here you will find the documentation describing **how to use** the library.
 
-1. [How it works](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works) - how the plugin do the stuff
+1. [How it works](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works) - how the library do the stuff
 2. [Markup](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#markup) - how should the HTML and CSS look like
 3. [Usage](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#usage) - how to use Instacam
 4. [Options](https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#options) - all available options
@@ -45,7 +37,7 @@ You can **track the project** on [Github](https://github.com/xavierfoucrier) and
 
 
 ## Contribute
-If you want to report a bug or if you just want to request for a new feature / improvement, you can simply use the **Github tracker**: please describe as much as possible the issue you encountered.
+If you want to report a bug or if you just want to request for a new feature/improvement, please **read the project [contributors guidelines](https://github.com/xavierfoucrier/instacam/blob/master/CONTRIBUTING.md) before**. Thanks for taking time to contribute to Instacam.
 
 
 ## License
