@@ -193,7 +193,7 @@ export class Instacam {
   }
 
   /*
-    Snaps and crops the viewport to return image data.
+    Snaps and crops the viewport to return image data
     @param {Number} left position of the snapping area
     @param {Number} top position of the snapping area
     @param {Number} width of the snapping area
@@ -211,7 +211,7 @@ export class Instacam {
   }
 
   /*
-    Saves the viewport to a specific image file format.
+    Saves the viewport to a specific image file format
     @param {String} png|jpeg|webp image file format
     @param {Number} [0..1] image quality
     @returns {String} UTF-16 data image URI (DOMString)
