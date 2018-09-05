@@ -24,10 +24,10 @@ export let defaults = {
   // {Number} [0..100] volume of the camera audio stream
   volume: 100,
 
-  // {Boolean} true|false, mirror mode of the viewport (css filter)
+  // {Boolean} true|false, mirror mode of the viewport (css transform)
   mirror: false,
 
-  // {Number} [0..1] opacity of the viewport (css filter)
+  // {Number} [0..1] opacity of the viewport (css)
   opacity: 1,
 
   // {Number} [0..*] brightness of the viewport (css filter)
