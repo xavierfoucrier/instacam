@@ -7,8 +7,8 @@ export class Instacam {
 
   /**
     Class constructor
-    @param {Object} canvas element from the DOM
-    @param {Object} custom options of the class
+    @param {Object} viewport - canvas element from the DOM
+    @param {Object} options - custom options of the class
   */
   constructor(viewport, options) {
 
@@ -52,7 +52,7 @@ export class Instacam {
 
   /**
     Captures the media stream to the viewport through getUserMedia API
-    @param {Object} video element from the DOM
+    @param {Object} media - video element from the DOM
   */
   _capture(media) {
 
@@ -149,7 +149,7 @@ export class Instacam {
 
   /**
     Applies a custom filter to the viewport
-    @param {Object} image object from the canvas element
+    @param {Object} image - image object from the canvas element
     @returns {Object} image data object containing pixels informations
   */
   _filter(image) {
@@ -194,10 +194,10 @@ export class Instacam {
 
   /**
     Snaps and crops the viewport to return image data
-    @param {Number} left position of the snapping area
-    @param {Number} top position of the snapping area
-    @param {Number} width of the snapping area
-    @param {Number} height of the snapping area
+    @param {Number} left - left position of the snapping area
+    @param {Number} top - top position of the snapping area
+    @param {Number} width - width of the snapping area
+    @param {Number} height - height of the snapping area
     @returns {Object} image data object containing pixels informations
   */
   snap(left = 0, top = 0, width = this.options.width, height = this.options.height) {
@@ -212,8 +212,8 @@ export class Instacam {
 
   /**
     Saves the viewport to a specific image file format
-    @param {String} png|jpeg|webp image file format
-    @param {Number} [0..1] image quality
+    @param {String} format - png|jpeg|webp image file format
+    @param {Number} quality - [0..1] image quality
     @returns {String} UTF-16 data image URI (DOMString)
   */
   save(format = 'png', quality = 1) {
