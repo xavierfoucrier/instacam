@@ -229,7 +229,7 @@ export class Instacam {
 
   /**
     Sets the camera volume
-    @param {Number} [0..100] volume of the camera audio stream
+    @param {Number} volume - [0..100] volume of the camera audio stream
   */
   set volume(volume) {
     if (typeof volume !== 'number' || volume < 0 || volume > 100) {
