@@ -35,26 +35,25 @@ export class Instacam {
     this.viewport.height = this.options.height;
 
     // creates the media element
-    let media = document.createElement('video');
+    this.media = document.createElement('video');
 
     // sets some media element properties
-    media.style.display = 'none';
-    media.autoplay = true;
-    media.width = this.options.width;
-    media.height = this.options.height;
+    this.media.style.display = 'none';
+    this.media.autoplay = true;
+    this.media.width = this.options.width;
+    this.media.height = this.options.height;
 
     // attaches the media element to the DOM
-    this.viewport.parentNode.insertBefore(media, this.viewport.nextSibling);
+    this.viewport.parentNode.insertBefore(this.media, this.viewport.nextSibling);
 
     // captures the webcam stream
-    this._capture(media);
+    this._capture();
   }
 
   /**
     Captures the media stream to the viewport through getUserMedia API
-    @param {Object} media - video element from the DOM
   */
-  _capture(media) {
+  _capture() {
 
     // prevents from streaming errors
     try {
@@ -75,7 +74,7 @@ export class Instacam {
       }).then((stream) => {
 
         // captures the blob stream
-        media.srcObject = stream;
+        this.media.srcObject = stream;
 
         // sets the volume at start
         media.volume = (typeof this.options.volume === 'number' && this.options.volume >= 0 && this.options.volume <= 100 ? this.options.volume : defaults.volume) / 100;
@@ -85,7 +84,7 @@ export class Instacam {
 
           // renders the viewport with or without custom filter
           if (typeof this.options.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+            this.viewport.getContext('2d').drawImage(this.media, 0, 0, this.options.width, this.options.height);
           } else {
 
             // uses a buffer when applying a custom filter to prevent the viewport from blinkings or flashes
@@ -97,7 +96,7 @@ export class Instacam {
               this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
             }
 
-            this._buffer.getContext('2d').drawImage(media, 0, 0, this.options.width, this.options.height);
+            this._buffer.getContext('2d').drawImage(this.media, 0, 0, this.options.width, this.options.height);
             this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.options.width, this.options.height)), 0, 0);
           }
 
