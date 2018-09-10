@@ -266,7 +266,7 @@ export class Instacam {
   }
 
   /**
-    @returns {Number} [0..*] saturatation of the viewport (css filter)
+    @returns {Number} [0..*] saturation of the viewport (css filter)
   */
   get saturation() {
     return this.options.saturation;
