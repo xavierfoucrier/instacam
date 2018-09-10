@@ -219,4 +219,88 @@ export class Instacam {
   save(format = 'png', quality = 1) {
     return this.viewport.toDataURL('image/' + format, quality);
   }
+
+  /**
+    @returns {Number} [0..100] volume of the camera audio stream
+  */
+  get volume() {
+    return this.options.volume;
+  }
+
+  /**
+    @returns {Boolean} true|false, mirror mode of the viewport (css transform)
+  */
+  get mirror() {
+    return this.options.mirror;
+  }
+
+  /**
+    @returns {Number} [0..1] opacity of the viewport (css)
+  */
+  get opacity() {
+    return this.options.opacity;
+  }
+
+  /**
+    @returns {Number} [0..*] brightness of the viewport (css filter)
+  */
+  get brightness() {
+    return this.options.brightness;
+  }
+
+  /**
+    @returns {Number} [0..*] contrast of the viewport (css filter)
+  */
+  get contrast() {
+    return this.options.contrast;
+  }
+
+  /**
+    @returns {Number} [0..*] saturatation of the viewport (css filter)
+  */
+  get saturation() {
+    return this.options.saturation;
+  }
+
+  /**
+    @returns {Number} [0..360] hue of the viewport (css filter)
+  */
+  get hue() {
+    return this.options.hue;
+  }
+
+  /**
+    @returns {Number} [0..1] inverts the color of the viewport (css filter)
+  */
+  get invert() {
+    return this.options.invert;
+  }
+
+  /**
+    @returns {Number} [0..1] grayscale of the viewport (css filter)
+  */
+  get grayscale() {
+    return this.options.grayscale;
+  }
+
+  /**
+    @returns {Number} [0..1] sepia of the viewport (css filter)
+  */
+  get sepia() {
+    return this.options.sepia;
+  }
+
+  /**
+    @returns {Number} [0..*] blur of the viewport (css filter)
+  */
+  get blur() {
+    return this.options.blur;
+  }
+
+  /**
+    @returns {String} svg filtering of the viewport (css filter)
+  */
+  get url() {
+    return this.options.url;
+  }
 }
