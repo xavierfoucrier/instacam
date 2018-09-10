@@ -16,7 +16,7 @@ export let defaults = {
   framerate: 30,
 
   // {Number} ratio of the camera video stream
-  ratio: 4/3,
+  ratio: 4 / 3,
 
   // {Boolean} true|false, defines if the camera audio stream is enabled
   sound: false,
