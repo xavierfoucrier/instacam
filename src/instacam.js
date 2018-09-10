@@ -58,6 +58,9 @@ export class Instacam {
     // prevents from streaming errors
     try {
 
+      // applies the css mirror mode on the viewport
+      this.mirror = this.options.mirror;
+
       // captures the media stream
       navigator.mediaDevices.getUserMedia({
         audio: this.options.sound,
@@ -120,9 +123,6 @@ export class Instacam {
             this.viewport.style.filter = '';
             this._css = '';
           }
-
-          // applies the css mirror mode on the viewport
-          this.viewport.style.transform = this.options.mirror === true ? 'scale(-1, 1)' : '';
 
           // makes this function run at 60fps
           requestAnimationFrame(loop);
@@ -245,6 +245,19 @@ export class Instacam {
   */
   get mirror() {
     return this.options.mirror;
+  }
+
+  /**
+    Sets the camera mirror mode
+    @param {Boolean} mirror true|false, mirror mode of the viewport (css transform)
+  */
+  set mirror(mirror) {
+    if (typeof mirror !== 'boolean') {
+      throw new Error('Invalid mirror mode, you need to give a boolean to enable or disable the mirror mode');
+    }
+
+    this.viewport.style.transform = mirror === true ? 'scale(-1, 1)' : '';
+    this.options.mirror = mirror;
   }
 
   /**
