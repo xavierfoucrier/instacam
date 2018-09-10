@@ -77,7 +77,7 @@ export class Instacam {
         this.media.srcObject = stream;
 
         // sets the volume at start
-        media.volume = (typeof this.options.volume === 'number' && this.options.volume >= 0 && this.options.volume <= 100 ? this.options.volume : defaults.volume) / 100;
+        this.volume = this.options.volume;
 
         // animation loop used to properly render the viewport
         const loop = () => {
@@ -224,6 +224,17 @@ export class Instacam {
   */
   get volume() {
     return this.options.volume;
+  }
+
+  /**
+    @param {Number} [0..100] volume of the camera audio stream
+  */
+  set volume(volume) {
+    if (typeof volume !== 'number' || volume < 0 || volume > 100) {
+      throw new Error('Invalid volume, you need to give a number between 0 and 100');
+    }
+
+    this.media.volume = this.options.volume = volume / 100;
   }
 
   /**
