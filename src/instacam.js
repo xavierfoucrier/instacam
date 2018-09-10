@@ -220,6 +220,7 @@ export class Instacam {
   }
 
   /**
+    Gets the camera volume
     @returns {Number} [0..100] volume of the camera audio stream
   */
   get volume() {
@@ -227,6 +228,7 @@ export class Instacam {
   }
 
   /**
+    Sets the camera volume
     @param {Number} [0..100] volume of the camera audio stream
   */
   set volume(volume) {
@@ -238,6 +240,7 @@ export class Instacam {
   }
 
   /**
+    Gets the camera mirror mode
     @returns {Boolean} true|false, mirror mode of the viewport (css transform)
   */
   get mirror() {
@@ -245,6 +248,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport opacity
     @returns {Number} [0..1] opacity of the viewport (css)
   */
   get opacity() {
@@ -252,6 +256,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport brightness
     @returns {Number} [0..*] brightness of the viewport (css filter)
   */
   get brightness() {
@@ -259,6 +264,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport contrast
     @returns {Number} [0..*] contrast of the viewport (css filter)
   */
   get contrast() {
@@ -266,6 +272,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport saturation
     @returns {Number} [0..*] saturation of the viewport (css filter)
   */
   get saturation() {
@@ -273,6 +280,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport hue
     @returns {Number} [0..360] hue of the viewport (css filter)
   */
   get hue() {
@@ -280,6 +288,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport color inversion
     @returns {Number} [0..1] inverts the color of the viewport (css filter)
   */
   get invert() {
@@ -287,6 +296,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport grayscale
     @returns {Number} [0..1] grayscale of the viewport (css filter)
   */
   get grayscale() {
@@ -294,6 +304,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport sepia
     @returns {Number} [0..1] sepia of the viewport (css filter)
   */
   get sepia() {
@@ -301,6 +312,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport blur
     @returns {Number} [0..*] blur of the viewport (css filter)
   */
   get blur() {
@@ -308,6 +320,7 @@ export class Instacam {
   }
 
   /**
+    Gets the viewport svg filtering
     @returns {String} svg filtering of the viewport (css filter)
   */
   get url() {
