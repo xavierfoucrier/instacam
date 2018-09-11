@@ -49,26 +49,8 @@ export class Instacam {
     // applies the css mirror mode on the viewport
     this.mirror = this.options.mirror;
 
-    // creates the css filter effects on the viewport
-    let filters = this.options.opacity !== defaults.opacity ? `opacity(${this.options.opacity}) ` : '';
-    filters += this.options.brightness !== defaults.brightness ? `brightness(${this.options.brightness}) ` : '';
-    filters += this.options.contrast !== defaults.contrast ? `contrast(${this.options.contrast}) ` : '';
-    filters += this.options.saturation !== defaults.saturation ? `saturate(${this.options.saturation}) ` : '';
-    filters += this.options.hue !== defaults.hue ? `hue-rotate(${this.options.hue}deg) ` : '';
-    filters += this.options.invert !== defaults.invert ? `invert(${this.options.invert}) ` : '';
-    filters += this.options.grayscale !== defaults.grayscale ? `grayscale(${this.options.grayscale}) ` : '';
-    filters += this.options.sepia !== defaults.sepia ? `sepia(${this.options.sepia}) ` : '';
-    filters += this.options.blur !== defaults.blur ? `blur(${this.options.blur}px) ` : '';
-    filters += this.options.url !== defaults.url ? `url(${this.options.url}) ` : '';
-
-    // applies the css filter effects on the viewport
-    if (filters !== '' && this._css !== filters) {
-      this.viewport.style.filter = filters;
-      this._css = filters;
-    } else if (filters === '') {
-      this.viewport.style.filter = '';
-      this._css = '';
-    }
+    // computes the css filter options
+    this._compute();
 
     // captures the webcam stream
     this._capture();
@@ -144,6 +126,27 @@ export class Instacam {
         this.options.fail(exception);
       }
     }
+  }
+
+  /**
+    Computes and applies the css filter effects to the viewport
+  */
+  _compute() {
+
+    // builds the css layer depending on the options
+    this._style = this.options.opacity !== defaults.opacity ? `opacity(${this.options.opacity}) ` : '';
+    this._style += this.options.brightness !== defaults.brightness ? `brightness(${this.options.brightness}) ` : '';
+    this._style += this.options.contrast !== defaults.contrast ? `contrast(${this.options.contrast}) ` : '';
+    this._style += this.options.saturation !== defaults.saturation ? `saturate(${this.options.saturation}) ` : '';
+    this._style += this.options.hue !== defaults.hue ? `hue-rotate(${this.options.hue}deg) ` : '';
+    this._style += this.options.invert !== defaults.invert ? `invert(${this.options.invert}) ` : '';
+    this._style += this.options.grayscale !== defaults.grayscale ? `grayscale(${this.options.grayscale}) ` : '';
+    this._style += this.options.sepia !== defaults.sepia ? `sepia(${this.options.sepia}) ` : '';
+    this._style += this.options.blur !== defaults.blur ? `blur(${this.options.blur}px) ` : '';
+    this._style += this.options.url !== defaults.url ? `url(${this.options.url}) ` : '';
+
+    // applies the css filter effects to the viewport
+    this.viewport.style.filter = this._style;
   }
 
   /**
