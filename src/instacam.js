@@ -249,7 +249,7 @@ export class Instacam {
 
   /**
     Sets the camera mirror mode
-    @param {Boolean} mirror true|false, mirror mode of the viewport (css transform)
+    @param {Boolean} mirror - true|false, mirror mode of the viewport (css transform)
   */
   set mirror(mirror) {
     if (typeof mirror !== 'boolean') {
