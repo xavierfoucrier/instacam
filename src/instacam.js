@@ -275,11 +275,37 @@ export class Instacam {
   }
 
   /**
+    Sets the viewport opacity
+    @param {Number} opacity - [0..1] opacity of the viewport (css)
+  */
+  set opacity(opacity) {
+    if (typeof opacity !== 'number' || opacity < 0 || opacity > 1) {
+      throw new Error('Invalid opacity, you need to give a number between 0 and 1');
+    }
+
+    this.options.opacity = opacity;
+    this._compute();
+  }
+
+  /**
     Gets the viewport brightness
     @returns {Number} [0..*] brightness of the viewport (css filter)
   */
   get brightness() {
     return this.options.brightness;
+  }
+
+  /**
+    Sets the viewport brightness
+    @param {Number} brightness - [0..*] brightness of the viewport (css filter)
+  */
+  set brightness(brightness) {
+    if (typeof brightness !== 'number' || brightness < 0) {
+      throw new Error('Invalid brightness, you need to give a number above 0');
+    }
+
+    this.options.brightness = brightness;
+    this._compute();
   }
 
   /**
@@ -291,11 +317,37 @@ export class Instacam {
   }
 
   /**
+    Sets the viewport contrast
+    @param {Number} contrast - [0..*] contrast of the viewport (css filter)
+  */
+  set contrast(contrast) {
+    if (typeof contrast !== 'number' || contrast < 0) {
+      throw new Error('Invalid contrast, you need to give a number above 0');
+    }
+
+    this.options.contrast = contrast;
+    this._compute();
+  }
+
+  /**
     Gets the viewport saturation
     @returns {Number} [0..*] saturation of the viewport (css filter)
   */
   get saturation() {
     return this.options.saturation;
+  }
+
+  /**
+    Sets the viewport saturation
+    @param {Number} saturation - [0..*] saturation of the viewport (css filter)
+  */
+  set saturation(saturation) {
+    if (typeof saturation !== 'number' || saturation < 0) {
+      throw new Error('Invalid saturation, you need to give a number above 0');
+    }
+
+    this.options.saturation = saturation;
+    this._compute();
   }
 
   /**
@@ -307,11 +359,37 @@ export class Instacam {
   }
 
   /**
+    Sets the viewport hue
+    @param {Number} hue - [0..360] hue of the viewport (css filter)
+  */
+  set hue(hue) {
+    if (typeof hue !== 'number' || hue < 0 || hue > 360) {
+      throw new Error('Invalid hue, you need to give a number between 0 and 360');
+    }
+
+    this.options.hue = hue;
+    this._compute();
+  }
+
+  /**
     Gets the viewport color inversion
     @returns {Number} [0..1] inverts the color of the viewport (css filter)
   */
   get invert() {
     return this.options.invert;
+  }
+
+  /**
+    Sets the viewport color inversion
+    @param {Number} invert - [0..1] inverts the color of the viewport (css filter)
+  */
+  set invert(invert) {
+    if (typeof invert !== 'number' || invert < 0 || invert > 1) {
+      throw new Error('Invalid invert, you need to give a number between 0 and 1');
+    }
+
+    this.options.invert = invert;
+    this._compute();
   }
 
   /**
@@ -323,11 +401,37 @@ export class Instacam {
   }
 
   /**
+    Sets the viewport grayscale
+    @param {Number} grayscale - [0..1] grayscale of the viewport (css filter)
+  */
+  set grayscale(grayscale) {
+    if (typeof grayscale !== 'number' || grayscale < 0 || grayscale > 1) {
+      throw new Error('Invalid grayscale, you need to give a number between 0 and 1');
+    }
+
+    this.options.grayscale = grayscale;
+    this._compute();
+  }
+
+  /**
     Gets the viewport sepia
     @returns {Number} [0..1] sepia of the viewport (css filter)
   */
   get sepia() {
     return this.options.sepia;
+  }
+
+  /**
+    Sets the viewport sepia
+    @param {Number} sepia - [0..1] sepia of the viewport (css filter)
+  */
+  set sepia(sepia) {
+    if (typeof sepia !== 'number' || sepia < 0 || sepia > 1) {
+      throw new Error('Invalid sepia, you need to give a number between 0 and 1');
+    }
+
+    this.options.sepia = sepia;
+    this._compute();
   }
 
   /**
@@ -339,10 +443,36 @@ export class Instacam {
   }
 
   /**
+    Sets the viewport blur
+    @param {Number} blur - [0..*] blur of the viewport (css filter)
+  */
+  set blur(blur) {
+    if (typeof blur !== 'number' || blur < 0) {
+      throw new Error('Invalid blur, you need to give a number above 0');
+    }
+
+    this.options.blur = blur;
+    this._compute();
+  }
+
+  /**
     Gets the viewport svg filtering
     @returns {String} svg filtering of the viewport (css filter)
   */
   get url() {
     return this.options.url;
+  }
+
+  /**
+    Sets the viewport svg filtering
+    @param {String} url - svg filtering of the viewport (css filter)
+  */
+  set url(url) {
+    if (typeof url !== 'string') {
+      throw new Error('Invalid url, you need to give a string');
+    }
+
+    this.options.url = url;
+    this._compute();
   }
 }
