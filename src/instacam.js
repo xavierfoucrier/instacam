@@ -256,7 +256,10 @@ export class Instacam {
       throw new Error('Invalid mirror mode, you need to give a boolean to enable or disable the mirror mode');
     }
 
-    this.viewport.style.transform = mirror === true ? 'scale(-1, 1)' : '';
+    let transform = getComputedStyle(this.viewport).getPropertyValue('transform');
+    transform = transform !== 'none' ? transform : '';
+
+    this.viewport.style.transform = mirror === true ? `${transform} scale(-1, 1)` : '';
     this.options.mirror = mirror;
   }
 
