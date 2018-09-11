@@ -177,7 +177,7 @@ Default: `100`
 Minimum: `0`
 Maximum: `100`
 
-The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100%. Note that you can set the volume at **any time** as soon as the camera is ready.
+The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100. Note that you can set the volume at **any time** as soon as the camera is ready.
 
 #### mirror
 Type: `Boolean`
@@ -187,34 +187,34 @@ The mirror mode allows you to **flip the viewport horizontally**. This mode uses
 #### opacity
 Type: `Number`
 Default: `1`
-Minimum: `0` or `0%`
-Maximum: `1` or `100%`
+Minimum: `0`
+Maximum: `1`
 
-The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0% is completely transparent. A value of 100% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the CSS filter won't be applied.
+The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0 is completely transparent. A value of 1 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the CSS filter won't be applied.
 
 #### brightness
 Type: `Number`
 Default: `1`
-Minimum: `0` or `0%`
+Minimum: `0`
 Maximum: `None`
 
-The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 100% are allowed, providing **brighter results**. If omitted, the CSS filter won't be applied.
+The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 1 are allowed, providing **brighter results**. If omitted, the CSS filter won't be applied.
 
 #### contrast
 Type: `Number`
 Default: `1`
-Minimum: `0` or `0%`
+Minimum: `0`
 Maximum: `None`
 
-The contrast option **adjusts the contrast** of the viewport. A value of 0% will create an image that is completely black. A value of 100% leaves the viewport unchanged. Values of amount over 100% are allowed, providing **results with less contrast**. If omitted, the CSS filter won't be applied.
+The contrast option **adjusts the contrast** of the viewport. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Values of amount over 1 are allowed, providing **results with less contrast**. If omitted, the CSS filter won't be applied.
 
 #### saturation
 Type: `Number`
 Default: `0`
-Minimum: `0` or `0%`
+Minimum: `0`
 Maximum: `None`
 
-The saturation option **saturates** the viewport. A value of 0% is completely un-saturated. A value of 100% leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing **super-saturated results**. If omitted, the CSS filter won't be applied.
+The saturation option **saturates** the viewport. A value of 0 is completely un-saturated. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 1 are allowed, providing **super-saturated results**. If omitted, the CSS filter won't be applied.
 
 #### hue
 Type: `Number`
@@ -228,26 +228,26 @@ The hue option **applies a hue rotation** on the viewport. The value of angle de
 #### invert
 Type: `Number`
 Default: `0`
-Minimum: `0` or `0%`
-Maximum: `1` or `100%`
+Minimum: `0`
+Maximum: `1`
 
-The invert option **inverts the samples** in the viewport. A value of 100% is completely inverted. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The invert option **inverts the samples** in the viewport. A value of 1 is completely inverted. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### grayscale
 Type: `Number`
 Default: `0`
-Minimum: `0` or `0%`
-Maximum: `1` or `100%`
+Minimum: `0`
+Maximum: `1`
 
-The grayscale option **converts the viewport to grayscale**. A value of 100% is completely grayscale. A value of 0% leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The grayscale option **converts the viewport to grayscale**. A value of 1 is completely grayscale. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### sepia
 Type: `Number`
 Default: `0`
-Minimum: `0` or `0%`
-Maximum: `1` or `100%`
+Minimum: `0`
+Maximum: `1`
 
-The sepia option **converts the viewport to sepia**. A value of 100% is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0% and 100% are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The sepia option **converts the viewport to sepia**. A value of 1 is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### blur
 Type: `Number`
