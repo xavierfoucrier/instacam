@@ -1,0 +1,27 @@
+{
+  "name": "instacam-pages",
+  "version": "0.1.0",
+  "description": "Github pages for instacam",
+  "private": true,
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavierfoucrier/instacam.git"
+  },
+  "keywords": [
+    "site",
+    "web",
+    "github",
+    "pages"
+  ],
+  "author": {
+    "name": "Xavier Foucrier",
+    "email": "xavier.foucrier@gmail.com",
+    "url": "https://www.xavierfoucrier.fr"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xavierfoucrier/instacam/issues"
+  },
+  "homepage": "https://github.com/xavierfoucrier/instacam#readme"
+}
