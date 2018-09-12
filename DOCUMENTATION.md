@@ -27,7 +27,7 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 
 ## Usage
 ### Use with Webpack
-Instacam is using the **UMD** *(Unified Module Definition)* pattern, making it capable of working everywhere and compatible with webpack. The module is published on the **NPM** *(Node Package Manager)* registry, so you need to install it through the command line interpreter using:
+Instacam is using the **UMD** *(Unified Module Definition)* pattern, making it capable of working everywhere and compatible with webpack. The module is published on the **NPM** *(Node Package Manager)* registry, so you can install it through the command line interpreter using:
 
 ```console
 npm install instacam
