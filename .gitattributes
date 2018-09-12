@@ -3,6 +3,3 @@
 
 # End of line as the UNIX convention (LF: Line Feed)
 * eol=lf
-
-# Denote all files that are truly binary and should not be modified
-*.png binary
