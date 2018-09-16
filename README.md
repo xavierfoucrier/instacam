@@ -1,7 +1,7 @@
 # Instacam – [![npm](https://img.shields.io/npm/v/instacam.svg)](instacam)
 Instacam is a library to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
-[![Instacam](https://raw.github.com/xavierfoucrier/instacam/master/logo.png "Instacam")](https://xavierfoucrier.github.io/instacam)
+[![Instacam](logo.png "Instacam")](https://xavierfoucrier.github.io/instacam)
 
 
 ## Compatibility
