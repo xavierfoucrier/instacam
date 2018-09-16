@@ -373,7 +373,7 @@ This example does the following:
 
 
 ## Demos
-Some html demos are available and listed below but don't forget to read the **[compatibility section](https://github.com/xavierfoucrier/instacam/blob/master/README.md#compatibility)** before testing them.
+Some html demos are available and listed below but don't forget to read the **[compatibility section](README.md#compatibility)** before testing them.
 
 1. [Basic](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
 2. [CSS filter](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty CSS filtering demo
