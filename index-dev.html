@@ -7,5 +7,112 @@
     <link type="text/css" rel="stylesheet" media="all" href="style/default.min.css" />
   </head>
   <body>
+    <header>
+      <div class="row align-justify align-middle">
+        <div class="column shrink"><svg viewBox="0 0 167.33 91.63" class="logo-instacam"><use xlink:href="picture/sprite.svg#instacam" /></svg></div>
+        <div class="column shrink"><a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github"><svg viewBox="0 0 80 22" class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg></a></div>
+      </div>
+      <div class="row column">
+        <p>Instacam is a library to perform <strong>instant canvas video</strong> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <strong>much more</strong> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <strong>on Github</strong> to see the documentation about available options, methods and callbacks.</p>
+      </div>
+    </header>
+    <main class="row align-justify">
+      <form class="column">
+        <fieldset>
+          <legend>CSS filter</legend>
+          <div class="row large-up-3">
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#opacity" /></svg><span>opacity</span></label>
+              <input type="range" name="opacity" min="0" max="1" step="0.1" value="1" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#brightness" /></svg>brightness</label>
+              <input type="range" name="brightness" min="0" max="100" step="10" value="1" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#contrast" /></svg>contrast</label>
+              <input type="range" name="contrast" min="0" max="100" step="10" value="1" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#saturation" /></svg>saturation</label>
+              <input type="range" name="saturation" min="0" max="100" step="10" value="0" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#hue" /></svg>hue</label>
+              <input type="range" name="hue" min="0" max="360" value="0" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#invert" /></svg>invert</label>
+              <input type="range" name="invert" min="0" max="1" step="0.1" value="0" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#grayscale" /></svg>grayscale</label>
+              <input type="range" name="grayscale" min="0" max="1" step="0.1" value="0" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#sepia" /></svg>sepia</label>
+              <input type="range" name="sepia" min="0" max="1" step="0.1" value="0" />
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#blur" /></svg>blur</label>
+              <input type="range" name="blur" min="0" max="100" step="10" value="0" />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Custom filter</legend>
+          <div class="row large-up-3">
+            <div class="column">
+              <label class="radio"><input type="radio" name="filter" value="none" checked="checked" />none</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="filter" value="noise" />random noise</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="filter" value="invert" />color inversion</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="filter" value="threshold" />threshold</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="filter" value="sobel" />soft-sobel</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Snap</legend>
+          <button type="button" name="button"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
+        </fieldset>
+        <fieldset>
+          <legend>Save</legend>
+          <div class="row large-up-3">
+            <div class="column">
+              <label class="radio"><input type="radio" name="save" value="png" checked="checked" />png</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="save" value="jpeg" />jpeg</label>
+            </div>
+            <div class="column">
+              <label class="radio"><input type="radio" name="save" value="webp" />webp</label>
+            </div>
+            <div class="column">
+              <label><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#quality" /></svg>quality</label>
+              <input type="range" name="quality" min="0" max="1" step="0.1" value="1" />
+            </div>
+            <div class="column">
+              <span class="size">250<small>ko</small></span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <div class="column">
+        <canvas class="render"></canvas>
+        <em class="log">Instacam is working fine.</em>
+        <div class="export"></div>
+      </div>
+    </main>
+    <footer class="row column">
+      <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank">MIT License</a></strong>.</p>
+    </footer>
   </body>
 </html>
