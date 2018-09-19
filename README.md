@@ -48,4 +48,4 @@ Read the [full license](LICENSE.md) for more information about your rights.
 
 ## Questions?
 If you have any questions, please **feel free to contact me!**  
-Check out my website at [https://en.xavierfoucrier.fr](https://en.xavierfoucrier.fr).
+[xavier.foucrier [at] gmail.com](mailto:xavier.foucrier@gmail.com)
