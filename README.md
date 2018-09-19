@@ -32,10 +32,6 @@ Here you will find the documentation describing **how to use** the library.
 7. [Demo](DOCUMENTATION.md#demo) - Instacam in action
 
 
-## Updates
-You can **track the project** on [Github](https://github.com/xavierfoucrier) and/or **follow me** on [Twitter](https://twitter.com/xavierfoucrier).
-
-
 ## Contribute
 If you want to report a bug or if you just want to request for a new feature/improvement, please **read the project [contributors guidelines](CONTRIBUTING.md) before**. Thanks for taking time to contribute to Instacam.
 
