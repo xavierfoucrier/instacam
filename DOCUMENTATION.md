@@ -381,4 +381,4 @@ Some html demos are available and listed below but don't forget to read the **[c
 4. [Snap](https://xavierfoucrier.github.io/instacam/snap.html) - capture the viewport image data
 5. [Save](https://xavierfoucrier.github.io/instacam/save.html) - save the viewport in different format and quality
 
-Note that all demos are using vanilla javascript and the latest version of Instacam from the Github repository.
+Note that all demos are using **vanilla javascript** and the latest version of Instacam from the **NPM registry**.
