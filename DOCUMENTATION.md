@@ -9,7 +9,7 @@ Here you will find the documentation describing on how to use the module.
 4. [Options](#options)
 5. [Methods](#methods)
 6. [Examples](#examples)
-7. [Demos](#demos)
+7. [Demo](#demo)
 
 
 ## How it works
