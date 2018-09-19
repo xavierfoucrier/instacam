@@ -372,13 +372,9 @@ This example does the following:
 - filtering of the viewport with CSS technology to reproduce a grayscale effect
 
 
-## Demos
-Some html demos are available and listed below but don't forget to read the **[compatibility section](README.md#compatibility)** before testing them.
+## Demo
+This site is hosted on Github pages and allow you to play with **most Instacam options**: display the camera, add pretty CSS and custom filters simultaneously, capture and export the image in different formats. You will need to **allow the site to access your camera** in order to use the library.
 
-1. [Basic](https://xavierfoucrier.github.io/instacam/index.html) - a simple demo with the camera
-2. [CSS filter](https://xavierfoucrier.github.io/instacam/css-filter.html) - pretty CSS filtering demo
-3. [Custom filter](https://xavierfoucrier.github.io/instacam/custom-filter.html) - pretty custom filtering demo
-4. [Snap](https://xavierfoucrier.github.io/instacam/snap.html) - capture the viewport image data
-5. [Save](https://xavierfoucrier.github.io/instacam/save.html) - save the viewport in different format and quality
+📷 [Play with Instacam](https://xavierfoucrier.github.io/instacam)
 
-Note that all demos are using **vanilla javascript** and the latest version of Instacam from the **NPM registry**.
+Note that all demos are using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)**.

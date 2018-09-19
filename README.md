@@ -29,7 +29,7 @@ Here you will find the documentation describing **how to use** the library.
 4. [Options](DOCUMENTATION.md#options) - all available options
 5. [Methods](DOCUMENTATION.md#methods) - all available methods
 6. [Examples](DOCUMENTATION.md#examples) - some case studies
-7. [Demos](DOCUMENTATION.md#demos) - some demos in action
+7. [Demo](DOCUMENTATION.md#demo) - Instacam in action
 
 
 ## Updates
