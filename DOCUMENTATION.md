@@ -377,4 +377,4 @@ This site is hosted on Github pages and allow you to play with **most Instacam o
 
 📷 [Play with Instacam](https://xavierfoucrier.github.io/instacam)
 
-Note that all demos are using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)**.
+Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)**.
