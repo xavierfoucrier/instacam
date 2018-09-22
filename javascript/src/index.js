@@ -22,8 +22,23 @@ let camera = new Instacam(
 );
 
 // binds all css filter input to properly update the viewport
-Array.from(document.querySelectorAll('.css-filter [type="range"]')).forEach(function(element) {
+Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(function(element) {
+  const value = element.parentNode.querySelector('.value');
+
+  // updates the current range value and the associated Instacam property when input is changing
   element.addEventListener('input', function() {
+    value.innerHTML = this.value;
     camera[this.name] = Number.parseFloat(this.value);
+  });
+
+  // shows the current range value on mousedown
+  element.addEventListener('mousedown', function() {
+    value.innerHTML = this.value;
+    value.classList.add('update');
+  });
+
+  // hides the current range value on mouseup
+  element.addEventListener('mouseup', function() {
+    value.classList.remove('update');
   });
 });
