@@ -57,6 +57,10 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
         let r = Math.random();
         return [r * pixel.red, r * pixel.green, r * pixel.blue, pixel.alpha];
       },
+      'grayscale': function(pixel) {
+        let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
+        return [g, g, g, pixel.alpha];
+      },
       'invert': function(pixel) {
         return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
       },
