@@ -475,4 +475,24 @@ export class Instacam {
     this.options.url = url;
     this._compute();
   }
+
+  /**
+    Gets the custom filter
+    @returns {Function} custom filter of the viewport
+  */
+  get filter() {
+    return this.options.filter;
+  }
+
+  /**
+    Sets the custom filter
+    @param {Function} filter - custom filter applied to the viewport
+  */
+  set filter(filter) {
+    if (filter !== null && typeof filter !== 'function') {
+      throw new Error('Invalid filter, you need to give a function or null to disable the custom filtering');
+    }
+
+    this.options.filter = filter;
+  }
 }
