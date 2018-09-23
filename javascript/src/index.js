@@ -45,3 +45,32 @@ Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(func
     value.classList.remove('update');
   });
 });
+
+// binds all custom filter input to properly update the viewport
+Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(element) {
+  element.addEventListener('change', function() {
+
+    // defines all custom filters
+    const filters = {
+      'none': null,
+      'noise': function(pixel) {
+        let r = Math.random();
+        return [r * pixel.red, r * pixel.green, r * pixel.blue, pixel.alpha];
+      },
+      'invert': function(pixel) {
+        return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
+      },
+      'threshold': function(pixel) {
+        return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
+      },
+      'sobel': function(pixel) {
+        let v = Math.abs(pixel.x);
+        let h = Math.abs(pixel.y);
+        return [pixel.red + v, pixel.green + h, pixel.blue + (v + h) / 4, 255];
+      }
+    };
+
+    // applies the custom filter
+    camera.filter = filters[this.value];
+  });
+});
