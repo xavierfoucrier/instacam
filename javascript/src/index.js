@@ -71,6 +71,17 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
         let v = Math.abs(pixel.x);
         let h = Math.abs(pixel.y);
         return [pixel.red + v, pixel.green + h, pixel.blue + (v + h) / 4, 255];
+      },
+      'pixel': function(pixel) {
+        if (pixel.offset % 10 !== 0) {
+          return [window.red, window.green, window.blue, 255];
+        } else {
+          window.red = pixel.red;
+          window.green = pixel.green;
+          window.blue = pixel.blue;
+
+          return [pixel.red, pixel.green, pixel.blue, 255];
+        }
       }
     };
 
