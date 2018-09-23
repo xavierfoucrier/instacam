@@ -25,6 +25,9 @@ let camera = new Instacam(
 Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(function(element) {
   const value = element.parentNode.querySelector('.value');
 
+  // defines data default attribute automatically
+  element.setAttribute('data-default', element.value);
+
   // updates the current range value and the associated Instacam property when input is changing
   element.addEventListener('input', function() {
     value.innerHTML = this.value;
