@@ -89,3 +89,35 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
     camera.filter = filters[this.value];
   });
 });
+
+// saves the viewport the exported format is changing
+Array.from(document.querySelectorAll('[name="save"]')).forEach(function(element) {
+  element.addEventListener('change', function() {
+    save();
+  });
+});
+
+// saves the viewport when the exported quality is changing
+document.querySelector('[name="quality"]').addEventListener('input', function() {
+  save();
+});
+
+// saves the viewport and displays the exported image data
+function save() {
+
+  // gets the image data
+  let data = camera.save(document.querySelector('[name="save"]:checked').value, parseFloat(document.querySelector('[name="quality"]').value));
+
+  // creates the exported image in the specified format and quality
+  let image = document.createElement('img');
+  image.setAttribute('width', 400);
+  image.setAttribute('height', 300);
+  image.setAttribute('src', data);
+
+  // appends the image into the export area
+  document.querySelector('.export').innerHTML = '';
+  document.querySelector('.export').appendChild(image);
+
+  // estimates the file size
+  document.querySelector('.size span').innerHTML = Math.round(((data.length * 3) / 4) / 1024);
+}
