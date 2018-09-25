@@ -49,11 +49,18 @@ fieldset {
 }
 
 legend {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-family: 'DINEngschriftStd';
   font-size: 20px;
   color: @vibrant-color;
   text-transform: uppercase;
+
+  & + p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 100;
+  }
 }
 
 label {
