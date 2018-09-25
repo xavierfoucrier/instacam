@@ -90,7 +90,7 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
   });
 });
 
-// saves the viewport the exported format is changing
+// saves the viewport when the exported format is changing
 Array.from(document.querySelectorAll('[name="format"]')).forEach(function(element) {
   element.addEventListener('change', function() {
     save();
