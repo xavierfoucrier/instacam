@@ -3,8 +3,9 @@
 // uses pseudo node module for now as Instacam is not published yet on the NPM registry
 import {Instacam} from '../../node_modules/instacam/src/instacam.js';
 
-// gets the log element
+// gets some elements
 let log = document.querySelector('.log');
+let preview = document.querySelector('.preview');
 
 // instantiate the class
 let camera = new Instacam(
@@ -103,12 +104,12 @@ document.querySelector('[name="snap"]').addEventListener('click', function() {
   canvas.getContext('2d').putImageData(data, 0, 0);
 
   // cleans the area before displaying thumbnail
-  if (document.querySelector('.export img') !== null || (document.querySelectorAll('.export canvas').length >= 16)) {
-    document.querySelector('.export').innerHTML = '';
+  if (preview.querySelector('img') !== null || (preview.querySelectorAll('canvas').length >= 16)) {
+    preview.innerHTML = '';
   }
 
   // appends the snapshot into the export area
-  document.querySelector('.export').appendChild(canvas);
+  preview.appendChild(canvas);
 });
 
 // saves the viewport when the exported format is changing
@@ -139,9 +140,9 @@ function save() {
   image.setAttribute('height', 300);
   image.setAttribute('src', data);
 
-  // appends the image into the export area
-  document.querySelector('.export').innerHTML = '';
-  document.querySelector('.export').appendChild(image);
+  // appends the image into the preview area
+  preview.innerHTML = '';
+  preview.appendChild(image);
 
   // estimates the file size
   document.querySelector('.size span').innerHTML = Math.round(((data.length * 3) / 4) / 1024);
