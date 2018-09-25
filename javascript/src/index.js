@@ -90,6 +90,27 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
   });
 });
 
+// snaps the viewportn and displays a thumbnail
+document.querySelector('[name="snap"]').addEventListener('click', function() {
+
+  // snaps the camera
+  let data = camera.snap();
+
+  // creates a canvas to paste the snapshot
+  let canvas = document.createElement('canvas');
+  canvas.setAttribute('width', 400);
+  canvas.setAttribute('height', 300);
+  canvas.getContext('2d').putImageData(data, 0, 0);
+
+  // cleans the area before displaying thumbnail
+  if (document.querySelector('.export img') !== null || (document.querySelectorAll('.export canvas').length >= 16)) {
+    document.querySelector('.export').innerHTML = '';
+  }
+
+  // appends the snapshot into the export area
+  document.querySelector('.export').appendChild(canvas);
+});
+
 // saves the viewport when the exported format is changing
 Array.from(document.querySelectorAll('[name="format"]')).forEach(function(element) {
   element.addEventListener('change', function() {
