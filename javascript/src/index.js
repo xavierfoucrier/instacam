@@ -91,7 +91,7 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
 });
 
 // saves the viewport the exported format is changing
-Array.from(document.querySelectorAll('[name="save"]')).forEach(function(element) {
+Array.from(document.querySelectorAll('[name="format"]')).forEach(function(element) {
   element.addEventListener('change', function() {
     save();
   });
@@ -106,7 +106,7 @@ document.querySelector('[name="quality"]').addEventListener('input', function() 
 function save() {
 
   // gets the image data
-  let data = camera.save(document.querySelector('[name="save"]:checked').value, parseFloat(document.querySelector('[name="quality"]').value));
+  let data = camera.save(document.querySelector('[name="format"]:checked').value, parseFloat(document.querySelector('[name="quality"]').value));
 
   // creates the exported image in the specified format and quality
   let image = document.createElement('img');
