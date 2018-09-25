@@ -105,6 +105,10 @@ document.querySelector('[name="quality"]').addEventListener('input', function() 
 // saves the viewport and displays the exported image data
 function save() {
 
+  // activates the quality input
+  document.querySelector('[name="quality"]').removeAttribute('disabled');
+  document.querySelector('.size').classList.remove('disabled');
+
   // gets the image data
   let data = camera.save(document.querySelector('[name="format"]:checked').value, parseFloat(document.querySelector('[name="quality"]').value));
 

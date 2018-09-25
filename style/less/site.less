@@ -127,6 +127,22 @@ button {
       background: @vibrant-color;
     }
   }
+
+  &:disabled {
+    &::-webkit-slider-runnable-track,
+    &::-webkit-slider-thumb {
+      background: @disable-color;
+    }
+
+    &::-webkit-slider-thumb {
+      cursor: default;
+
+      &:hover {
+        transform: none;
+        transition: transform 200ms ease;
+      }
+    }
+  }
 }
 
 [type='radio'] {
@@ -199,6 +215,10 @@ button {
   display: inline-block;
   padding-top: 10px;
   font-size: 30px;
+
+  &.disabled {
+    color: @disable-color;
+  }
 
   small {
     font-size: 13px;
