@@ -1,6 +1,7 @@
 // main: build.less
 
 @import 'foundation';
+@import '../../node_modules/@studiomotio/micro-motion/micro-motion';
 
 body {
   font-family: @font;
@@ -260,4 +261,13 @@ button {
       transform: translateY(10px);
     }
   }
+}
+
+.link-author {
+  color: @vibrant-color;
+  .mm-highlight();
+}
+
+.link-license {
+  .mm-highlight();
 }
