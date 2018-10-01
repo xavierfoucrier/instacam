@@ -1,3 +1,8 @@
+/*!
+  instacam – Instant canvas video
+  Xavier Foucrier @xavierfoucrier 2018 MIT
+  1.0.0
+*/
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
