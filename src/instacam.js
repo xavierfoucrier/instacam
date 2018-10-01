@@ -1,5 +1,11 @@
 'use strict';
 
+/*!
+  Instacam – instant canvas video
+  Xavier Foucrier @xavierfoucrier 2018 MIT
+  1.0.0
+*/
+
 import {defaults} from './defaults.js';
 import {requirement} from './support.js';
 
