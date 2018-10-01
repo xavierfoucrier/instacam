@@ -132,7 +132,7 @@ function save() {
   document.querySelector('.size').classList.remove('disabled');
 
   // gets the image data
-  let data = camera.save(document.querySelector('[name="format"]:checked').value, parseFloat(document.querySelector('[name="quality"]').value));
+  let data = camera.save(document.querySelector('[name="format"]:checked').value, Number.parseFloat(document.querySelector('[name="quality"]').value));
 
   // creates the exported image in the specified format and quality
   let image = document.createElement('img');
