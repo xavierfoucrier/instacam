@@ -276,21 +276,21 @@ Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Done is a callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own function here.
+Done is a callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own logic here.
 
 #### fail
 Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own function here. Note that this function pass an `exception` argument that represent the NavigatorUserMediaError object, allowing you to detect the source of the problem.
+Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own logic here. Note that this function pass an `exception` argument that represent the NavigatorUserMediaError object, allowing you to detect the source of the problem.
 
 #### unsupported
 Type: `Function`
 Return: `Nothing`
 Default: `null`
 
-Unsupported is a callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own function here.
+Unsupported is a callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own logic here.
 
 
 ## Methods
@@ -377,4 +377,4 @@ This site is hosted on Github pages and allow you to play with **most Instacam o
 
 📷 [Play with Instacam](https://xavierfoucrier.github.io/instacam)
 
-Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)**.
+Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)** before diving into the library.
