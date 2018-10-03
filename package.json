@@ -30,7 +30,7 @@
   "devDependencies": {
     "@studiomotio/micro-motion": "^0.1.1",
     "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack": "^4.18.0",
+    "webpack": "^4.20.2",
     "webpack-command": "^0.4.1"
   }
 }
