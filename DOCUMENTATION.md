@@ -1,5 +1,5 @@
 # Instacam documentation
-Here you will find the documentation describing on how to use the module.
+Here you will find the documentation describing how to use the module.
 
 
 ## Summary
