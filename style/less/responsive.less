@@ -11,14 +11,21 @@
 
   .render {
     width: 100vw;
-    height: 133vw;
-    max-height: 133vh;
-    max-width: 100vh;
+    height: 75vw;
+    max-width: 133vh;
+    max-height: 100vh;
   }
 
   .log {
     padding: 0 15px;
     display: inline-block;
     max-width: none;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 639px) {
+  .render {
+    width: 100vw;
+    height: 133vw;
   }
 }
