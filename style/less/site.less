@@ -7,7 +7,7 @@ body {
   font-weight: 400;
   margin-top: 40px;
   cursor: default;
-  user-select: none;
+  .no-select();
 }
 
 p {
@@ -26,6 +26,7 @@ svg {
 
 a {
   color: currentColor;
+  .no-tap();
 }
 
 form {
@@ -90,8 +91,7 @@ button {
 
 [type='range'] {
   height: 1px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  .no-appearance();
 
   &::-webkit-slider-runnable-track {
     width: 100%;
@@ -109,8 +109,7 @@ button {
     border-radius: 100%;
     cursor: pointer;
     transition: all 200ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    .no-appearance();
 
     &:hover {
       background: @vibrant-color;
@@ -154,8 +153,7 @@ button {
   border-radius: 100%;
   cursor: pointer;
   transition: border 200ms ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  .no-appearance();
 
   &::before {
     content: '';
@@ -193,6 +191,7 @@ button {
 
 .radio {
   cursor: pointer;
+  .no-tap();
 }
 
 .logo-instacam {
