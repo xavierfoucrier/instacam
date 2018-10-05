@@ -1,0 +1,39 @@
+{
+  "name": "instacam",
+  "version": "1.0.0",
+  "description": "Instant canvas video",
+  "main": "dist/instacam.js",
+  "scripts": {
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavierfoucrier/instacam.git"
+  },
+  "keywords": [
+    "webrtc",
+    "camera",
+    "microphone",
+    "webcam",
+    "canvas",
+    "video",
+    "filters"
+  ],
+  "author": {
+    "name": "Xavier Foucrier",
+    "email": "xavier.foucrier@gmail.com",
+    "url": "https://www.xavierfoucrier.fr",
+    "github": "@xavierfoucrier"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xavierfoucrier/instacam/issues"
+  },
+  "homepage": "https://github.com/xavierfoucrier/instacam#readme",
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "webpack": "^4.20.2",
+    "webpack-command": "^0.4.1"
+  }
+}
