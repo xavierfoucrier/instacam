@@ -1,74 +1,191 @@
-<html>
-	<head>
-    <meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Instacam by xavierfoucrier</title>
-    <link rel="stylesheet" href="resources/theme.css">
-		<script type="text/javascript" src="resources/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="resources/jquery.instacam.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<script type="text/javascript">
-			$(function() {
-				
-				// instanciates the plugin
-				$('#canvas1').instacam({
-					done: function() {
-						$('.log').html('Instacam is working fine!').show();
-					},
-					fail: function() {
-						$('.log').html('Sorry, Instacam failed to start because you didn\'t accept the requested permissions to access to your camera, or something went wrong...').show();
-					},
-					unsupported: function() {
-						$('.log').html('Sorry, but it seems that your browser doesn\'t support natively the HTML5 <code>canvas</code> tag, <code>requestAnimationFrame</code> API and <code>getUserMedia</code> API.').show();
-					}
-				});
-			});
-			
-			// analytics tracker
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-54245092-4', 'auto');ga('send', 'pageview');
-		</script>
-	</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="all" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="instacam, canvas, video, camera, webcam, webrtc" />
+    <meta name="description" content="Instacam is a library to perform instant canvas video through the WebRTC API with a fresh touch of CSS filters." />
+    <meta name="author" content="Xavier Foucrier, Copyright (c) 2018" />
+    <meta name="geo.placename" content="La Rochelle, Charente-Maritime, France" />
+    <meta name="application-name" content="Instacam" />
+    <title>instacam &ndash; Instant canvas video</title>
+    <link rel="icon" href="picture/favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="stylesheet" media="all" href="style/default.min.css" />
+    <link rel="prefetch" href="font/sailec-light.woff" />
+    <link rel="prefetch" href="font/sailec-light-italic.woff" />
+    <link rel="prefetch" href="font/sailec-regular.woff" />
+    <link rel="prefetch" href="font/sailec-bold.woff" />
+    <link rel="prefetch" href="font/din-engschrift.woff" />
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-54245092-4" async></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-54245092-4')</script>
+  </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Instacam</h1>
-				<p>Instacam is a jQuery plugin to perform <strong>instant canvas video</strong> through the WebRTC API with a fresh touch of CSS filters.</p>
-        <p class="view"><a href="https://github.com/xavierfoucrier/instacam">View the Project on GitHub <small>xavierfoucrier/instacam</small></a></p>
-        <ul>
-          <li><a href="https://github.com/xavierfoucrier/instacam/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/xavierfoucrier/instacam/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/xavierfoucrier/instacam">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-			<section>
-				<h2>Basic demo</h2>
-				<p>Simple and instant demo of what Instacam can do. <strong>Enjoy!</strong></p>
-				<canvas id="canvas1"></canvas>
-				<blockquote class="log"></blockquote>
-				<h3>Source code</h3>
-<pre><code>$(function() {
-  $('#canvas1').instacam();
-});
-</code></pre>
-				<br />
-				<h3>Documentation</h3>
-				<p>Instacam can do <strong>much more</strong> than display a camera stream! CSS filtering, custom filtering applied on HTML5 canvas, snapshots, etc. <a href="https://github.com/xavierfoucrier/instacam">View the project on Github</a> to see the documentation about available options, methods and callbacks.</p>
-				<br />
-				<h3>Other demonstrations</h3>
-				<ul>
-					<li><a href="index.html">Basic demo</a> - a simple demo with the camera</li>
-					<li><a href="css-filter.html">CSS filter demo</a> - pretty css filtering demo</li>
-					<li><a href="custom-filter.html">Custom filter demo</a> - pretty custom filtering demo</li>
-					<li><a href="snap.html">Snap demo</a> - capture the viewport image data</li>
-					<li><a href="save.html">Save demo</a> - save the viewport in different format and quality</li>
-				</ul>
-			</section>
-			<footer>
-				<p>This project is maintained by <a href="https://github.com/xavierfoucrier">xavierfoucrier</a></p>
-				<p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-			</footer>
-		</div>
-    <script type="text/javascript" src="resources/scale.fix.js"></script>
-	</body>
+    <header>
+      <div class="row align-justify align-middle">
+        <div class="column shrink"><svg viewBox="0 0 167.33 91.63" class="logo-instacam"><use xlink:href="picture/sprite.svg#instacam" /></svg></div>
+        <div class="column shrink"><a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github" class="link"><svg viewBox="0 0 80 22" class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg></a></div>
+      </div>
+      <div class="row column">
+        <p>Instacam is a library to perform <a href="https://github.com/xavierfoucrier/instacam/blob/npm/DOCUMENTATION.md#how-it-works" target="_blank" class="link"><strong>instant canvas video</strong></a> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md" target="_blank" class="link"><strong>much more</strong></a> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <a href="https://github.com/xavierfoucrier/instacam" target="_blank" class="link"><strong>on Github</strong></a> to see the documentation about available options, methods and callbacks.</p>
+      </div>
+    </header>
+    <main class="align-justify">
+      <div class="row">
+        <form class="column small-order-2 medium-order-1">
+          <fieldset class="css-filter hide-for-small-only">
+            <legend>CSS filter</legend>
+            <p>Adds pretty css filters to the camera</p>
+            <div class="row medium-up-2 large-up-3">
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#opacity" /></svg>
+                  <span class="value"></span>
+                  <span class="name">opacity</span>
+                </label>
+                <input type="range" name="opacity" min="0" max="1" step="0.01" value="1" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#brightness" /></svg>
+                  <span class="value"></span>
+                  <span class="name">brightness</span>
+                </label>
+                <input type="range" name="brightness" min="0" max="10" step="0.1" value="1" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#contrast" /></svg>
+                  <span class="value"></span>
+                  <span class="name">contrast</span>
+                </label>
+                <input type="range" name="contrast" min="0" max="10" step="0.1" value="1" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#saturation" /></svg>
+                  <span class="value"></span>
+                  <span class="name">saturation</span>
+                </label>
+                <input type="range" name="saturation" min="0" max="10" step="0.1" value="1" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#hue" /></svg>
+                  <span class="value"></span>
+                  <span class="name">hue</span>
+                </label>
+                <input type="range" name="hue" min="0" max="360" value="0" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#invert" /></svg>
+                  <span class="value"></span>
+                  <span class="name">invert</span>
+                </label>
+                <input type="range" name="invert" min="0" max="1" step="0.01" value="0" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#grayscale" /></svg>
+                  <span class="value"></span>
+                  <span class="name">grayscale</span>
+                </label>
+                <input type="range" name="grayscale" min="0" max="1" step="0.1" value="0" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#sepia" /></svg>
+                  <span class="value"></span>
+                  <span class="name">sepia</span>
+                </label>
+                <input type="range" name="sepia" min="0" max="1" step="0.1" value="0" />
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#blur" /></svg>
+                  <span class="value"></span>
+                  <span class="name">blur</span>
+                </label>
+                <input type="range" name="blur" min="0" max="10" step="0.1" value="0" />
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="custom-filter">
+            <legend>Custom filter</legend>
+            <p>Creates custom filters based on the canvas magic</p>
+            <div class="row small-up-2 medium-up-2 large-up-3">
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="none" checked="checked" />none</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="noise" />random noise</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="grayscale" />grayscale</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="invert" />color inversion</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="threshold" />threshold</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="sobel" />soft-sobel</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="filter" value="pixel" />pixelate</label>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="snap hide-for-small-only">
+            <legend>Snap</legend>
+            <p>Takes a snapshot of the camera</p>
+            <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
+          </fieldset>
+          <fieldset class="save hide-for-small-only">
+            <legend>Save</legend>
+            <p>Exports the camera stream in different format and quality</p>
+            <div class="row medium-up-2 large-up-3">
+              <div class="column">
+                <label class="radio"><input type="radio" name="format" value="png" />png</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="format" value="jpeg" />jpeg</label>
+              </div>
+              <div class="column">
+                <label class="radio"><input type="radio" name="format" value="webp" />webp</label>
+              </div>
+              <div class="column">
+                <label class="property">
+                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#quality" /></svg>
+                  <span class="value"></span>
+                  <span class="name">quality</span>
+                </label>
+                <input type="range" name="quality" min="0" max="1" step="0.1" value="1" disabled="disabled" />
+              </div>
+              <div class="column">
+                <span class="size disabled">
+                  <span>0</span>
+                  <small>ko</small>
+                </span>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div class="column shrink small-order-1 medium-order-2">
+          <canvas class="render"></canvas>
+          <em class="log">Waiting for your camera...</em>
+          <div class="preview hide-for-small-only"></div>
+        </div>
+      </div>
+      <div class="row column small-order-4 show-for-small-only">
+        <p>This is a basic demo: switch to a larger screen to discover all the amazing things that <strong>Instacam</strong> can do!</p>
+      </div>
+    </main>
+    <footer class="row column">
+      <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank" class="link link-author">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank" class="link link-license">MIT License</a></strong>.</p>
+    </footer>
+    <script src="javascript/app.min.js"></script>
+  </body>
 </html>
