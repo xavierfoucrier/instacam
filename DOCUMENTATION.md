@@ -36,7 +36,7 @@ npm install instacam
 This will **download and install** Instacam into the `node_modules` folder under your project directory. When it's done, you can start to use the module in one of your javascript file like this:
 
 ```js
-import Instacam from 'instacam';
+import {Instacam} from 'instacam';
 
 let camera = new Instacam(
   document.querySelector('#canvas1')
