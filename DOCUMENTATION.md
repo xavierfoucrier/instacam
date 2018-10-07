@@ -116,7 +116,7 @@ let camera = new Instacam(document.querySelector('#canvas1'), {
   opacity: 1,
   brightness: 1,
   contrast: 1,
-  saturation: 0,
+  saturation: 1,
   hue: 0,
   invert: 0,
   grayscale: 0,
@@ -210,7 +210,7 @@ The contrast option **adjusts the contrast** of the viewport. A value of 0 will 
 
 #### saturation
 Type: `Number`
-Default: `0`
+Default: `1`
 Minimum: `0`
 Maximum: `None`
 

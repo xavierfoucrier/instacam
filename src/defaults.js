@@ -37,7 +37,7 @@ export let defaults = {
   contrast: 1,
 
   // {Number} [0..*] saturation of the viewport (css filter)
-  saturation: 0,
+  saturation: 1,
 
   // {Number} [0..360] hue of the viewport (css filter)
   hue: 0,
