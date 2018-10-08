@@ -1,8 +1,8 @@
 {
   "name": "instacam",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Instant canvas video",
-  "main": "dist/instacam.js",
+  "main": "src/instacam.js",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
