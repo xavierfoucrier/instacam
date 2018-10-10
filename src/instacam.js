@@ -7,7 +7,7 @@ export class Instacam {
 
   /**
     Class constructor
-    @param {Object} viewport - canvas element from the DOM
+    @param {Object} viewport - selector or canvas element from the DOM
     @param {Object} options - custom options of the class
   */
   constructor(viewport, options) {
@@ -24,9 +24,14 @@ export class Instacam {
       return;
     }
 
+    // rewrites the viewport element if the user passed a selector to the constructor
+    if (typeof viewport === 'string') {
+      viewport = document.querySelector(viewport);
+    }
+
     // checks the viewport element
     if (typeof viewport === 'undefined' || viewport === null || viewport.nodeName.toLowerCase() !== 'canvas') {
-      throw new Error('Invalid viewport, you need to pass a valid HTML5 canvas element');
+      throw new Error('Invalid viewport, you need to pass a valid selector or HTML5 canvas element');
     }
 
     // initializes the viewport
