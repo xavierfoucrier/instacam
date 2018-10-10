@@ -275,7 +275,28 @@ Type: `Function`
 Return: `Array`
 Default: `null`
 
-The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **class filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied. **[Take a look at the demo](#demo)** to see how it works.
+The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **class filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied.
+
+Build a custom filter is very easy, because you can code **your own logic** inside the function, for example:
+```js
+// grayscale
+filter: function(pixel) {
+  let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
+  return [g, g, g, pixel.alpha];
+}
+
+// invert
+filter: function(pixel) {
+  return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
+}
+
+// threshold
+filter: function(pixel) {
+  return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
+}
+```
+
+If you want to contribute and share cool filters, you can send me your code or create a **pull request** on the `gh-pages` branch, and it will be added to the **[Instacam demo site](#demo)**. Thanks for contributing! :tada: :+1:
 
 #### done
 Type: `Function`
