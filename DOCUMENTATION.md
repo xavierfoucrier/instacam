@@ -73,6 +73,12 @@ let camera = new Instacam(
 );
 ```
 
+You can also **pass a selector** to the constructor, and Instacam will get the DOM element for you:
+
+```js
+let camera = new Instacam('#canvas1');
+```
+
 **Custom options** are passed through the second parameter:
 
 ```js
