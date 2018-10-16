@@ -12,7 +12,14 @@ module.exports = {
   optimization: {
     minimizer: [
       new uglify({
-        parallel: true
+        parallel: true,
+        uglifyOptions: {
+          mangle: {
+            properties: {
+              regex: /^_/
+            }
+          }
+        }
       })
     ]
   }

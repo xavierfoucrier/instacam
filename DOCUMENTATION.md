@@ -329,8 +329,8 @@ Instacam methods with all default parameters as defined in the source.
 let snapshot = camera.snap(
   left: 0,
   top: 0,
-  width: this.options.width,
-  height: this.options.height
+  width: this._options.width,
+  height: this._options.height
 );
 ```
 
