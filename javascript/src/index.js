@@ -22,7 +22,7 @@ let camera = new Instacam(
   }
 );
 
-// binds all css filter input to properly update the viewport
+// binds all property input to properly update the viewport
 Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(function(element) {
   const value = element.parentNode.querySelector('.value');
 
