@@ -142,7 +142,19 @@
             </div>
           </fieldset>
           <div class="row hide-for-small-only">
-            <fieldset class="audio column large-4">
+            <fieldset class="audio column medium-6 large-4">
+              <legend>Mirror</legend>
+              <p>Flip the camera horizontally</p>
+              <div class="row small-up-2 medium-up-2 large-up-3">
+                <div class="column">
+                  <label class="radio"><input type="radio" name="mirror" value="1" />on</label>
+                </div>
+                <div class="column">
+                  <label class="radio"><input type="radio" name="mirror" value="0" checked="checked" />off</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="audio column medium-6 large-4">
               <legend>Audio</legend>
               <p>Control the sound of the camera</p>
               <div class="row small-up-2 medium-up-2 large-up-3">
@@ -156,7 +168,7 @@
                 </div>
               </div>
             </fieldset>
-            <fieldset class="snap column">
+            <fieldset class="snap column medium-6 large-4">
               <legend>Snap</legend>
               <p>Takes a snapshot of the camera</p>
               <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>

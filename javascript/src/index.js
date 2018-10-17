@@ -106,6 +106,13 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
   });
 });
 
+// applies the mirror mode to the viewport
+Array.from(document.querySelectorAll('[name="mirror"]')).forEach(function(element) {
+  element.addEventListener('change', function() {
+    camera.mirror = element.value === '1';
+  });
+});
+
 // snaps the viewport and displays a thumbnail
 document.querySelector('[name="snap"]').addEventListener('click', function() {
 
