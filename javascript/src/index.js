@@ -106,7 +106,7 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
   });
 });
 
-// snaps the viewportn and displays a thumbnail
+// snaps the viewport and displays a thumbnail
 document.querySelector('[name="snap"]').addEventListener('click', function() {
 
   // snaps the camera
