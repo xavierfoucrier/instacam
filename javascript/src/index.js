@@ -10,6 +10,8 @@ let preview = document.querySelector('.preview');
 // instantiate the class
 let camera = new Instacam(
   document.querySelector('canvas'), {
+    sound: true,
+    volume: 0,
     done: function() {
       log.innerHTML = 'Instacam is working fine.';
     },
@@ -33,6 +35,19 @@ Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(func
   element.addEventListener('input', function() {
     value.innerHTML = this.value;
     camera[this.name] = Number.parseFloat(this.value);
+
+    // updates the volume icon to represent the volume state
+    if (this.name === 'volume') {
+      const state = document.querySelector('.volume-state use');
+
+      if (this.value < 30) {
+        state.setAttribute('xlink:href', 'picture/sprite.svg#volume-mute');
+      } else if (this.value >= 30 && this.value <= 70) {
+        state.setAttribute('xlink:href', 'picture/sprite.svg#volume-down');
+      } else if (this.value > 70) {
+        state.setAttribute('xlink:href', 'picture/sprite.svg#volume-up');
+      }
+    }
   });
 
   // shows the current range value on mousedown

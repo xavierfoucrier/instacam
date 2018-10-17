@@ -141,11 +141,27 @@
               </div>
             </div>
           </fieldset>
-          <fieldset class="snap hide-for-small-only">
-            <legend>Snap</legend>
-            <p>Takes a snapshot of the camera</p>
-            <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
-          </fieldset>
+          <div class="row hide-for-small-only">
+            <fieldset class="audio column large-4">
+              <legend>Audio</legend>
+              <p>Control the sound of the camera</p>
+              <div class="row small-up-2 medium-up-2 large-up-3">
+                <div class="column">
+                  <label class="property">
+                    <svg viewBox="0 0 24 24" class="volume-state"><use xlink:href="picture/sprite.svg#volume-mute" /></svg>
+                    <span class="value"></span>
+                    <span class="name">volume</span>
+                  </label>
+                  <input type="range" name="volume" min="0" max="100" step="1" value="0" />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="snap column">
+              <legend>Snap</legend>
+              <p>Takes a snapshot of the camera</p>
+              <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
+            </fieldset>
+          </div>
           <fieldset class="save hide-for-small-only">
             <legend>Save</legend>
             <p>Exports the camera stream in different format and quality</p>
