@@ -500,4 +500,12 @@ export class Instacam {
 
     this._options.filter = filter;
   }
+
+  /**
+    Gets style applied to the viewport
+    @returns {Array} style applied to the viewport (css)
+  */
+  get style() {
+    return this._style.length !== 0 ? this._style.trim().split(' ') : [];
+  }
 }
