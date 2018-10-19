@@ -152,6 +152,39 @@ export class Instacam {
 
     // applies the css filter effects to the viewport
     this.viewport.style.filter = this._style;
+
+    // builds the blend layer depending on the options
+    if (Object.keys(this._options.blend).length !== 0) {
+
+      // creates the blending element
+      if (typeof this._blend === 'undefined') {
+        this._blend = document.createElement('div');
+
+        // prepends the blending element to the viewport
+        this.viewport.parentNode.insertBefore(this._blend, this.viewport);
+      }
+
+      // gets the viewport bounds
+      const bounds = this.viewport.getBoundingClientRect();
+
+      // sets the blending styles
+      this._blend.style = `
+        position: absolute;
+        z-index: 1;
+        left: ${bounds.left}px;
+        top: ${bounds.top}px;
+        width: ${bounds.width}px;
+        height: ${bounds.height}px;
+        mix-blend-mode: ${this._options.blend.mode};
+        background: ${this._options.blend.color};
+        pointer-events: none;
+      `;
+    } else if (typeof this._blend !== 'undefined') {
+
+      // removes the blend layer from the DOM if there is no blending applied
+      this._blend.parentNode.removeChild(this._blend);
+      delete this._blend;
+    }
   }
 
   /**
@@ -478,6 +511,27 @@ export class Instacam {
     }
 
     this._options.url = url;
+    this._compute();
+  }
+
+  /**
+    Gets the viewport blend layer
+    @returns {Object} blend layer of the viewport (css mix blend mode)
+  */
+  get blend() {
+    return this._options.blend;
+  }
+
+  /**
+    Sets the viewport blend layer
+    @param {Object} blend - blend layer of the viewport (css mix blend mode)
+  */
+  set blend(blend) {
+    if (typeof blend !== 'object') {
+      throw new Error('Invalid blend, you need to give a valid object with {mode|color} or an empty object to disable blending');
+    }
+
+    this._options.blend = blend;
     this._compute();
   }
 
