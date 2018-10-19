@@ -57,6 +57,9 @@ export let defaults = {
   // {String} svg filtering of the viewport (css filter)
   url: '',
 
+  // {Object} blend layer of the viewport (css mix blend mode)
+  blend: {},
+
   // {Function} custom filter applied to the viewport
   filter: null,
 
