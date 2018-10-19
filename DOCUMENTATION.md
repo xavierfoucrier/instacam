@@ -298,6 +298,13 @@ filter: function(pixel) {
 
 If you want to contribute and share cool filters, you can send me your code or create a **pull request** on the `gh-pages` branch, and it will be added to the **[Instacam demo site](#demo)**. Thanks for contributing! :tada: :+1:
 
+#### style
+Type: `Array`
+Return: `Array`
+Default: `none`
+
+The style option returns **styles that are applied to the viewport**. Note that there is no default value for this option because the array is build dynamically.
+
 #### done
 Type: `Function`
 Return: `Nothing`
