@@ -129,6 +129,7 @@ let camera = new Instacam(document.querySelector('#canvas1'), {
   sepia: 0,
   blur: 0,
   url: 0,
+  blend: {},
   filter: null,
   done: null,
   fail: null,
@@ -269,6 +270,21 @@ Type: `String`
 Default: `Empty`
 
 The url option takes the **location of an XML file** that specifies an **SVG filter**, and may include an anchor to a specific filter element. If omitted, the CSS filter won't be applied.
+
+#### blend
+Type: `Object`
+Default: `Empty`
+
+The blend option **applies a CSS mix blend mode filter** to the viewport. You need to define the blend mode and color to enable blending:
+
+```js
+blend: {
+  mode: 'lighten',
+  color: 'darkslateblue'
+}
+```
+
+To properly blend the viewport, Instacam need to create **a layout above the canvas**. Blending can be disable at any time by simply set the blend option to an empty object `{}`.
 
 #### filter
 Type: `Function`
