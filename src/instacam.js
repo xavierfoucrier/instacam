@@ -54,11 +54,15 @@ export class Instacam {
     // applies the css mirror mode on the viewport
     this.mirror = this._options.mirror;
 
-    // computes the css filter options
-    this._compute();
+    // autostart the stream capture depending on the options
+    if (this._options.autostart === true) {
 
-    // captures the webcam stream
-    this._capture();
+      // computes the css filter options
+      this._compute();
+
+      // captures the device stream
+      this._capture();
+    }
   }
 
   /**
@@ -83,6 +87,9 @@ export class Instacam {
           };
         })()
       }).then((stream) => {
+
+        // stores the blob stream
+        this._stream = stream;
 
         // captures the blob stream
         this._media.srcObject = stream;
@@ -230,6 +237,37 @@ export class Instacam {
     } catch(exception) {
       throw new Error('Invalid filter, you need to return a valid [red, green, blue, alpha] pixel array');
     }
+  }
+
+  /**
+    Starts the stream capture
+  */
+  start() {
+
+    // computes the css filter options
+    this._compute();
+
+    // captures the device stream
+    this._capture();
+  }
+
+  /**
+    Stops the stream capture
+  */
+  stop() {
+
+    // exits if no stream is active
+    if (typeof this._stream === 'undefined') {
+      return;
+    }
+
+    // loops through all stream tracks (audio + video) and stop them
+    this._stream.getTracks().forEach(function(track) {
+      track.stop();
+    });
+
+    // resets the media element
+    this._media.srcObject = null;
   }
 
   /**

@@ -9,6 +9,9 @@ export let defaults = {
   // {Number} height of the viewport element
   height: 300,
 
+  // {Boolean} true|false, defines if the capture start automatically
+  autostart: true,
+
   // {Boolean} true|false, defines if the camera video stream is enabled
   camera: true,
 

@@ -113,6 +113,7 @@ Instacam call with all default options as defined in the source.
 let camera = new Instacam(document.querySelector('#canvas1'), {
   width: 400,
   height: 300,
+  autostart: true,
   camera: true,
   framerate: 30,
   ratio: 4/3,
@@ -151,6 +152,12 @@ Type: `Length`
 Default: `300`
 
 The height represents **the height of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+
+#### autostart
+Type: `Boolean`
+Default: `true`
+
+The autostart option allows you to **change the start behavior**. By default, Instacam capture the webcam stream when the class is instanciated. If you set this option to `false`, you will need to call the `start()` method to run the capture.
 
 #### camera
 Type: `Boolean`
@@ -347,6 +354,16 @@ Unsupported is a callback method **called when a browser doesn't support a requi
 ### Quick reference
 Instacam methods with all default parameters as defined in the source.
 
+#### Start
+```js
+camera.start();
+```
+
+#### Stop
+```js
+camera.stop();
+```
+
 #### Snap
 ```js
 let snapshot = camera.snap(
@@ -367,6 +384,16 @@ let data = camera.save(
 
 ### Complete reference
 Instacam reference that details all methods of the class.
+
+#### start ( )
+Type: `Function`
+
+The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Note that both camera and sound will be started, depending on the options you have defined.
+
+#### stop ( )
+Type: `Function`
+
+The stop method allows you to **stop the capture of the webcam stream**. Note that both camera and sound will be stopped.
 
 #### snap ( left , top , width , height )
 Type: `Function`
