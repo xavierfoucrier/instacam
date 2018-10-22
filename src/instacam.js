@@ -40,16 +40,16 @@ export class Instacam {
     this.viewport.height = this._options.height;
 
     // creates the media element
-    this.media = document.createElement('video');
+    this._media = document.createElement('video');
 
     // sets some media element properties
-    this.media.style.display = 'none';
-    this.media.autoplay = true;
-    this.media.width = this._options.width;
-    this.media.height = this._options.height;
+    this._media.style.display = 'none';
+    this._media.autoplay = true;
+    this._media.width = this._options.width;
+    this._media.height = this._options.height;
 
     // attaches the media element to the DOM
-    this.viewport.parentNode.insertBefore(this.media, this.viewport.nextSibling);
+    this.viewport.parentNode.insertBefore(this._media, this.viewport.nextSibling);
 
     // applies the css mirror mode on the viewport
     this.mirror = this._options.mirror;
@@ -85,7 +85,7 @@ export class Instacam {
       }).then((stream) => {
 
         // captures the blob stream
-        this.media.srcObject = stream;
+        this._media.srcObject = stream;
 
         // sets the volume at start
         this.volume = this._options.volume;
@@ -95,7 +95,7 @@ export class Instacam {
 
           // renders the viewport with or without custom filter
           if (typeof this._options.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(this.media, 0, 0, this._options.width, this._options.height);
+            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this._options.width, this._options.height);
           } else {
 
             // uses a buffer when applying a custom filter to prevent the viewport from blinkings or flashes
@@ -107,7 +107,7 @@ export class Instacam {
               this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
             }
 
-            this._buffer.getContext('2d').drawImage(this.media, 0, 0, this._options.width, this._options.height);
+            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this._options.width, this._options.height);
             this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this._options.width, this._options.height)), 0, 0);
           }
 
@@ -277,7 +277,7 @@ export class Instacam {
       throw new Error('Invalid volume, you need to give a number between 0 and 100');
     }
 
-    this.media.volume = this._options.volume = volume / 100;
+    this._media.volume = this._options.volume = volume / 100;
   }
 
   /**
