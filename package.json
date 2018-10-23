@@ -29,7 +29,7 @@
   "homepage": "https://github.com/xavierfoucrier/instacam#readme",
   "devDependencies": {
     "@studiomotio/micro-motion": "^0.1.1",
-    "instacam": "^1.2.2",
+    "instacam": "^1.5.2",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "^4.20.2",
     "webpack-command": "^0.4.1"
