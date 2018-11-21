@@ -1,5 +1,5 @@
 const path = require('path');
-const uglify = require('uglifyjs-webpack-plugin');
+const terser = require('terser-webpack-plugin');
 
 module.exports = {
   extends: path.resolve(__dirname, 'webpack.dev.js'),
@@ -11,9 +11,9 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new uglify({
+      new terser({
         parallel: true,
-        uglifyOptions: {
+        terserOptions: {
           mangle: {
             properties: {
               regex: /^_/
