@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/xavierfoucrier/instacam#readme",
   "devDependencies": {
-    "uglifyjs-webpack-plugin": "^1.3.0",
+    "terser-webpack-plugin": "^1.1.0",
     "webpack": "^4.20.2",
     "webpack-command": "^0.4.1"
   }
