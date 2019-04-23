@@ -1,5 +1,5 @@
 const path = require('path');
-const terser = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   extends: path.resolve(__dirname, 'webpack.dev.js'),
@@ -11,7 +11,7 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new terser({
+      new TerserPlugin({
         parallel: true,
         terserOptions: {
           mangle: {
