@@ -452,6 +452,6 @@ This example does the following:
 ## Demo
 This site is hosted on Github pages and allow you to play with **most Instacam options**: display the camera, add pretty CSS and custom filters simultaneously, capture and export the image in different formats. You will need to **allow the site to access your camera** in order to use the library.
 
-📷 [Play with Instacam](https://xavierfoucrier.github.io/instacam)
+📷 [Play with Instacam](https://instacam.js.org)
 
 Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)** before diving into the library.
