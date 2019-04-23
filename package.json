@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/xavierfoucrier/instacam/issues"
   },
-  "homepage": "https://xavierfoucrier.github.io/instacam",
+  "homepage": "https://instacam.js.org",
   "devDependencies": {
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.30.0",
