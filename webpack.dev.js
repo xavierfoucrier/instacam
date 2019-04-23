@@ -17,7 +17,7 @@ module.exports = {
     new webpack.BannerPlugin({
       raw: true,
       banner: () => {
-        return `/*!\n  ${package.name} – ${package.description}\n  ${package.author.name} ${package.author.github} 2018 ${package.license}\n  ${package.version}\n*/`;
+        return `/*!\n  ${package.name} – ${package.description}\n  ${package.author.name} ${package.author.github} ${package.year} ${package.license}\n  ${package.version}\n*/`;
       }
     })
   ]
