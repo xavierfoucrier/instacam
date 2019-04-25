@@ -322,7 +322,11 @@ filter: function(pixel) {
 
 // threshold
 filter: function(pixel) {
-  return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
+  let threshold = 0.2126 * pixel.red
+                + 0.7152 * pixel.green
+                + 0.0722 * pixel.blue;
+
+  return (threshold >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
 }
 ```
 
