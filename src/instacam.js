@@ -590,4 +590,32 @@ export class Instacam {
   get style() {
     return this._style.length !== 0 ? this._style.trim().split(' ') : [];
   }
+
+  /**
+    Gets the current camera audio/video hardware data
+    @returns {Object} hardware informations from the current audio/video tracks
+  */
+  get hardware() {
+
+    // returns null if no stream is active
+    if (typeof this._stream === 'undefined') {
+      return null;
+    }
+
+    // gets the current audio and video tracks
+    let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
+    let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
+
+    // creates the hardware object
+    return {
+      audio: typeof audio === 'undefined' ? null : {
+        id: audio.id,
+        name: audio.label
+      },
+      video: typeof video === 'undefined' ? null : {
+        id: video.id,
+        name: video.label
+      }
+    };
+  }
 }
