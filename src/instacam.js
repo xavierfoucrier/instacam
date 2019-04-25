@@ -83,7 +83,8 @@ export class Instacam {
 
           return {
             frameRate: this._options.framerate,
-            aspectRatio: this._options.ratio
+            aspectRatio: this._options.ratio,
+            facingMode: this._options.mode === 'front' ? 'user' : 'environment'
           };
         })()
       }).then((stream) => {
@@ -286,6 +287,34 @@ export class Instacam {
   */
   save(format = 'png', quality = 1) {
     return this.viewport.toDataURL('image/' + format, quality);
+  }
+
+  /**
+    Gets the camera facing mode
+    @returns {String} front|back facing mode of the camera
+  */
+  get mode() {
+    return this._options.mode;
+  }
+
+  /**
+    Sets the camera facing mode
+    @param {String} mode - front|back facing mode of the camera
+  */
+  set mode(mode) {
+    if (typeof mode !== 'string' || (mode !== 'front' && mode !== 'back')) {
+      throw new Error('Invalid facing mode, you need to give a valid string front|back');
+    }
+
+    this._options.mode = mode;
+
+    // stops all video tracks
+    this._stream.getVideoTracks().forEach(function(track) {
+      track.stop();
+    });
+
+    // restarts the capture
+    this._capture();
   }
 
   /**

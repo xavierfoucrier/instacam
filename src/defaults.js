@@ -15,6 +15,9 @@ export let defaults = {
   // {Boolean} true|false, defines if the camera video stream is enabled
   camera: true,
 
+  // {String} front|back, defines which camera use to capture the video stream
+  mode: 'front',
+
   // {Number} refresh rate in frames per second of the camera video stream
   framerate: 30,
 
