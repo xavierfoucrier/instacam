@@ -115,6 +115,7 @@ let camera = new Instacam(document.querySelector('#canvas1'), {
   height: 300,
   autostart: true,
   camera: true,
+  mode: 'front',
   framerate: 30,
   ratio: 4/3,
   sound: false,
@@ -164,6 +165,12 @@ Type: `Boolean`
 Default: `true`
 
 The camera option allows you to **capture the media stream of the camera**. By default, Instacam only captures media stream from the webcam. If you want to only capture the microphone, you need to set this option to `false` and set the sound option to `true`.
+
+#### mode
+Type: `String`
+Default: `front`
+
+The mode option allows you to **select the camera used to capture the media stream**. By default, Instacam uses the front camera. If you set the mode to `back` and no camera is found, Instacam will automatically switch to the default one.
 
 #### framerate
 Type: `Number`
