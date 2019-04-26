@@ -28,7 +28,7 @@ Here you will find the documentation describing **how to use** the library.
 3. [Usage](DOCUMENTATION.md#usage) - how to use Instacam
 4. [Properties](DOCUMENTATION.md#properties) - all available properties
 5. [Methods](DOCUMENTATION.md#methods) - all available methods
-6. [Callbacks](DOCUMENTATION.md#methods) - all available callbacks
+6. [Callbacks](DOCUMENTATION.md#callbacks) - all available callbacks
 7. [Demo](DOCUMENTATION.md#demo) - Instacam in action
 
 
