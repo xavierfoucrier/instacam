@@ -6,9 +6,9 @@ Here you will find the documentation describing how to use the module.
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
 3. [Usage](#usage)
-4. [Options](#options)
+4. [Properties](#properties)
 5. [Methods](#methods)
-6. [Examples](#examples)
+6. [Callbacks](#callbacks)
 7. [Demo](#demo)
 
 
@@ -79,7 +79,7 @@ You can also **pass a selector** to the constructor, and Instacam will get the D
 let camera = new Instacam('#canvas1');
 ```
 
-**Custom options** are passed through the second parameter:
+**Custom defined properties** are passed through the second parameter:
 
 ```js
 let camera = new Instacam(
@@ -91,86 +91,55 @@ let camera = new Instacam(
 ```
 
 
-## Options
+## Properties
 ### Getting property
-The class options are stored in the private `_options` attribute but can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
+The class properties are stored in the private `_options` attribute but can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
 
 ```js
-let saturation = camera.saturation; // pretends that `camera` is the instance of the Instacam class
+// gets the saturation (pretends that `camera` is the instance of the Instacam class)
+let saturation = camera.saturation;
 ```
 
 ### Setting property
-The class options can be **setted easily**. If you want to set the current level of the brightness CSS filter, you can do the following:
+The class properties can be **setted easily**. If you want to set the current level of the brightness CSS filter, you can do the following:
 
 ```js
-camera.brightness = 5; // pretends that `camera` is the instance of the Instacam class
+// sets the brightness (pretends that `camera` is the instance of the Instacam class)
+camera.brightness = 5;
 ```
 
-### Quick reference
-Instacam call with all default options as defined in the source.
-
-```js
-let camera = new Instacam(document.querySelector('#canvas1'), {
-  width: 400,
-  height: 300,
-  autostart: true,
-  camera: true,
-  mode: 'front',
-  framerate: 30,
-  ratio: 4/3,
-  sound: false,
-  volume: 100,
-  mirror: false,
-  opacity: 1,
-  brightness: 1,
-  contrast: 1,
-  saturation: 1,
-  hue: 0,
-  invert: 0,
-  grayscale: 0,
-  sepia: 0,
-  blur: 0,
-  url: 0,
-  blend: {},
-  filter: null,
-  done: null,
-  fail: null,
-  unsupported: null
-});
-```
-
-### Complete reference
-Instacam reference that details all options of the class.
+### API
+Instacam reference that details all properties of the class.
 
 #### width
 Type: `Length`
 Default: `400`
 
-The width represents **the width of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+The width represents **the width of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
 
 #### height
 Type: `Length`
 Default: `300`
 
-The height represents **the height of the viewport**. It must fit to the aspect ratio option, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+The height represents **the height of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
 
 #### autostart
 Type: `Boolean`
 Default: `true`
 
-The autostart option allows you to **change the start behavior**. By default, Instacam capture the webcam stream when the class is instanciated. If you set this option to `false`, you will need to call the `start()` method to run the capture.
+The autostart property allows you to **change the start behavior**. By default, Instacam capture the webcam stream when the class is instanciated. If you set this property to `false`, you will need to call the `start()` method to run the capture.
 
 #### camera
 Type: `Boolean`
 Default: `true`
 
-The camera option allows you to **capture the media stream of the camera**. By default, Instacam only captures media stream from the webcam. If you want to only capture the microphone, you need to set this option to `false` and set the sound option to `true`.
+The camera property allows you to **capture the media stream of the camera**. By default, Instacam only captures media stream from the webcam. If you want to only capture the microphone, you need to set this property to `false` and set the sound property to `true`.
 
 #### mode
 Type: `String`
 Default: `front`
 
-The mode option allows you to **select the camera used to capture the media stream**. By default, Instacam uses the front camera. If you set the mode to `back` and no camera is found, Instacam will automatically switch to the default one.
+The mode property allows you to **select the camera used to capture the media stream**. By default, Instacam uses the front camera. If you set the mode to `back` and no camera is found, Instacam will automatically switch to the default one.
 
 #### framerate
 Type: `Number`
@@ -178,19 +147,19 @@ Default: `30`
 Minimum: `1`
 Maximum: `None`
 
-The framerate option allows you to **change the refresh rate of the camera**. By default, Instacam will capture the media stream at **30 frames per second**. The maximum framerate depends on the camera capabilities.
+The framerate property allows you to **change the refresh rate of the camera**. By default, Instacam will capture the media stream at **30 frames per second**. The maximum framerate depends on the camera capabilities.
 
 #### ratio
 Type: `Number`
 Default: `4/3`
 
-The ratio option allows you yo **change the aspect ratio of the camera**. It must fit to the width/height ratio to render a proper image of the media stream. You can use float numbers (like 1.1, 1.7) or fractions (like 4/3, 16/9) for better syntax reading.
+The ratio property allows you yo **change the aspect ratio of the camera**. It must fit to the width/height ratio to render a proper image of the media stream. You can use float numbers (like 1.1, 1.7) or fractions (like 4/3, 16/9) for better syntax reading.
 
 #### sound
 Type: `Boolean`
 Default: `false`
 
-The sound option allows you to **capture the audio stream from the microphone**. By default, Instacam only captures media stream from the webcam. If you want to capture both the microphone and the camera, you need to set this option to `true`.
+The sound property allows you to **capture the audio stream from the microphone**. By default, Instacam only captures media stream from the webcam. If you want to capture both the microphone and the camera, you need to set this property to `true`.
 
 #### volume
 Type: `Number`
@@ -198,7 +167,7 @@ Default: `100`
 Minimum: `0`
 Maximum: `100`
 
-The volume option allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100. Note that you can set the volume at **any time** as soon as the camera is ready.
+The volume property allows you to **adapt the volume of the microphone**. By default, Instacam sets the volume to 100. Note that you can set the volume at **any time** as soon as the camera is ready.
 
 #### mirror
 Type: `Boolean`
@@ -211,7 +180,7 @@ Default: `1`
 Minimum: `0`
 Maximum: `1`
 
-The opacity option applies transparency to the viewport, making it **appear more or less transparent**. A value of 0 is completely transparent. A value of 1 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the CSS filter won't be applied.
+The opacity property applies transparency to the viewport, making it **appear more or less transparent**. A value of 0 is completely transparent. A value of 1 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. Some browsers may provide **hardware acceleration** to render the opacity filter for better performance. If omitted, the CSS filter won't be applied.
 
 #### brightness
 Type: `Number`
@@ -219,7 +188,7 @@ Default: `1`
 Minimum: `0`
 Maximum: `None`
 
-The brightness option applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 1 are allowed, providing **brighter results**. If omitted, the CSS filter won't be applied.
+The brightness property applies a linear multiplier to the viewport, making it **appear more or less bright**. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of an amount over 1 are allowed, providing **brighter results**. If omitted, the CSS filter won't be applied.
 
 #### contrast
 Type: `Number`
@@ -227,7 +196,7 @@ Default: `1`
 Minimum: `0`
 Maximum: `None`
 
-The contrast option **adjusts the contrast** of the viewport. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Values of amount over 1 are allowed, providing **results with less contrast**. If omitted, the CSS filter won't be applied.
+The contrast property **adjusts the contrast** of the viewport. A value of 0 will create an image that is completely black. A value of 1 leaves the viewport unchanged. Values of amount over 1 are allowed, providing **results with less contrast**. If omitted, the CSS filter won't be applied.
 
 #### saturation
 Type: `Number`
@@ -235,7 +204,7 @@ Default: `1`
 Minimum: `0`
 Maximum: `None`
 
-The saturation option **saturates** the viewport. A value of 0 is completely un-saturated. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 1 are allowed, providing **super-saturated results**. If omitted, the CSS filter won't be applied.
+The saturation property **saturates** the viewport. A value of 0 is completely un-saturated. A value of 1 leaves the viewport unchanged. Other values are linear multipliers on the effect. Values of amount over 1 are allowed, providing **super-saturated results**. If omitted, the CSS filter won't be applied.
 
 #### hue
 Type: `Number`
@@ -244,7 +213,7 @@ Default: `0`
 Minimum: `0`
 Maximum: `360`
 
-The hue option **applies a hue rotation** on the viewport. The value of angle defines the number of degrees around the color circle the viewport samples will be adjusted. A value of 0 degree leaves the viewport unchanged. The maximum value is 360 degree. If omitted, the CSS filter won't be applied.
+The hue property **applies a hue rotation** on the viewport. The value of angle defines the number of degrees around the color circle the viewport samples will be adjusted. A value of 0 degree leaves the viewport unchanged. The maximum value is 360 degree. If omitted, the CSS filter won't be applied.
 
 #### invert
 Type: `Number`
@@ -252,7 +221,7 @@ Default: `0`
 Minimum: `0`
 Maximum: `1`
 
-The invert option **inverts the samples** in the viewport. A value of 1 is completely inverted. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The invert property **inverts the samples** in the viewport. A value of 1 is completely inverted. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### grayscale
 Type: `Number`
@@ -260,7 +229,7 @@ Default: `0`
 Minimum: `0`
 Maximum: `1`
 
-The grayscale option **converts the viewport to grayscale**. A value of 1 is completely grayscale. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The grayscale property **converts the viewport to grayscale**. A value of 1 is completely grayscale. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### sepia
 Type: `Number`
@@ -268,7 +237,7 @@ Default: `0`
 Minimum: `0`
 Maximum: `1`
 
-The sepia option **converts the viewport to sepia**. A value of 1 is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
+The sepia property **converts the viewport to sepia**. A value of 1 is completely sepia. A value of 0 leaves the viewport unchanged. Values between 0 and 1 are linear multipliers on the effect. If omitted, the CSS filter won't be applied.
 
 #### blur
 Type: `Number`
@@ -277,19 +246,19 @@ Default: `0`
 Minimum: `0`
 Maximum: `None`
 
-The blur option **applies a Gaussian blur** to the viewport. The value of radius defines the value of the standard deviation to the Gaussian function, or how many pixels on the screen blend into each other, so **a larger value will create more blur**. The option is specified as a CSS length, but does not accept percentage values. If omitted, the CSS filter won't be applied.
+The blur property **applies a Gaussian blur** to the viewport. The value of radius defines the value of the standard deviation to the Gaussian function, or how many pixels on the screen blend into each other, so **a larger value will create more blur**. The property is specified as a CSS length, but does not accept percentage values. If omitted, the CSS filter won't be applied.
 
 #### url
 Type: `String`
 Default: `Empty`
 
-The url option takes the **location of an XML file** that specifies an **SVG filter**, and may include an anchor to a specific filter element. If omitted, the CSS filter won't be applied.
+The url property takes the **location of an XML file** that specifies an **SVG filter**, and may include an anchor to a specific filter element. If omitted, the CSS filter won't be applied.
 
 #### blend
 Type: `Object`
 Default: `Empty`
 
-The blend option **applies a CSS mix blend mode filter** to the viewport. You need to define the blend mode and color to enable blending:
+The blend property **applies a CSS mix blend mode filter** to the viewport. You need to define the blend mode and color to enable blending:
 
 ```js
 blend: {
@@ -298,30 +267,30 @@ blend: {
 }
 ```
 
-To properly blend the viewport, Instacam need to create **a layout above the canvas**. Blending can be disable at any time by simply set the blend option to an empty object `{}`.
+To properly blend the viewport, Instacam need to create **a layout above the canvas**. Blending can be disable at any time by simply set the blend property to an empty object `{}`.
 
 #### filter
 Type: `Function`
 Return: `Array`
 Default: `null`
 
-The filter option allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This option takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **class filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied.
+The filter property allows you to applies a **custom filter** to the viewport, that is different than applying a CSS filter. The custom filter brings you the ability to edit each pixels of the media stream before they are drawn to the canvas. This property takes a `Function` with one parameter called `pixel` that corresponds to the current pixel parsed by the **class filtering loop**. On that pixel, you can get some informations like the `offset` *(index of the pixel)*, the `x` and `y` positions, the `red`, `green` and `blue` color components and finally the `alpha` layer. With this informations, you can **edit the pixel properties** and then return the edited informations. The return type of the function must be a pixel, represented by an `Array` with the red, green, blue components and the alpha layer: these new values will erase the previous informations of the pixel and will be drawn to the canvas. You can also **combine several CSS filters with a custom filter** to obtain pretty effects. If omitted, the custom filter won't be applied.
 
 Build a custom filter is very easy, because you can code **your own logic** inside the function, for example:
 ```js
 // grayscale
-filter: function(pixel) {
+filter: (pixel) => {
   let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
   return [g, g, g, pixel.alpha];
 }
 
 // invert
-filter: function(pixel) {
+filter: (pixel) => {
   return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
 }
 
 // threshold
-filter: function(pixel) {
+filter: (pixel) => {
   let threshold = 0.2126 * pixel.red
                 + 0.7152 * pixel.green
                 + 0.0722 * pixel.blue;
@@ -335,133 +304,123 @@ If you want to contribute and share cool filters, you can send me your code or c
 #### style
 Type: `Array`
 Return: `Array`
-Default: `none`
+Default: `[]`
 
-The style option returns **styles that are applied to the viewport**. Note that there is no default value for this option because the array is build dynamically.
+The style property returns **styles that are applied to the viewport**.
 
-#### done
-Type: `Function`
-Return: `Nothing`
+#### hardware
+Type: `Object`
+Return: `Object`
 Default: `null`
 
-Done is a callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own logic here.
-
-#### fail
-Type: `Function`
-Return: `Nothing`
-Default: `null`
-
-Fail is a callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own logic here. Note that this function pass an `exception` argument that represent the NavigatorUserMediaError object, allowing you to detect the source of the problem.
-
-#### unsupported
-Type: `Function`
-Return: `Nothing`
-Default: `null`
-
-Unsupported is a callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own logic here.
+The hardware property returns **a set of hardware informations** from the current audio/video tracks. Note that this property will only be available after camera initialization: if the capture fails, hardware informations won't be accessible.
 
 
 ## Methods
-### Quick reference
-Instacam methods with all default parameters as defined in the source.
-
-#### Start
-```js
-camera.start();
-```
-
-#### Stop
-```js
-camera.stop();
-```
-
-#### Snap
-```js
-let snapshot = camera.snap(
-  left: 0,
-  top: 0,
-  width: this._options.width,
-  height: this._options.height
-);
-```
-
-#### Save
-```js
-let data = camera.save(
-  format: 'png',
-  quality: 1
-);
-```
-
-### Complete reference
+### API
 Instacam reference that details all methods of the class.
 
 #### start ( )
 Type: `Function`
 
-The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Note that both camera and sound will be started, depending on the options you have defined.
+The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Note that both camera and sound will be started, depending on the properties you have defined.
+
+```js
+camera.start();
+```
 
 #### stop ( )
 Type: `Function`
 
 The stop method allows you to **stop the capture of the webcam stream**. Note that both camera and sound will be stopped.
 
-#### snap ( left , top , width , height )
+```js
+camera.stop();
+```
+
+#### snap ([ *left, top, width, height* ])
 Type: `Function`
 Return: `ImageData`
 
-The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the class options. If you call this function without parameters, you will get the image data of the entire viewport. **[Take a look at the demo](#demo)** to see how it works.
+The snap method allows you to **capture image data from a portion of the viewport**. All the parameters are of type `Number`. By default, `left` and `top` are equals to 0, and `width` and `height` are equals to the width and height of the viewport defined in the class properties. If you call this function without parameters, you will get the image data of the entire viewport. **[Take a look at the demo](#demo)** to see how it works.
 
-#### save ( format , quality )
+```js
+// captures the entire viewport
+let snapshot = camera.snap();
+
+// captures an area of 100x200 from the top left side of the viewport
+let snapshot = camera.snap(0, 0, 100, 200);
+```
+
+#### save ([ *format, quality* ])
 Type: `Function`
 Return: `UTF-16 String`
 
 The save method allows you to **save the viewport in a specific image format**. This method returns a `data:` URI, also called `DOMString`, containing a representation of the image in the specified `format`, default is set to `png`. The returned image is at **96dpi**. If the height or width of the viewport is 0, an empty string `data:,` is returned. If the format requested is not `image/png`, and the returned value starts with `data:image/png`, then the requested format is not supported. Chrome supports the `image/webp` format. If the requested format is `image/jpeg` or `image/webp`, then the second argument `quality`, if defined between 0 and 1, is treated as indicating **image quality**. By default, the image quality is set to 1. If you call this function without parameters, you will get a png file of good quality. **[Take a look at the demo](#demo)** to see how it works.
 
-
-## Examples
-Some examples working with the default class options.
-
-### Basic example
-
-```html
-<canvas id="canvas1"></canvas>
+```js
+// converts the viewport and returns a DOMString
+let data = camera.save('png', 0.75);
 ```
+
+
+## Callbacks
+### API
+Instacam reference that details all callbacks of the class.
+
+#### done ( )
+Type: `Function`
+Return: `Nothing`
+Default: `null`
+
+A callback method **called when the stream is fully captured**. You can override the default method of Instacam by adding your own logic here.
 
 ```js
 let camera = new Instacam(
-  document.querySelector('#canvas1')
-);
-```
-
-This example does the following:
-
-- creation of an **instant canvas** instance
-- broadcasting of the media stream to the viewport *(default resolution at 400x300)*
-
-### Grayscale example
-
-```html
-<canvas id="canvas1"></canvas>
-```
-
-```js
-let camera = new Instacam(
-  document.querySelector('#canvas1'), {
-    grayscale: 1
+  done: () => {
+    console.log(`Camera ${camera.hardware.video.name} is ready.`);
   }
 );
 ```
 
-This example does the following:
+#### fail ( *NavigatorUserMediaError* )
+Type: `Function`
+Return: `Nothing`
+Default: `null`
 
-- creation of an **instant canvas** instance
-- broadcasting of the media stream to the viewport *(default resolution at 400x300)*
-- filtering of the viewport with CSS technology to reproduce a grayscale effect
+A callback method **called when the stream capture failed**. You can override the default method of Instacam by adding your own logic here. Note that this function pass an `exception` argument that represent the NavigatorUserMediaError object, allowing you to detect the source of the problem.
+
+```js
+let camera = new Instacam(
+  failure: (exception) => {
+    if (exception.name === 'NotAllowedError') {
+      // the user has restricted access to the camera
+    }
+  }
+);
+```
+
+> For a full list of exceptions, see the **Mozilla MediaDevices.getUserMedia** reference
+> https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#Exceptions
+
+#### unsupported ( )
+Type: `Function`
+Return: `Nothing`
+Default: `null`
+
+A callback method **called when a browser doesn't support a required API** to properly work. You can override the default method of Instacam by adding your own logic here.
+
+```js
+let camera = new Instacam(
+  unsupported: () => {
+    // the browser does not match the requirements
+  }
+);
+```
 
 
 ## Demo
-This site is hosted on Github pages and allow you to play with **most Instacam options**: display the camera, add pretty CSS and custom filters simultaneously, capture and export the image in different formats. You will need to **allow the site to access your camera** in order to use the library.
+This site is hosted on Github pages and allow you to play with **most Instacam properties**: display the camera, add pretty CSS and custom filters simultaneously, capture and export the image in different formats. You will need to **allow the site to access your camera** in order to use the library.
 
 📷 [Play with Instacam](https://instacam.js.org)
 
