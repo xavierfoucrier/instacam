@@ -12,83 +12,83 @@ let camera = new Instacam(
   document.querySelector('canvas'), {
     sound: true,
     volume: 0,
-    done: function() {
+    done: () => {
       log.innerHTML = 'Instacam is working fine.';
     },
-    fail: function(exception) {
+    fail: (exception) => {
       log.innerHTML = `Sorry, Instacam failed to start because you didn't accept the requested permissions to access your camera, or something went wrong. Error: <strong>${exception.message}</strong>`;
     },
-    unsupported: function() {
+    unsupported: () => {
       log.innerHTML = 'Sorry, but it seems that your browser is not supporting requestAnimationFrame, mediaDevices or Promises. Try Instacam in another browser.';
     }
   }
 );
 
 // binds all property input to properly update the viewport
-Array.from(document.querySelectorAll('.property + [type="range"]')).forEach(function(element) {
+Array.from(document.querySelectorAll('.property + [type="range"]')).forEach((element) => {
   const value = element.parentNode.querySelector('.value');
 
   // defines data default attribute automatically
   element.setAttribute('data-default', element.value);
 
   // updates the current range value and the associated Instacam property when input is changing
-  element.addEventListener('input', function() {
-    value.innerHTML = this.value;
-    camera[this.name] = Number.parseFloat(this.value);
+  element.addEventListener('input', () => {
+    value.innerHTML = element.value;
+    camera[element.name] = Number.parseFloat(element.value);
 
     // updates the volume icon to represent the volume state
-    if (this.name === 'volume') {
+    if (element.name === 'volume') {
       const state = document.querySelector('.volume-state use');
 
-      if (this.value < 30) {
+      if (element.value < 30) {
         state.setAttribute('xlink:href', 'picture/sprite.svg#volume-mute');
-      } else if (this.value >= 30 && this.value <= 70) {
+      } else if (element.value >= 30 && element.value <= 70) {
         state.setAttribute('xlink:href', 'picture/sprite.svg#volume-down');
-      } else if (this.value > 70) {
+      } else if (element.value > 70) {
         state.setAttribute('xlink:href', 'picture/sprite.svg#volume-up');
       }
     }
   });
 
   // shows the current range value on mousedown
-  element.addEventListener('mousedown', function() {
-    value.innerHTML = this.value;
+  element.addEventListener('mousedown', () => {
+    value.innerHTML = element.value;
     value.classList.add('update');
   });
 
   // hides the current range value on mouseup
-  element.addEventListener('mouseup', function() {
+  element.addEventListener('mouseup', () => {
     value.classList.remove('update');
   });
 });
 
 // binds all custom filter input to properly update the viewport
-Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(element) {
-  element.addEventListener('change', function() {
+Array.from(document.querySelectorAll('[name="filter"]')).forEach((element) => {
+  element.addEventListener('change', () => {
 
     // defines all custom filters
     const filters = {
       'none': null,
-      'noise': function(pixel) {
+      'noise': (pixel) => {
         let r = Math.random();
         return [r * pixel.red, r * pixel.green, r * pixel.blue, pixel.alpha];
       },
-      'grayscale': function(pixel) {
+      'grayscale': (pixel) => {
         let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
         return [g, g, g, pixel.alpha];
       },
-      'invert': function(pixel) {
+      'invert': (pixel) => {
         return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
       },
-      'threshold': function(pixel) {
+      'threshold': (pixel) => {
         return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
       },
-      'sobel': function(pixel) {
+      'sobel': (pixel) => {
         let v = Math.abs(pixel.x);
         let h = Math.abs(pixel.y);
         return [pixel.red + v, pixel.green + h, pixel.blue + (v + h) / 4, 255];
       },
-      'pixel': function(pixel) {
+      'pixel': (pixel) => {
         if (pixel.offset % 10 !== 0) {
           return [window.red, window.green, window.blue, 255];
         } else {
@@ -102,19 +102,19 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach(function(elemen
     };
 
     // applies the custom filter
-    camera.filter = filters[this.value];
+    camera.filter = filters[element.value];
   });
 });
 
 // applies the mirror mode to the viewport
-Array.from(document.querySelectorAll('[name="mirror"]')).forEach(function(element) {
-  element.addEventListener('change', function() {
+Array.from(document.querySelectorAll('[name="mirror"]')).forEach((element) => {
+  element.addEventListener('change', () => {
     camera.mirror = element.value === '1';
   });
 });
 
 // snaps the viewport and displays a thumbnail
-document.querySelector('[name="snap"]').addEventListener('click', function() {
+document.querySelector('[name="snap"]').addEventListener('click', () => {
 
   // snaps the camera
   let data = camera.snap();
@@ -135,14 +135,14 @@ document.querySelector('[name="snap"]').addEventListener('click', function() {
 });
 
 // saves the viewport when the exported format is changing
-Array.from(document.querySelectorAll('[name="format"]')).forEach(function(element) {
-  element.addEventListener('change', function() {
+Array.from(document.querySelectorAll('[name="format"]')).forEach((element) => {
+  element.addEventListener('change', () => {
     save();
   });
 });
 
 // saves the viewport when the exported quality is changing
-document.querySelector('[name="quality"]').addEventListener('input', function() {
+document.querySelector('[name="quality"]').addEventListener('input', () => {
   save();
 });
 
