@@ -290,6 +290,20 @@ export class Instacam {
   }
 
   /**
+    Mutes the microphone
+  */
+  mute() {
+    this._options.muted = this._media.muted = true;
+  }
+
+  /**
+    Unmutes the microphone
+  */
+  unmute() {
+    this._options.muted = this._media.muted = false;
+  }
+
+  /**
     Gets the camera facing mode
     @returns {String} front|back facing mode of the camera
   */
@@ -315,6 +329,14 @@ export class Instacam {
 
     // restarts the capture
     this._capture();
+  }
+
+  /**
+    Gets the microphone mute state
+    @returns {Boolean} true|false microphone mute state
+  */
+  get muted() {
+    return this._media.muted;
   }
 
   /**
