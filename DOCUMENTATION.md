@@ -299,7 +299,7 @@ filter: (pixel) => {
 }
 ```
 
-If you want to contribute and share cool filters, you can send me your code or create a **pull request** on the `gh-pages` branch, and it will be added to the **[Instacam demo site](#demo)**. Thanks for contributing! :tada: :+1:
+> If you want to contribute and share cool filters, you can send me your code or create a **pull request** on the `gh-pages` branch, and it will be added to the **[Instacam demo site](#demo)**. Thanks for contributing! :tada: :+1:
 
 #### style
 Type: `Array`
@@ -424,4 +424,4 @@ This site is hosted on Github pages and allow you to play with **most Instacam p
 
 📷 [Play with Instacam](https://instacam.js.org)
 
-Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)** before diving into the library.
+> Note that this demo is using **vanilla javascript** and the latest version of Instacam from the **NPM registry**. Don't forget to read the **[compatibility section](README.md#compatibility)** before diving into the library.
