@@ -62,6 +62,18 @@ Array.from(document.querySelectorAll('.property + [type="range"]')).forEach((ele
   });
 });
 
+// binds all custom blend input to properly update the viewport
+Array.from(document.querySelectorAll('[name="blend"]')).forEach((element) => {
+  element.addEventListener('change', () => {
+
+    // applies the custom blend layer
+    camera.blend = element.value === 'none' ? {} : {
+      mode: element.value,
+      color: '#217fcf'
+    };
+  });
+});
+
 // binds all custom filter input to properly update the viewport
 Array.from(document.querySelectorAll('[name="filter"]')).forEach((element) => {
   element.addEventListener('change', () => {
