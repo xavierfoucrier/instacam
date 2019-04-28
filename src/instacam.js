@@ -176,7 +176,7 @@ export class Instacam {
       const bounds = this.viewport.getBoundingClientRect();
 
       // sets the blending styles
-      this._blend.style = `position:absolute;z-index:1;left:${bounds.left}px;top:${bounds.top}px;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._options.blend.mode};background:${this._options.blend.color};pointer-events:none;`;
+      this._blend.style = `position:absolute;z-index:1;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._options.blend.mode};background:${this._options.blend.color};pointer-events:none;`;
     } else if (typeof this._blend !== 'undefined') {
 
       // removes the blend layer from the DOM if there is no blending applied
