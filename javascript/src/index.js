@@ -1,7 +1,7 @@
 'use strict';
 
 // imports the library
-import {Instacam} from 'instacam';
+import { Instacam } from 'instacam';
 
 // gets some elements
 let log = document.querySelector('.log');
