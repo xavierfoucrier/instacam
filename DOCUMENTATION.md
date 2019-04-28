@@ -161,6 +161,12 @@ Default: `false`
 
 The sound property allows you to **capture the audio stream from the microphone**. By default, Instacam only captures media stream from the webcam. If you want to capture both the microphone and the camera, you need to set this property to `true`.
 
+#### muted
+Type: `Boolean`
+Default: `false`
+
+The muted property **indicate if the microphone is currently muted**.
+
 #### volume
 Type: `Number`
 Default: `100`
@@ -361,6 +367,24 @@ The save method allows you to **save the viewport in a specific image format**. 
 ```js
 // converts the viewport and returns a DOMString
 let data = camera.save('png', 0.75);
+```
+
+#### mute ( )
+Type: `Function`
+
+ The mute method allows you to **mute the microphone** of the camera. Note that this method will only mute the `<video>` media element rather than disabling the microphone.
+
+```js
+camera.mute();
+```
+
+#### unmute ( )
+Type: `Function`
+
+The unmute method allows your to unmute the microphone of the camera. Note that this method will only mute the `<video>` media element rather than enabling the microphone.
+
+```js
+camera.unmute();
 ```
 
 
