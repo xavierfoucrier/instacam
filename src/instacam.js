@@ -8,17 +8,17 @@ export class Instacam {
   /**
     Class constructor
     @param {Object} viewport - selector or canvas element from the DOM
-    @param {Object} options - custom options of the class
+    @param {Object} properties - custom properties of the class
   */
-  constructor(viewport, options) {
+  constructor(viewport, properties) {
 
-    // assign custom user options to defaults
-    this._options = Object.assign({}, defaults, options);
+    // assign custom user properties to defaults
+    this._props = Object.assign({}, defaults, properties);
 
     // check for browser support
     if (!requirement) {
-      if (typeof this._options.unsupported === 'function') {
-        this._options.unsupported();
+      if (typeof this._props.unsupported === 'function') {
+        this._props.unsupported();
       }
 
       return;
@@ -36,8 +36,8 @@ export class Instacam {
 
     // initialize the viewport
     this.viewport = viewport;
-    this.viewport.width = this._options.width;
-    this.viewport.height = this._options.height;
+    this.viewport.width = this._props.width;
+    this.viewport.height = this._props.height;
 
     // create the media element
     this._media = document.createElement('video');
@@ -45,19 +45,19 @@ export class Instacam {
     // set some media element properties
     this._media.style.display = 'none';
     this._media.autoplay = true;
-    this._media.width = this._options.width;
-    this._media.height = this._options.height;
+    this._media.width = this._props.width;
+    this._media.height = this._props.height;
 
     // attach the media element to the DOM
     this.viewport.parentNode.insertBefore(this._media, this.viewport.nextSibling);
 
     // apply the css mirror mode on the viewport
-    this.mirror = this._options.mirror;
+    this.mirror = this._props.mirror;
 
-    // autostart the stream capture depending on the options
-    if (this._options.autostart === true) {
+    // autostart the stream capture depending on the properties
+    if (this._props.autostart === true) {
 
-      // compute the css filter options
+      // compute the css filter properties
       this._compute();
 
       // capture the device stream
@@ -75,16 +75,16 @@ export class Instacam {
 
       // capture the media stream
       navigator.mediaDevices.getUserMedia({
-        audio: this._options.sound,
+        audio: this._props.sound,
         video: (() => {
-          if (this._options.camera === false) {
+          if (this._props.camera === false) {
             return false;
           }
 
           return {
-            frameRate: this._options.framerate,
-            aspectRatio: this._options.ratio,
-            facingMode: this._options.mode === 'front' ? 'user' : 'environment'
+            frameRate: this._props.framerate,
+            aspectRatio: this._props.ratio,
+            facingMode: this._props.mode === 'front' ? 'user' : 'environment'
           };
         })()
       }).then((stream) => {
@@ -96,27 +96,27 @@ export class Instacam {
         this._media.srcObject = stream;
 
         // set the volume at start
-        this.volume = this._options.volume;
+        this.volume = this._props.volume;
 
         // animation loop used to properly render the viewport
         const loop = () => {
 
           // render the viewport with or without custom filter
-          if (typeof this._options.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this._options.width, this._options.height);
+          if (typeof this._props.filter !== 'function') {
+            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
           } else {
 
             // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
             if (typeof this._buffer === 'undefined') {
               this._buffer = document.createElement('canvas');
               this._buffer.style.display = 'none';
-              this._buffer.width = this._options.width;
-              this._buffer.height = this._options.height;
+              this._buffer.width = this._props.width;
+              this._buffer.height = this._props.height;
               this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
             }
 
-            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this._options.width, this._options.height);
-            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this._options.width, this._options.height)), 0, 0);
+            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
+            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this._props.width, this._props.height)), 0, 0);
           }
 
           // make this function run at 60fps
@@ -126,17 +126,17 @@ export class Instacam {
         // render the first frame
         requestAnimationFrame(loop);
 
-        if (typeof this._options.done === 'function') {
-          this._options.done();
+        if (typeof this._props.done === 'function') {
+          this._props.done();
         }
       }).catch((exception) => {
-        if (typeof this._options.fail === 'function') {
-          this._options.fail(exception);
+        if (typeof this._props.fail === 'function') {
+          this._props.fail(exception);
         }
       });
     } catch(exception) {
-      if (typeof this._options.fail === 'function') {
-        this._options.fail(exception);
+      if (typeof this._props.fail === 'function') {
+        this._props.fail(exception);
       }
     }
   }
@@ -146,23 +146,23 @@ export class Instacam {
   */
   _compute() {
 
-    // build the css layer depending on the options
-    this._style = this._options.opacity !== defaults.opacity ? `opacity(${this._options.opacity}) ` : '';
-    this._style += this._options.brightness !== defaults.brightness ? `brightness(${this._options.brightness}) ` : '';
-    this._style += this._options.contrast !== defaults.contrast ? `contrast(${this._options.contrast}) ` : '';
-    this._style += this._options.saturation !== defaults.saturation ? `saturate(${this._options.saturation}) ` : '';
-    this._style += this._options.hue !== defaults.hue ? `hue-rotate(${this._options.hue}deg) ` : '';
-    this._style += this._options.invert !== defaults.invert ? `invert(${this._options.invert}) ` : '';
-    this._style += this._options.grayscale !== defaults.grayscale ? `grayscale(${this._options.grayscale}) ` : '';
-    this._style += this._options.sepia !== defaults.sepia ? `sepia(${this._options.sepia}) ` : '';
-    this._style += this._options.blur !== defaults.blur ? `blur(${this._options.blur}px) ` : '';
-    this._style += this._options.url !== defaults.url ? `url(${this._options.url}) ` : '';
+    // build the css layer depending on the properties
+    this._style = this._props.opacity !== defaults.opacity ? `opacity(${this._props.opacity}) ` : '';
+    this._style += this._props.brightness !== defaults.brightness ? `brightness(${this._props.brightness}) ` : '';
+    this._style += this._props.contrast !== defaults.contrast ? `contrast(${this._props.contrast}) ` : '';
+    this._style += this._props.saturation !== defaults.saturation ? `saturate(${this._props.saturation}) ` : '';
+    this._style += this._props.hue !== defaults.hue ? `hue-rotate(${this._props.hue}deg) ` : '';
+    this._style += this._props.invert !== defaults.invert ? `invert(${this._props.invert}) ` : '';
+    this._style += this._props.grayscale !== defaults.grayscale ? `grayscale(${this._props.grayscale}) ` : '';
+    this._style += this._props.sepia !== defaults.sepia ? `sepia(${this._props.sepia}) ` : '';
+    this._style += this._props.blur !== defaults.blur ? `blur(${this._props.blur}px) ` : '';
+    this._style += this._props.url !== defaults.url ? `url(${this._props.url}) ` : '';
 
     // apply the css filter effects to the viewport
     this.viewport.style.filter = this._style;
 
-    // build the blend layer depending on the options
-    if (Object.keys(this._options.blend).length !== 0) {
+    // build the blend layer depending on the properties
+    if (Object.keys(this._props.blend).length !== 0) {
 
       // create the blending element
       if (typeof this._blend === 'undefined') {
@@ -176,7 +176,7 @@ export class Instacam {
       const bounds = this.viewport.getBoundingClientRect();
 
       // set the blending styles
-      this._blend.style = `position:absolute;z-index:1;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._options.blend.mode};background:${this._options.blend.color};pointer-events:none;`;
+      this._blend.style = `position:absolute;z-index:1;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._props.blend.mode};background:${this._props.blend.color};pointer-events:none;`;
     } else if (typeof this._blend !== 'undefined') {
 
       // remove the blend layer from the DOM if there is no blending applied
@@ -199,14 +199,14 @@ export class Instacam {
     try {
 
       // loop through all pixels and apply the filter
-      for (let y = 0; y < this._options.height; y++) {
-        for (let x = 0; x < this._options.width; x++) {
+      for (let y = 0; y < this._props.height; y++) {
+        for (let x = 0; x < this._props.width; x++) {
 
           // detect the pixel offset
-          const offset = ((this._options.width * y) + x) * 4;
+          const offset = ((this._props.width * y) + x) * 4;
 
           // call the filter
-          const filter = this._options.filter({
+          const filter = this._props.filter({
             'offset': offset,
             'x': x,
             'y': y,
@@ -235,7 +235,7 @@ export class Instacam {
   */
   start() {
 
-    // compute the css filter options
+    // compute the css filter properties
     this._compute();
 
     // capture the device stream
@@ -269,7 +269,7 @@ export class Instacam {
     @param {Number} height - height of the snapping area
     @return {Object} image data object containing pixels informations
   */
-  snap(left = 0, top = 0, width = this._options.width, height = this._options.height) {
+  snap(left = 0, top = 0, width = this._props.width, height = this._props.height) {
 
     // check the snap size area
     if (width <= 0 || height <= 0) {
@@ -293,14 +293,14 @@ export class Instacam {
     Mute the microphone
   */
   mute() {
-    this._options.muted = this._media.muted = true;
+    this._props.muted = this._media.muted = true;
   }
 
   /**
     Unmute the microphone
   */
   unmute() {
-    this._options.muted = this._media.muted = false;
+    this._props.muted = this._media.muted = false;
   }
 
   /**
@@ -308,7 +308,7 @@ export class Instacam {
     @return {String} front|back facing mode of the camera
   */
   get mode() {
-    return this._options.mode;
+    return this._props.mode;
   }
 
   /**
@@ -320,7 +320,7 @@ export class Instacam {
       throw new Error('Invalid facing mode, you need to give a valid string front|back');
     }
 
-    this._options.mode = mode;
+    this._props.mode = mode;
 
     // stop all video tracks
     this._stream.getVideoTracks().forEach(function(track) {
@@ -344,7 +344,7 @@ export class Instacam {
     @return {Number} [0..100] volume of the camera audio stream
   */
   get volume() {
-    return this._options.volume;
+    return this._props.volume;
   }
 
   /**
@@ -356,7 +356,7 @@ export class Instacam {
       throw new Error('Invalid volume, you need to give a number between 0 and 100');
     }
 
-    this._media.volume = this._options.volume = volume / 100;
+    this._media.volume = this._props.volume = volume / 100;
   }
 
   /**
@@ -364,7 +364,7 @@ export class Instacam {
     @return {Boolean} true|false, mirror mode of the viewport (css transform)
   */
   get mirror() {
-    return this._options.mirror;
+    return this._props.mirror;
   }
 
   /**
@@ -380,7 +380,7 @@ export class Instacam {
     transform = transform !== 'none' ? transform : '';
 
     this.viewport.style.transform = mirror === true ? `${transform} scale(-1, 1)` : '';
-    this._options.mirror = mirror;
+    this._props.mirror = mirror;
   }
 
   /**
@@ -388,7 +388,7 @@ export class Instacam {
     @return {Number} [0..1] opacity of the viewport (css)
   */
   get opacity() {
-    return this._options.opacity;
+    return this._props.opacity;
   }
 
   /**
@@ -400,7 +400,7 @@ export class Instacam {
       throw new Error('Invalid opacity, you need to give a number between 0 and 1');
     }
 
-    this._options.opacity = opacity;
+    this._props.opacity = opacity;
     this._compute();
   }
 
@@ -409,7 +409,7 @@ export class Instacam {
     @return {Number} [0..*] brightness of the viewport (css filter)
   */
   get brightness() {
-    return this._options.brightness;
+    return this._props.brightness;
   }
 
   /**
@@ -421,7 +421,7 @@ export class Instacam {
       throw new Error('Invalid brightness, you need to give a number above 0');
     }
 
-    this._options.brightness = brightness;
+    this._props.brightness = brightness;
     this._compute();
   }
 
@@ -430,7 +430,7 @@ export class Instacam {
     @return {Number} [0..*] contrast of the viewport (css filter)
   */
   get contrast() {
-    return this._options.contrast;
+    return this._props.contrast;
   }
 
   /**
@@ -442,7 +442,7 @@ export class Instacam {
       throw new Error('Invalid contrast, you need to give a number above 0');
     }
 
-    this._options.contrast = contrast;
+    this._props.contrast = contrast;
     this._compute();
   }
 
@@ -451,7 +451,7 @@ export class Instacam {
     @return {Number} [0..*] saturation of the viewport (css filter)
   */
   get saturation() {
-    return this._options.saturation;
+    return this._props.saturation;
   }
 
   /**
@@ -463,7 +463,7 @@ export class Instacam {
       throw new Error('Invalid saturation, you need to give a number above 0');
     }
 
-    this._options.saturation = saturation;
+    this._props.saturation = saturation;
     this._compute();
   }
 
@@ -472,7 +472,7 @@ export class Instacam {
     @return {Number} [0..360] hue of the viewport (css filter)
   */
   get hue() {
-    return this._options.hue;
+    return this._props.hue;
   }
 
   /**
@@ -484,7 +484,7 @@ export class Instacam {
       throw new Error('Invalid hue, you need to give a number between 0 and 360');
     }
 
-    this._options.hue = hue;
+    this._props.hue = hue;
     this._compute();
   }
 
@@ -493,7 +493,7 @@ export class Instacam {
     @return {Number} [0..1] invert the color of the viewport (css filter)
   */
   get invert() {
-    return this._options.invert;
+    return this._props.invert;
   }
 
   /**
@@ -505,7 +505,7 @@ export class Instacam {
       throw new Error('Invalid invert, you need to give a number between 0 and 1');
     }
 
-    this._options.invert = invert;
+    this._props.invert = invert;
     this._compute();
   }
 
@@ -514,7 +514,7 @@ export class Instacam {
     @return {Number} [0..1] grayscale of the viewport (css filter)
   */
   get grayscale() {
-    return this._options.grayscale;
+    return this._props.grayscale;
   }
 
   /**
@@ -526,7 +526,7 @@ export class Instacam {
       throw new Error('Invalid grayscale, you need to give a number between 0 and 1');
     }
 
-    this._options.grayscale = grayscale;
+    this._props.grayscale = grayscale;
     this._compute();
   }
 
@@ -535,7 +535,7 @@ export class Instacam {
     @return {Number} [0..1] sepia of the viewport (css filter)
   */
   get sepia() {
-    return this._options.sepia;
+    return this._props.sepia;
   }
 
   /**
@@ -547,7 +547,7 @@ export class Instacam {
       throw new Error('Invalid sepia, you need to give a number between 0 and 1');
     }
 
-    this._options.sepia = sepia;
+    this._props.sepia = sepia;
     this._compute();
   }
 
@@ -556,7 +556,7 @@ export class Instacam {
     @return {Number} [0..*] blur of the viewport (css filter)
   */
   get blur() {
-    return this._options.blur;
+    return this._props.blur;
   }
 
   /**
@@ -568,7 +568,7 @@ export class Instacam {
       throw new Error('Invalid blur, you need to give a number above 0');
     }
 
-    this._options.blur = blur;
+    this._props.blur = blur;
     this._compute();
   }
 
@@ -577,7 +577,7 @@ export class Instacam {
     @return {String} svg filtering of the viewport (css filter)
   */
   get url() {
-    return this._options.url;
+    return this._props.url;
   }
 
   /**
@@ -589,7 +589,7 @@ export class Instacam {
       throw new Error('Invalid url, you need to give a string');
     }
 
-    this._options.url = url;
+    this._props.url = url;
     this._compute();
   }
 
@@ -598,7 +598,7 @@ export class Instacam {
     @return {Object} blend layer of the viewport (css mix blend mode)
   */
   get blend() {
-    return this._options.blend;
+    return this._props.blend;
   }
 
   /**
@@ -610,7 +610,7 @@ export class Instacam {
       throw new Error('Invalid blend, you need to give a valid object with {mode|color} or an empty object to disable blending');
     }
 
-    this._options.blend = blend;
+    this._props.blend = blend;
     this._compute();
   }
 
@@ -619,7 +619,7 @@ export class Instacam {
     @return {Function} custom filter of the viewport
   */
   get filter() {
-    return this._options.filter;
+    return this._props.filter;
   }
 
   /**
@@ -631,7 +631,7 @@ export class Instacam {
       throw new Error('Invalid filter, you need to give a function or null to disable the custom filtering');
     }
 
-    this._options.filter = filter;
+    this._props.filter = filter;
   }
 
   /**

@@ -93,7 +93,7 @@ let camera = new Instacam(
 
 ## Properties
 ### Getting property
-The class properties are stored in the private `_options` attribute but can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
+The class properties are stored in the private `_props` attribute but can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
 
 ```js
 // get the saturation (pretend that `camera` is the instance of the Instacam class)
