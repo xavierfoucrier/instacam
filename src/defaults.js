@@ -48,7 +48,7 @@ export let defaults = {
   // {Number} [0..360] hue of the viewport (css filter)
   hue: 0,
 
-  // {Number} [0..1] inverts the color of the viewport (css filter)
+  // {Number} [0..1] invert the color of the viewport (css filter)
   invert: 0,
 
   // {Number} [0..1] grayscale of the viewport (css filter)
@@ -69,12 +69,12 @@ export let defaults = {
   // {Function} custom filter applied to the viewport
   filter: null,
 
-  // {Function} callback's method used when the stream is fully captured
+  // {Function} callback used when the stream is fully captured
   done: null,
 
-  // {Function} callback's method used when the stream capture fails
+  // {Function} callback used when the stream capture fails
   fail: null,
 
-  // {Function} callback's method used when a browser doesn't support the requirements
+  // {Function} callback used when a browser doesn't support the requirements
   unsupported: null
 };
