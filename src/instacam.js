@@ -51,6 +51,17 @@ export class Instacam {
     // attach the media element to the DOM
     this.viewport.parentNode.insertBefore(this._media, this.viewport.nextSibling);
 
+    // create the container
+    this._container = document.createElement('div');
+    this._container.setAttribute('data-instacam', '');
+
+    // attach the container element to the DOM
+    this.viewport.parentNode.insertBefore(this._container, this.viewport);
+
+    // attach the viewport and media elements to the container
+    this._container.appendChild(this.viewport);
+    this._container.appendChild(this._media);
+
     // apply the css mirror mode on the viewport
     this.mirror = this._props.mirror;
 
