@@ -1,6 +1,6 @@
 'use strict';
 
-// default options
+// default properties
 export let defaults = {
 
   // {Number} width of the viewport element
