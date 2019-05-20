@@ -69,6 +69,9 @@ The old way, but still relevant, is to **include the minified production** file 
 <script src="dist/instacam.min.js"></script>
 ```
 
+> Instead of directly serve the file, you can use a **CDN** *(Content Delivery Network)*
+> https://cdn.jsdelivr.net/npm/instacam@1.9.1/dist/instacam.min.js
+
 Then **instanciate the class** by using this javascript syntax:
 
 ```js
