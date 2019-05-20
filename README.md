@@ -21,7 +21,7 @@ npm install instacam
 yarn add instacam
 ```
 
-For other implementation of Instacam in your project, see the [usage documentation](DOCUMENTATION.md#usage).
+> For other implementation of Instacam in your project, see the [usage documentation](DOCUMENTATION.md#usage)
 
 
 ## Documentation
