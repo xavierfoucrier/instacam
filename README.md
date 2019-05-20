@@ -11,10 +11,14 @@ Official support on **Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+**. Many ot
 
 
 ## Install
-Instacam is published on the **NPM** *(Node Package Manager)* registry, so you can install it through the command line interpreter using:
+Instacam is published on the **NPM** *(Node Package Manager)* registry, so you can install it through the command line interpreter using your favorite package manager:
 
 ```console
+# npm
 npm install instacam
+
+# yarn
+yarn add instacam
 ```
 
 For other implementation of Instacam in your project, see the [usage documentation](DOCUMENTATION.md#usage).
