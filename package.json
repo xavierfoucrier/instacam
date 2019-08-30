@@ -1,7 +1,7 @@
 {
   "name": "instacam",
   "year": "2019",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "Instant canvas video",
   "main": "src/instacam.js",
   "scripts": {
@@ -37,8 +37,8 @@
   },
   "homepage": "https://instacam.js.org",
   "devDependencies": {
-    "terser-webpack-plugin": "^1.2.3",
-    "webpack": "^4.30.0",
-    "webpack-command": "^0.4.2"
+    "terser-webpack-plugin": "^1.4.1",
+    "webpack": "^4.39.3",
+    "webpack-command": "^0.5.0"
   }
 }
