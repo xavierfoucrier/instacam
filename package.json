@@ -5,9 +5,7 @@
   "description": "Instant canvas video",
   "main": "src/instacam.js",
   "scripts": {
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js",
-    "publish": "npm publish"
+    "build": "webpack --config webpack.config.js --progress"
   },
   "repository": {
     "type": "git",
