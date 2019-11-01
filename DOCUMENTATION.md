@@ -62,15 +62,16 @@ As of May 2017, all major browsers have shipped a working implementation of **ES
 </script>
 ```
 
-### Use as a library
-The old way, but still relevant, is to **include the minified production** file on your web page using the generic script markup:
+### Use with a CDN
+To rapidly **include the minified production** file in your webpage, load the latest build from a  **CDN** *(Content Delivery Network)* using a generic script markup:
 
 ```html
-<script src="dist/instacam.min.js"></script>
-```
+<!-- unpkg -->
+<script src="https://unpkg.com/instacam"></script>
 
-> Instead of directly serve the file, you can use a **CDN** *(Content Delivery Network)*
-> https://cdn.jsdelivr.net/npm/instacam@1.9.1/dist/instacam.min.js
+<!-- jsdelivr -->
+<script src="https://cdn.jsdelivr.net/npm/instacam@latest/dist/instacam.umd.js"></script>
+```
 
 Then **instanciate the class** by using this javascript syntax:
 
