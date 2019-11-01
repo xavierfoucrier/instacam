@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const package = require('./package.json');
+const pack = require('./package.json');
 
 module.exports = {
   mode: 'development',
@@ -17,7 +17,7 @@ module.exports = {
     new webpack.BannerPlugin({
       raw: true,
       banner: () => {
-        return `/*!\n  ${package.name} – ${package.description}\n  ${package.author.name} ${package.author.github} ${package.year} ${package.license}\n  ${package.version}\n*/`;
+        return `/*!\n  ${pack.name} – ${pack.description}\n  ${pack.author.name} ${pack.author.github} ${pack.year} ${pack.license}\n  ${pack.version}\n*/`;
       }
     })
   ]
