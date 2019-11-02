@@ -13,8 +13,7 @@
     "url": "git+https://github.com/xavierfoucrier/instacam.git"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "keywords": [
     "webrtc",
