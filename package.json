@@ -3,7 +3,7 @@
   "year": "2019",
   "version": "1.9.2",
   "description": "Instant canvas video",
-  "main": "src/instacam.js",
+  "main": "dist/instacam.umd.js",
   "unpkg": "dist/instacam.umd.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --progress"
