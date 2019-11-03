@@ -1,3 +1,4 @@
 .dev
 .idea
 node_modules
+dist
