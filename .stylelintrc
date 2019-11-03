@@ -1,0 +1,37 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": [
+      true, {
+        "ignoreAtRules": ["include"]
+      }
+    ],
+    "declaration-no-important": true,
+    "declaration-property-unit-whitelist": {
+      "line-height": ["vh"]
+    },
+    "font-family-name-quotes": "always-unless-keyword",
+    "function-url-quotes": "always",
+    "function-url-no-scheme-relative": true,
+    "no-descending-specificity": null,
+    "property-no-unknown": [
+      true, {
+        "ignoreProperties": [
+          "small",
+          "medium",
+          "large",
+          "base",
+          "contrast",
+          "vibrant",
+          "bright",
+          "disable"
+        ]
+      }
+    ],
+    "selector-attribute-quotes": "always",
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "selector-max-id": 0,
+    "selector-max-universal": 0,
+    "string-quotes": "single"
+  }
+}
