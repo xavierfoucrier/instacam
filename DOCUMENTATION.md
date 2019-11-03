@@ -54,7 +54,7 @@ As of May 2017, all major browsers have shipped a working implementation of **ES
 
 ```html
 <script type="module">
-  import { Instacam } from 'src/instacam.js';
+  import Instacam from 'src/instacam.js';
 
   let camera = new Instacam(
     document.querySelector('#canvas1')
