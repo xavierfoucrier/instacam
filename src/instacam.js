@@ -1,9 +1,9 @@
 'use strict';
 
-import { defaults } from './defaults.js';
-import { requirement } from './support.js';
+import defaults from './defaults.js';
+import requirement from './support.js';
 
-export class Instacam {
+export default class Instacam {
 
   /**
     Class constructor

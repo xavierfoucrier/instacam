@@ -1,18 +1,20 @@
 {
   "name": "instacam",
   "year": "2019",
-  "version": "1.9.2",
+  "version": "1.10.0",
   "description": "Instant canvas video",
-  "main": "src/instacam.js",
+  "main": "dist/instacam.umd.js",
+  "unpkg": "dist/instacam.umd.js",
   "scripts": {
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js",
-    "publish": "npm publish"
+    "build": "webpack --config webpack.config.js --progress"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xavierfoucrier/instacam.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "webrtc",
     "camera",
@@ -34,8 +36,9 @@
   },
   "homepage": "https://instacam.js.org",
   "devDependencies": {
-    "terser-webpack-plugin": "^1.4.1",
-    "webpack": "^4.39.3",
-    "webpack-command": "^0.5.0"
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-command": "^0.5.0",
+    "webpack-merge": "^4.2.2"
   }
 }
