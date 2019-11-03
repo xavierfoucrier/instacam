@@ -31,7 +31,7 @@
     "@studiomotio/micro-motion": "^0.1.2",
     "instacam": "^1.9.1",
     "terser-webpack-plugin": "^1.2.3",
-    "webpack": "^4.30.0",
+    "webpack": "^4.41.2",
     "webpack-command": "^0.4.2"
   }
 }
