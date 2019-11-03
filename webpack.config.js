@@ -3,7 +3,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  watch: true,
   entry: './javascript/src/index.js',
   output: {
     filename: 'app.min.js',
