@@ -2,7 +2,7 @@
 @import '~foundation-sites/scss/foundation.scss';
 
 // define the container width
-$grid-container: rem-calc(1200px);
+$grid-container: rem-calc(1120px);
 
 // define the container padding
 $grid-container-padding: (
@@ -11,7 +11,7 @@ $grid-container-padding: (
 );
 
 // define the grid margin
-$grid-margin-gutters: 15px;
+$grid-margin-gutters: 30px;
 
 // include the grid and visibility classes
 @include foundation-normalize;
