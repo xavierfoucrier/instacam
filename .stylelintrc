@@ -25,7 +25,8 @@
           "vibrant",
           "bright",
           "disable",
-          "title"
+          "title",
+          "/^grid/"
         ]
       }
     ],
