@@ -22,7 +22,7 @@ form {
 
   svg {
     width: 22px;
-    fill: lighten(@base-color, 20%);
+    fill: lighten(@color[base], 20%);
   }
 
   .column {
@@ -39,9 +39,9 @@ fieldset {
 
 legend {
   margin-bottom: 5px;
-  font-family: 'DINEngschriftStd';
+  font-family: @font[title];
   font-size: 20px;
-  color: @vibrant-color;
+  color: @color[vibrant];
   text-transform: uppercase;
 
   & + p {
@@ -70,7 +70,7 @@ button {
   }
 
   &:focus svg {
-    fill: @vibrant-color;
+    fill: @color[vibrant];
   }
 
   svg {
