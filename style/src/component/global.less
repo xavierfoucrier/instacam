@@ -1,94 +1,20 @@
-// main: build.less
-
-@import '../../node_modules/@studiomotio/micro-motion/micro-motion';
-
-body {
-  font-family: @font;
-  font-weight: 400;
-  margin-top: 40px;
-  cursor: default;
-  .no-select();
+.no-appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-p {
-  margin: 50px 0;
-  font-size: 15px;
-  text-align: justify;
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-strong {
-  font-weight: 600;
+.no-tap {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
 }
 
-svg {
-  fill: currentColor;
-}
-
-a {
-  color: currentColor;
-  .no-tap();
-}
-
-form {
-  font-size: 13px;
-
-  svg {
-    width: 22px;
-    fill: lighten(@base-color, 20%);
-  }
-
-  .column {
-    margin-bottom: 20px;
-  }
-}
-
-fieldset {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 30px;
-  border: none;
-}
-
-legend {
-  margin-bottom: 5px;
-  font-family: 'DINEngschriftStd';
-  font-size: 20px;
-  color: @vibrant-color;
-  text-transform: uppercase;
-
-  & + p {
-    margin-top: 0;
-    margin-bottom: 25px;
-    font-size: 12px;
-    font-weight: 100;
-    text-align: left;
-  }
-}
-
-label {
-  display: flex;
-  align-items: center;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  outline: none;
-  cursor: pointer;
-
-  &:hover svg {
-    transform: scale(1.2);
-    transition: transform 200ms ease;
-  }
-
-  &:focus svg {
-    fill: @vibrant-color;
-  }
-
-  svg {
-    margin-right: 7px;
-  }
-}
 
 [type='range'] {
   height: 1px;
@@ -288,4 +214,34 @@ button {
 
 .link {
   .mm-highlight(@release: reverse; @color: @vibrant-color; @height: 30%; @offset: 10%; @opacity: 0.35;);
+}
+
+@media (max-width: 639px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  main .shrink {
+    padding: 0;
+  }
+
+  .render {
+    width: 100vw;
+    height: 75vw;
+    max-width: 133vh;
+    max-height: 100vh;
+  }
+
+  .log {
+    padding: 0 15px;
+    display: inline-block;
+    max-width: none;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 639px) {
+  .render {
+    width: 100vw;
+    height: 133vw;
+  }
 }

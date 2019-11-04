@@ -1,0 +1,79 @@
+p {
+  margin: 50px 0;
+  font-size: 15px;
+  text-align: justify;
+}
+
+strong {
+  font-weight: 600;
+}
+
+svg {
+  fill: currentColor;
+}
+
+a {
+  color: currentColor;
+  .no-tap();
+}
+
+form {
+  font-size: 13px;
+
+  svg {
+    width: 22px;
+    fill: lighten(@base-color, 20%);
+  }
+
+  .column {
+    margin-bottom: 20px;
+  }
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  margin-bottom: 5px;
+  font-family: 'DINEngschriftStd';
+  font-size: 20px;
+  color: @vibrant-color;
+  text-transform: uppercase;
+
+  & + p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: left;
+  }
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+
+  &:hover svg {
+    transform: scale(1.2);
+    transition: transform 200ms ease;
+  }
+
+  &:focus svg {
+    fill: @vibrant-color;
+  }
+
+  svg {
+    margin-right: 7px;
+  }
+}

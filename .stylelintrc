@@ -24,7 +24,8 @@
           "contrast",
           "vibrant",
           "bright",
-          "disable"
+          "disable",
+          "title"
         ]
       }
     ],

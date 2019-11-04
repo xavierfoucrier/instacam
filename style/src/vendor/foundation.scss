@@ -1,0 +1,20 @@
+// import the Foundation framework
+@import '~foundation-sites/scss/foundation.scss';
+
+// define the container width
+$grid-container: rem-calc(1200px);
+
+// define the container padding
+$grid-container-padding: (
+  small: 50px,
+  medium: 250px
+);
+
+// define the grid margin
+$grid-margin-gutters: 15px;
+
+// include the grid and visibility classes
+@include foundation-normalize;
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
