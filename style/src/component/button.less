@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 3px 10px;
+  outline: none;
+  background: @color[vibrant];
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+
+  &:hover {
+    background-color: darken(@color[vibrant], 5%);
+  }
+
+  svg {
+    margin-right: 7px;
+  }
+}
