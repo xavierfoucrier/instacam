@@ -23,266 +23,294 @@
   </head>
   <body>
     <header>
-      <div class="row align-justify align-middle">
-        <div class="column shrink"><svg viewBox="0 0 167.33 91.63" class="logo-instacam"><use xlink:href="picture/sprite.svg#instacam" /></svg></div>
-        <div class="column shrink">
-          <div class="row column">
-            <a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github" class="link"><svg viewBox="0 0 80 22" class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg></a>
-          </div>
-          <div class="row column">
-            <a href="https://www.npmjs.com/package/instacam" target="_blank" title="View the project on NPM"><img src="https://img.shields.io/npm/v/instacam.svg" alt="NPM"></a>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-y align-justify align-middle">
+          <div class="cell shrink"><svg viewBox="0 0 167.33 91.63" class="logo-instacam"><use xlink:href="picture/sprite.svg#instacam" /></svg></div>
+          <div class="cell shrink">
+            <div class="cell">
+              <a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github" class="link"><svg viewBox="0 0 80 22" class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg></a>
+            </div>
+            <div class="cell">
+              <a href="https://www.npmjs.com/package/instacam" target="_blank" title="View the project on NPM"><img src="https://img.shields.io/npm/v/instacam.svg" alt="NPM"></a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row column">
-        <p>Instacam is a library to perform <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works" target="_blank" class="link"><strong>instant canvas video</strong></a> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md" target="_blank" class="link"><strong>much more</strong></a> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <a href="https://github.com/xavierfoucrier/instacam" target="_blank" class="link"><strong>on Github</strong></a> to see the documentation about available options, methods and callbacks.</p>
       </div>
     </header>
-    <main class="align-justify">
-      <div class="row">
-        <form class="column small-order-2 medium-order-1">
-          <fieldset class="css-filter hide-for-small-only">
-            <legend>CSS filter</legend>
-            <p>Add pretty css filters to the camera</p>
-            <div class="row medium-up-2 large-up-3">
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#opacity" /></svg>
-                  <span class="value"></span>
-                  <span class="name">opacity</span>
-                </label>
-                <input type="range" name="opacity" min="0" max="1" step="0.01" value="1" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#brightness" /></svg>
-                  <span class="value"></span>
-                  <span class="name">brightness</span>
-                </label>
-                <input type="range" name="brightness" min="0" max="10" step="0.1" value="1" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#contrast" /></svg>
-                  <span class="value"></span>
-                  <span class="name">contrast</span>
-                </label>
-                <input type="range" name="contrast" min="0" max="10" step="0.1" value="1" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#saturation" /></svg>
-                  <span class="value"></span>
-                  <span class="name">saturation</span>
-                </label>
-                <input type="range" name="saturation" min="0" max="10" step="0.1" value="1" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#hue" /></svg>
-                  <span class="value"></span>
-                  <span class="name">hue</span>
-                </label>
-                <input type="range" name="hue" min="0" max="360" value="0" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#invert" /></svg>
-                  <span class="value"></span>
-                  <span class="name">invert</span>
-                </label>
-                <input type="range" name="invert" min="0" max="1" step="0.01" value="0" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#grayscale" /></svg>
-                  <span class="value"></span>
-                  <span class="name">grayscale</span>
-                </label>
-                <input type="range" name="grayscale" min="0" max="1" step="0.1" value="0" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#sepia" /></svg>
-                  <span class="value"></span>
-                  <span class="name">sepia</span>
-                </label>
-                <input type="range" name="sepia" min="0" max="1" step="0.1" value="0" />
-              </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#blur" /></svg>
-                  <span class="value"></span>
-                  <span class="name">blur</span>
-                </label>
-                <input type="range" name="blur" min="0" max="10" step="0.1" value="0" />
-              </div>
-            </div>
-          </fieldset>
-          <fieldset class="blend-layer hide-for-small-only">
-            <legend>Blend layer</legend>
-            <p>Add css blend layer hover the camera</p>
-            <div class="row small-up-2 medium-up-2 large-up-3">
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="none" checked="checked" />none</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="normal" />normal</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="multiply" />multiply</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="screen" />screen</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="overlay" />overlay</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="darken" />darken</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="lighten" />lighten</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="color-dodge" />color-dodge</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="color-burn" />color-burn</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="hard-light" />hard-light</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="soft-light" />soft-light</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="difference" />difference</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="exclusion" />exclusion</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="hue" />hue</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="saturation" />saturation</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="color" />color</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="blend" value="luminosity" />luminosity</label>
-              </div>
-            </div>
-          </fieldset>
-          <fieldset class="custom-filter">
-            <legend>Custom filter</legend>
-            <p>Create custom filters based on the canvas magic</p>
-            <div class="row small-up-2 medium-up-2 large-up-3">
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="none" checked="checked" />none</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="noise" />random noise</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="grayscale" />grayscale</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="invert" />color inversion</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="threshold" />threshold</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="sobel" />soft-sobel</label>
-              </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="filter" value="pixel" />pixelate</label>
-              </div>
-              <div class="column">
-                + <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#filter" title="Contribute and share cool filters" target="_blank" class="link">add yours here!</a>
-              </div>
-            </div>
-          </fieldset>
-          <div class="row hide-for-small-only">
-            <fieldset class="audio column medium-6 large-4">
-              <legend>Mirror</legend>
-              <p>Flip the camera horizontally</p>
-              <div class="row small-up-2 medium-up-2 large-up-3">
-                <div class="column">
-                  <label class="radio"><input type="radio" name="mirror" value="1" />on</label>
-                </div>
-                <div class="column">
-                  <label class="radio"><input type="radio" name="mirror" value="0" checked="checked" />off</label>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="audio column medium-6 large-4">
-              <legend>Audio</legend>
-              <p>Control the sound of the camera</p>
-              <div class="row small-up-2 medium-up-2 large-up-3">
-                <div class="column">
-                  <label class="property">
-                    <svg viewBox="0 0 24 24" class="volume-state"><use xlink:href="picture/sprite.svg#volume-mute" /></svg>
-                    <span class="value"></span>
-                    <span class="name">volume</span>
-                  </label>
-                  <input type="range" name="volume" min="0" max="100" step="1" value="0" />
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="snap column medium-6 large-4">
-              <legend>Snap</legend>
-              <p>Take a snapshot of the camera</p>
-              <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
-            </fieldset>
+    <main>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-y align-justify">
+          <div class="cell">
+            <p>Instacam is a library to perform <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works" target="_blank" class="link"><strong>instant canvas video</strong></a> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md" target="_blank" class="link"><strong>much more</strong></a> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <a href="https://github.com/xavierfoucrier/instacam" target="_blank" class="link"><strong>on Github</strong></a> to see the documentation about available options, methods and callbacks.</p>
           </div>
-          <fieldset class="save hide-for-small-only">
-            <legend>Save</legend>
-            <p>Export the camera stream in different format and quality</p>
-            <div class="row medium-up-2 large-up-3">
-              <div class="column">
-                <label class="radio"><input type="radio" name="format" value="png" />png</label>
+          <form class="cell small-7 small-order-2 medium-order-1">
+            <div class="grid-x grid-margin-y">
+              <div class="cell hide-for-small-only">
+                <fieldset class="css-filter">
+                  <legend>CSS filter</legend>
+                  <p>Add pretty css filters to the camera</p>
+                  <div class="grid-x grid-padding-y medium-up-2 large-up-3">
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#opacity" /></svg>
+                        <span class="value"></span>
+                        <span class="name">opacity</span>
+                      </label>
+                      <input type="range" name="opacity" min="0" max="1" step="0.01" value="1" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#brightness" /></svg>
+                        <span class="value"></span>
+                        <span class="name">brightness</span>
+                      </label>
+                      <input type="range" name="brightness" min="0" max="10" step="0.1" value="1" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#contrast" /></svg>
+                        <span class="value"></span>
+                        <span class="name">contrast</span>
+                      </label>
+                      <input type="range" name="contrast" min="0" max="10" step="0.1" value="1" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#saturation" /></svg>
+                        <span class="value"></span>
+                        <span class="name">saturation</span>
+                      </label>
+                      <input type="range" name="saturation" min="0" max="10" step="0.1" value="1" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#hue" /></svg>
+                        <span class="value"></span>
+                        <span class="name">hue</span>
+                      </label>
+                      <input type="range" name="hue" min="0" max="360" value="0" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#invert" /></svg>
+                        <span class="value"></span>
+                        <span class="name">invert</span>
+                      </label>
+                      <input type="range" name="invert" min="0" max="1" step="0.01" value="0" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#grayscale" /></svg>
+                        <span class="value"></span>
+                        <span class="name">grayscale</span>
+                      </label>
+                      <input type="range" name="grayscale" min="0" max="1" step="0.1" value="0" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#sepia" /></svg>
+                        <span class="value"></span>
+                        <span class="name">sepia</span>
+                      </label>
+                      <input type="range" name="sepia" min="0" max="1" step="0.1" value="0" />
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#blur" /></svg>
+                        <span class="value"></span>
+                        <span class="name">blur</span>
+                      </label>
+                      <input type="range" name="blur" min="0" max="10" step="0.1" value="0" />
+                    </div>
+                  </div>
+                </fieldset>
               </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="format" value="jpeg" />jpeg</label>
+              <div class="cell hide-for-small-only">
+                <fieldset class="blend-layer">
+                  <legend>Blend layer</legend>
+                  <p>Add css blend layer hover the camera</p>
+                  <div class="grid-x grid-padding-y small-up-2 medium-up-2 large-up-3">
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="none" checked="checked" />none</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="normal" />normal</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="multiply" />multiply</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="screen" />screen</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="overlay" />overlay</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="darken" />darken</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="lighten" />lighten</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="color-dodge" />color-dodge</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="color-burn" />color-burn</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="hard-light" />hard-light</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="soft-light" />soft-light</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="difference" />difference</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="exclusion" />exclusion</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="hue" />hue</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="saturation" />saturation</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="color" />color</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="blend" value="luminosity" />luminosity</label>
+                    </div>
+                  </div>
+                </fieldset>
               </div>
-              <div class="column">
-                <label class="radio"><input type="radio" name="format" value="webp" />webp</label>
+              <div class="cell">
+                <fieldset class="custom-filter">
+                  <legend>Custom filter</legend>
+                  <p>Create custom filters based on the canvas magic</p>
+                  <div class="grid-x grid-padding-y small-up-2 medium-up-2 large-up-3">
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="none" checked="checked" />none</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="noise" />random noise</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="grayscale" />grayscale</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="invert" />color inversion</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="threshold" />threshold</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="sobel" />soft-sobel</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="filter" value="pixel" />pixelate</label>
+                    </div>
+                    <div class="cell">
+                      + <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#filter" title="Contribute and share cool filters" target="_blank" class="link">add yours here!</a>
+                    </div>
+                  </div>
+                </fieldset>
               </div>
-              <div class="column">
-                <label class="property">
-                  <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#quality" /></svg>
-                  <span class="value"></span>
-                  <span class="name">quality</span>
-                </label>
-                <input type="range" name="quality" min="0" max="1" step="0.1" value="1" disabled="disabled" />
+              <div class="cell hide-for-small-only">
+                <div class="grid-x">
+                  <fieldset class="mirror cell auto medium-6 large-4">
+                    <legend>Mirror</legend>
+                    <p>Flip the camera horizontally</p>
+                    <div class="grid-x small-up-2 medium-up-2 large-up-3">
+                      <div class="cell">
+                        <label class="radio"><input type="radio" name="mirror" value="1" />on</label>
+                      </div>
+                      <div class="cell">
+                        <label class="radio"><input type="radio" name="mirror" value="0" checked="checked" />off</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset class="audio cell auto medium-6 large-4">
+                    <legend>Audio</legend>
+                    <p>Control the sound of the camera</p>
+                    <div class="grid-x small-up-2 medium-up-2 large-up-3">
+                      <div class="cell">
+                        <label class="property">
+                          <svg viewBox="0 0 24 24" class="volume-state"><use xlink:href="picture/sprite.svg#volume-mute" /></svg>
+                          <span class="value"></span>
+                          <span class="name">volume</span>
+                        </label>
+                        <input type="range" name="volume" min="0" max="100" step="1" value="0" />
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset class="snap cell auto medium-6 large-4">
+                    <legend>Snap</legend>
+                    <p>Take a snapshot of the camera</p>
+                    <button type="button" name="snap"><svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#camera" /></svg>take a photo</button>
+                  </fieldset>
+                </div>
               </div>
-              <div class="column">
-                <span class="size disabled">
-                  <span>0</span>
-                  <small>ko</small>
-                </span>
+              <div class="cell hide-for-small-only">
+                <fieldset class="save">
+                  <legend>Save</legend>
+                  <p>Export the camera stream in different format and quality</p>
+                  <div class="grid-x grid-padding-y medium-up-2 large-up-3">
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="format" value="png" />png</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="format" value="jpeg" />jpeg</label>
+                    </div>
+                    <div class="cell">
+                      <label class="radio"><input type="radio" name="format" value="webp" />webp</label>
+                    </div>
+                    <div class="cell">
+                      <label class="property">
+                        <svg viewBox="0 0 24 24"><use xlink:href="picture/sprite.svg#quality" /></svg>
+                        <span class="value"></span>
+                        <span class="name">quality</span>
+                      </label>
+                      <input type="range" name="quality" min="0" max="1" step="0.1" value="1" disabled="disabled" />
+                    </div>
+                    <div class="cell">
+                      <span class="size disabled">
+                        <span>0</span>
+                        <small>ko</small>
+                      </span>
+                    </div>
+                  </div>
+                </fieldset>
               </div>
             </div>
-          </fieldset>
-        </form>
-        <div class="column shrink small-order-1 medium-order-2">
-          <div class="sticky-container">
-            <canvas class="render"></canvas>
-            <em class="log">Waiting for your camera...</em>
-            <div class="preview hide-for-small-only"></div>
+          </form>
+          <div class="cell shrink small-order-1 medium-order-2">
+            <div class="grid-y grid-margin-y sticky-container">
+              <div class="cell">
+                <canvas class="render"></canvas>
+              </div>
+              <div class="">
+                <em class="log">Waiting for your camera...</em>
+              </div>
+              <div class="cell">
+                <div class="preview hide-for-small-only"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cell small-order-4 show-for-small-only">
+          <p>This is a basic demo: switch to a larger screen to discover all the amazing things that <strong>Instacam</strong> can do!</p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-y">
+          <div class="cell">
+            <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank" class="link link-author">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank" class="link link-  license">MIT License</a></strong>.</p>
           </div>
         </div>
       </div>
-      <div class="row column small-order-4 show-for-small-only">
-        <p>This is a basic demo: switch to a larger screen to discover all the amazing things that <strong>Instacam</strong> can do!</p>
-      </div>
-    </main>
-    <footer class="row column">
-      <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank" class="link link-author">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank" class="link link-license">MIT License</a></strong>.</p>
     </footer>
     <script src="javascript/app.min.js"></script>
   </body>

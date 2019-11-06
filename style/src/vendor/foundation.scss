@@ -10,8 +10,9 @@ $grid-container-padding: (
   medium: 250px
 );
 
-// define the grid margin
-$grid-margin-gutters: 30px;
+// define the grid gutters
+$grid-margin-gutters: 50px;
+$grid-padding-gutters: 20px;
 
 // include the grid and visibility classes
 @include foundation-normalize;
