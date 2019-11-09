@@ -25,8 +25,8 @@ let camera = new Instacam(
 );
 
 // bind all property input to properly update the viewport
-Array.from(document.querySelectorAll('.property + [type="range"]')).forEach((element) => {
-  const value = element.parentNode.querySelector('.value');
+Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEach((element) => {
+  const value = element.parentNode.querySelector('.field-value');
 
   // define data default attribute automatically
   element.setAttribute('data-default', element.value);
@@ -53,12 +53,12 @@ Array.from(document.querySelectorAll('.property + [type="range"]')).forEach((ele
   // show the current range value on mousedown
   element.addEventListener('mousedown', () => {
     value.innerHTML = element.value;
-    value.classList.add('update');
+    value.classList.add('field-update');
   });
 
   // hide the current range value on mouseup
   element.addEventListener('mouseup', () => {
-    value.classList.remove('update');
+    value.classList.remove('field-update');
   });
 });
 
