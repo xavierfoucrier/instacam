@@ -12,7 +12,7 @@ module.exports = {
     filename: 'instacam.umd.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'Instacam',
-    libraryExport: 'Instacam',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
