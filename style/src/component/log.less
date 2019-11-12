@@ -1,0 +1,21 @@
+.log {
+  display: inline-flex;
+  position: relative;
+  margin-top: @gutter[grid-padding];
+  padding: 8px 0 8px 14px;
+  color: @color[log];
+  font-size: 13px;
+  font-weight: 100;
+  text-align: justify;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: currentColor;
+    opacity: 0.2;
+  }
+}
