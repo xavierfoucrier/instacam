@@ -4,8 +4,9 @@
 import Instacam from 'instacam';
 
 // get some elements
-let log = document.querySelector('.log');
-let preview = document.querySelector('.preview');
+let log = document.querySelector('.camera-log');
+let input = document.querySelector('.camera-input');
+let output = document.querySelector('.camera-output');
 
 // instantiate the class
 let camera = new Instacam(
@@ -69,7 +70,7 @@ Array.from(document.querySelectorAll('[name="blend"]')).forEach((element) => {
     // apply the custom blend layer
     camera.blend = element.value === 'none' ? {} : {
       mode: element.value,
-      color: '#217fcf'
+      color: getComputedStyle(input).getPropertyValue('background-color')
     };
   });
 });
@@ -138,12 +139,12 @@ document.querySelector('[name="snap"]').addEventListener('click', () => {
   canvas.getContext('2d').putImageData(data, 0, 0);
 
   // clean the area before displaying thumbnail
-  if (preview.querySelector('img') !== null || (preview.querySelectorAll('canvas').length >= 16)) {
-    preview.innerHTML = '';
+  if (output.querySelector('img') !== null || (output.querySelectorAll('canvas').length >= 16)) {
+    output.innerHTML = '';
   }
 
   // append the snapshot into the export area
-  preview.appendChild(canvas);
+  output.appendChild(canvas);
 });
 
 // save the viewport when the exported format is changing
@@ -174,9 +175,9 @@ function save() {
   image.setAttribute('height', 300);
   image.setAttribute('src', data);
 
-  // append the image into the preview area
-  preview.innerHTML = '';
-  preview.appendChild(image);
+  // append the image into the output area
+  output.innerHTML = '';
+  output.appendChild(image);
 
   // estimate the file size
   document.querySelector('.size span').innerHTML = Math.round(((data.length * 3) / 4) / 1024);

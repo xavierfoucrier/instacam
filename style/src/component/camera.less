@@ -1,4 +1,9 @@
-.log {
+.camera-container {
+  position: sticky;
+  top: @gutter[grid-margin];
+}
+
+.camera-log {
   display: inline-flex;
   position: relative;
   margin-top: @gutter[grid-padding];
@@ -18,4 +23,24 @@
     background: currentColor;
     opacity: 0.2;
   }
+}
+
+.camera-input {
+  width: 400px;
+  height: 300px;
+  background: @color[vibrant];
+}
+
+.camera-output {
+  width: 400px;
+  height: 300px;
+
+  // canvas {
+  //   width: 94px;
+  //   margin-right: 7px;
+  //
+  //   &:nth-child(4n) {
+  //     margin-right: 0;
+  //   }
+  // }
 }
