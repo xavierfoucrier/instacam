@@ -137,9 +137,10 @@ document.querySelector('[name="snap"]').addEventListener('click', () => {
   canvas.setAttribute('width', 400);
   canvas.setAttribute('height', 300);
   canvas.getContext('2d').putImageData(data, 0, 0);
+  canvas.classList.add('cell', 'camera-thumbnail');
 
   // clean the area before displaying thumbnail
-  if (output.querySelector('img') !== null || (output.querySelectorAll('canvas').length >= 16)) {
+  if (output.querySelector('img') !== null || (output.querySelectorAll('canvas').length >= 12)) {
     output.innerHTML = '';
   }
 
