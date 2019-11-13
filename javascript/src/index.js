@@ -52,14 +52,18 @@ Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEac
   });
 
   // show the current range value on mousedown
-  element.addEventListener('mousedown', () => {
-    value.innerHTML = element.value;
-    value.classList.add('field-update');
+  ['mousedown', 'touchstart'].forEach((e) => {
+    element.addEventListener(e, () => {
+      value.innerHTML = element.value;
+      value.classList.add('field-update');
+    });
   });
 
   // hide the current range value on mouseup
-  element.addEventListener('mouseup', () => {
-    value.classList.remove('field-update');
+  ['mouseup', 'touchend'].forEach((e) => {
+    element.addEventListener(e, () => {
+      value.classList.remove('field-update');
+    });
   });
 });
 
