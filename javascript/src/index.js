@@ -17,7 +17,7 @@ let camera = new Instacam(
       log.innerHTML = 'Instacam is working fine.';
     },
     fail: (exception) => {
-      log.innerHTML = `Sorry, Instacam failed to start because you didn't accept the requested permissions to access your camera, or something went wrong. Error: <strong>${exception.message}</strong>`;
+      log.innerHTML = `Sorry, Instacam failed to start because you didn't accept the requested permissions to access your camera, or something went wrong. <strong class="camera-log-error">Error: ${exception.message}</strong>`;
     },
     unsupported: () => {
       log.innerHTML = 'Sorry, but it seems that your browser is not supporting requestAnimationFrame, mediaDevices or Promises. Try Instacam in another browser.';

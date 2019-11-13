@@ -5,6 +5,7 @@
 
 .camera-log {
   display: inline-flex;
+  flex-direction: column;
   position: relative;
   margin-top: @gutter[grid-padding];
   padding: 8px 0 8px 14px;
@@ -12,6 +13,7 @@
   font-size: 13px;
   font-weight: 100;
   text-align: justify;
+  line-height: 1.4;
 
   &::before {
     content: '';
@@ -23,6 +25,11 @@
     background: currentColor;
     opacity: 0.2;
   }
+}
+
+.camera-log-error {
+  margin-top: 10px;
+  font-weight: 700;
 }
 
 .camera-input-container {
