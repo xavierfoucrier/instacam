@@ -13,10 +13,10 @@
     <title>instacam &ndash; Instant canvas video</title>
     <link rel="icon" href="picture/favicon.ico" type="image/x-icon" />
     <link type="text/css" rel="stylesheet" media="all" href="style/default.min.css" />
-    <link rel="prefetch" href="font/sailec-light.woff" />
-    <link rel="prefetch" href="font/sailec-regular.woff" />
-    <link rel="prefetch" href="font/sailec-bold.woff" />
-    <link rel="prefetch" href="font/din-engschrift.woff" />
+    <link rel="preload" href="font/sailec-light.woff" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="font/sailec-regular.woff" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="font/sailec-bold.woff" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="font/din-engschrift.woff" as="font" crossorigin="anonymous" />
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-54245092-4" async></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','UA-54245092-4')</script>
   </head>
@@ -27,10 +27,14 @@
           <div class="cell shrink"><svg class="logo-instacam"><use xlink:href="picture/sprite.svg#instacam" /></svg></div>
           <div class="cell shrink">
             <div class="cell">
-              <a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github" class="link"><svg class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg></a>
+              <a href="https://github.com/xavierfoucrier/instacam" target="_blank" title="View the project on Github" class="link" rel="noopener" aria-label="Instacam Github project homepage">
+                <svg class="logo-github"><use xlink:href="picture/sprite.svg#github" /></svg>
+              </a>
             </div>
             <div class="cell">
-              <a href="https://www.npmjs.com/package/instacam" target="_blank" title="View the project on NPM"><img src="https://img.shields.io/npm/v/instacam?color=ffc000" alt="NPM"></a>
+              <a href="https://www.npmjs.com/package/instacam" target="_blank" title="View the project on NPM" rel="noopener" aria-label="Instacam NPM package homepage">
+                <img src="https://img.shields.io/npm/v/instacam?color=ffc000" alt="NPM" />
+              </a>
             </div>
           </div>
         </div>
@@ -40,178 +44,178 @@
       <div class="grid-container">
         <div class="grid-x grid-margin-y grid-margin-x align-justify">
           <div class="cell">
-            <p>Instacam is a library to perform <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works" target="_blank" class="link"><strong>instant canvas video</strong></a> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md" target="_blank" class="link"><strong>much more</strong></a> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <a href="https://github.com/xavierfoucrier/instacam" target="_blank" class="link"><strong>on Github</strong></a> to see the documentation about available options, methods and callbacks.</p>
+            <p>Instacam is a library to perform <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#how-it-works" target="_blank" class="link" rel="noopener"><strong>instant canvas video</strong></a> through the WebRTC API with a fresh touch of CSS filters. With Instacam, you can do <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md" target="_blank" class="link" rel="noopener"><strong>much more</strong></a> than display a camera stream! CSS and custom filtering applied on HTML5 canvas, snapshots, etc. View the project <a href="https://github.com/xavierfoucrier/instacam" target="_blank" class="link" rel="noopener"><strong>on Github</strong></a> to see the documentation about available options, methods and callbacks.</p>
           </div>
           <form class="cell auto medium-7 small-order-2 medium-order-1 form">
             <div class="grid-x grid-margin-y">
               <div class="cell hide-for-small-only">
                 <fieldset class="form-fieldset">
-                  <legend>CSS filter</legend>
+                  <legend class="form-fieldset-legend">CSS filter</legend>
                   <small class="form-fieldset-description">Add pretty css filters to the camera</small>
                   <div class="grid-x grid-margin-x grid-padding-y medium-up-2 large-up-3">
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-opacity">
                         <svg><use xlink:href="picture/sprite.svg#opacity" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">opacity</span>
                       </label>
-                      <input type="range" name="opacity" min="0" max="1" step="0.01" value="1" class="field-input" />
+                      <input type="range" id="css-opacity" name="opacity" min="0" max="1" step="0.01" value="1" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-brightness">
                         <svg><use xlink:href="picture/sprite.svg#brightness" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">brightness</span>
                       </label>
-                      <input type="range" name="brightness" min="0" max="10" step="0.1" value="1" class="field-input" />
+                      <input type="range" id="css-brightness" name="brightness" min="0" max="10" step="0.1" value="1" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-contrast">
                         <svg><use xlink:href="picture/sprite.svg#contrast" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">contrast</span>
                       </label>
-                      <input type="range" name="contrast" min="0" max="10" step="0.1" value="1" class="field-input" />
+                      <input type="range" id="css-contrast" name="contrast" min="0" max="10" step="0.1" value="1" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-saturation">
                         <svg><use xlink:href="picture/sprite.svg#saturation" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">saturation</span>
                       </label>
-                      <input type="range" name="saturation" min="0" max="10" step="0.1" value="1" class="field-input" />
+                      <input type="range" id="css-saturation" name="saturation" min="0" max="10" step="0.1" value="1" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-hue">
                         <svg><use xlink:href="picture/sprite.svg#hue" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">hue</span>
                       </label>
-                      <input type="range" name="hue" min="0" max="360" value="0" class="field-input" />
+                      <input type="range" id="css-hue" name="hue" min="0" max="360" value="0" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-invert">
                         <svg><use xlink:href="picture/sprite.svg#invert" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">invert</span>
                       </label>
-                      <input type="range" name="invert" min="0" max="1" step="0.01" value="0" class="field-input" />
+                      <input type="range" id="css-invert" name="invert" min="0" max="1" step="0.01" value="0" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-grayscale">
                         <svg><use xlink:href="picture/sprite.svg#grayscale" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">grayscale</span>
                       </label>
-                      <input type="range" name="grayscale" min="0" max="1" step="0.1" value="0" class="field-input" />
+                      <input type="range" id="css-grayscale" name="grayscale" min="0" max="1" step="0.1" value="0" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-sepia">
                         <svg><use xlink:href="picture/sprite.svg#sepia" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">sepia</span>
                       </label>
-                      <input type="range" name="sepia" min="0" max="1" step="0.1" value="0" class="field-input" />
+                      <input type="range" id="css-sepia" name="sepia" min="0" max="1" step="0.1" value="0" class="field-input-range" />
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="css-blur">
                         <svg><use xlink:href="picture/sprite.svg#blur" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">blur</span>
                       </label>
-                      <input type="range" name="blur" min="0" max="10" step="0.1" value="0" class="field-input" />
+                      <input type="range" id="css-blur" name="blur" min="0" max="10" step="0.1" value="0" class="field-input-range" />
                     </div>
                   </div>
                 </fieldset>
               </div>
               <div class="cell hide-for-small-only">
                 <fieldset class="form-fieldset">
-                  <legend>Blend layer</legend>
+                  <legend class="form-fieldset-legend">Blend layer</legend>
                   <small class="form-fieldset-description">Add css blend layer hover the camera</small>
                   <div class="grid-x grid-margin-x grid-padding-y small-up-2 medium-up-2 large-up-3">
                     <div class="cell field">
                       <label class="field-property">
-                        <input type="radio" name="blend" value="none" checked="checked" class="field-input" />
+                        <input type="radio" name="blend" value="none" checked="checked" class="field-input-radio" />
                         <span class="field-name">none</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="normal" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="normal" class="field-input-radio" />
                         <span class="field-name">normal</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="multiply" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="multiply" class="field-input-radio" />
                         <span class="field-name">multiply</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="screen" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="screen" class="field-input-radio" />
                         <span class="field-name">screen</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="overlay" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="overlay" class="field-input-radio" />
                         <span class="field-name">overlay</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="darken" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="darken" class="field-input-radio" />
                         <span class="field-name">darken</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="lighten" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="lighten" class="field-input-radio" />
                         <span class="field-name">lighten</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="color-dodge" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="color-dodge" class="field-input-radio" />
                         <span class="field-name">color-dodge</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="color-burn" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="color-burn" class="field-input-radio" />
                         <span class="field-name">color-burn</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="hard-light" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="hard-light" class="field-input-radio" />
                         <span class="field-name">hard-light</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="soft-light" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="soft-light" class="field-input-radio" />
                         <span class="field-name">soft-light</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="difference" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="difference" class="field-input-radio" />
                         <span class="field-name">difference</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="exclusion" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="exclusion" class="field-input-radio" />
                         <span class="field-name">exclusion</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="hue" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="hue" class="field-input-radio" />
                         <span class="field-name">hue</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="saturation" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="saturation" class="field-input-radio" />
                         <span class="field-name">saturation</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="color" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="color" class="field-input-radio" />
                         <span class="field-name">color</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="blend" value="luminosity" class="field-input" />
+                      <label class="field-property"><input type="radio" name="blend" value="luminosity" class="field-input-radio" />
                         <span class="field-name">luminosity</span>
                       </label>
                     </div>
@@ -220,46 +224,46 @@
               </div>
               <div class="cell">
                 <fieldset class="form-fieldset">
-                  <legend>Custom filter</legend>
+                  <legend class="form-fieldset-legend">Custom filter</legend>
                   <small class="form-fieldset-description">Create custom filters based on the canvas magic</small>
                   <div class="grid-x grid-margin-x grid-padding-y small-up-2 medium-up-2 large-up-3">
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="none" checked="checked" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="none" checked="checked" class="field-input-radio" />
                         <span class="field-name">none</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="noise" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="noise" class="field-input-radio" />
                         <span class="field-name">random noise</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="grayscale" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="grayscale" class="field-input-radio" />
                         <span class="field-name">grayscale</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="invert" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="invert" class="field-input-radio" />
                         <span class="field-name">color inversion</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="threshold" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="threshold" class="field-input-radio" />
                         <span class="field-name">threshold</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="sobel" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="sobel" class="field-input-radio" />
                         <span class="field-name">soft-sobel</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="filter" value="pixel" class="field-input" />
+                      <label class="field-property"><input type="radio" name="filter" value="pixel" class="field-input-radio" />
                         <span class="field-name">pixelate</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      + <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#filter" title="Contribute and share cool filters" target="_blank" class="link">add yours here!</a>
+                      + <a href="https://github.com/xavierfoucrier/instacam/blob/master/DOCUMENTATION.md#filter" title="Contribute and share cool filters" target="_blank" class="link" rel="noopener">add yours here!</a>
                     </div>
                   </div>
                 </fieldset>
@@ -267,37 +271,37 @@
               <div class="cell hide-for-small-only">
                 <div class="grid-x grid-margin-x">
                   <fieldset class="form-fieldset cell auto medium-6 large-4">
-                    <legend>Mirror</legend>
+                    <legend class="form-fieldset-legend">Mirror</legend>
                     <small class="form-fieldset-description">Flip the camera horizontally</small>
                     <div class="grid-x grid-padding-y">
                       <div class="cell auto field">
-                        <label class="field-property"><input type="radio" name="mirror" value="1" class="field-input" />
+                        <label class="field-property"><input type="radio" name="mirror" value="1" class="field-input-radio" />
                           <span class="field-name">on</span>
                         </label>
                       </div>
                       <div class="cell auto field">
-                        <label class="field-property"><input type="radio" name="mirror" value="0" checked="checked" class="field-input" />
+                        <label class="field-property"><input type="radio" name="mirror" value="0" checked="checked" class="field-input-radio" />
                           <span class="field-name">off</span>
                         </label>
                       </div>
                     </div>
                   </fieldset>
                   <fieldset class="form-fieldset cell auto medium-6 large-4">
-                    <legend>Audio</legend>
+                    <legend class="form-fieldset-legend">Audio</legend>
                     <small class="form-fieldset-description">Control the sound of the camera</small>
                     <div class="grid-x grid-padding-y">
                       <div class="cell field">
-                        <label class="field-property">
+                        <label class="field-property" for="audio-volume">
                           <svg class="volume-state"><use xlink:href="picture/sprite.svg#volume-mute" /></svg>
                           <span class="field-value"></span>
                           <span class="field-name">volume</span>
                         </label>
-                        <input type="range" name="volume" min="0" max="100" step="1" value="0" class="field-input" />
+                        <input type="range" id="audio-volume" name="volume" min="0" max="100" step="1" value="0" class="field-input-range" />
                       </div>
                     </div>
                   </fieldset>
                   <fieldset class="form-fieldset cell auto medium-6 large-4">
-                    <legend>Snap</legend>
+                    <legend class="form-fieldset-legend">Snap</legend>
                     <small class="form-fieldset-description">Take a snapshot of the camera</small>
                     <div class="grid-x grid-padding-y">
                       <div class="cell">
@@ -309,31 +313,31 @@
               </div>
               <div class="cell hide-for-small-only">
                 <fieldset class="form-fieldset">
-                  <legend>Save</legend>
+                  <legend class="form-fieldset-legend">Save</legend>
                   <small class="form-fieldset-description">Export the camera stream in different format and quality</small>
                   <div class="grid-x grid-margin-x grid-padding-y medium-up-2 large-up-3">
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="format" value="png" class="field-input" />
+                      <label class="field-property"><input type="radio" name="format" value="png" class="field-input-radio" />
                         <span class="field-name">png</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="format" value="jpeg" class="field-input" />
+                      <label class="field-property"><input type="radio" name="format" value="jpeg" class="field-input-radio" />
                         <span class="field-name">jpeg</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property"><input type="radio" name="format" value="webp" class="field-input" />
+                      <label class="field-property"><input type="radio" name="format" value="webp" class="field-input-radio" />
                         <span class="field-name">webp</span>
                       </label>
                     </div>
                     <div class="cell field">
-                      <label class="field-property">
+                      <label class="field-property" for="save-quality">
                         <svg><use xlink:href="picture/sprite.svg#quality" /></svg>
                         <span class="field-value"></span>
                         <span class="field-name">quality</span>
                       </label>
-                      <input type="range" name="quality" min="0" max="1" step="0.1" value="1" disabled="disabled" class="field-input" />
+                      <input type="range" id="save-quality" name="quality" min="0" max="1" step="0.1" value="1" disabled="disabled" class="field-input-range" />
                     </div>
                     <div class="cell field">
                       <span class="size disabled">
@@ -369,7 +373,7 @@
       <div class="grid-container">
         <div class="grid-x grid-margin-y">
           <div class="cell">
-            <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank" class="link link-author">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank" class="link link-  license">MIT License</a></strong>.</p>
+            <p>Made with love by <strong><a href="https://github.com/xavierfoucrier" target="_blank" class="link link-author" rel="noopener" aria-label="Instacam author profile on Github">Xavier Foucrier</a></strong>.<br />Distributed under the <strong><a href="https://github.com/xavierfoucrier/instacam/blob/master/LICENSE.md" target="_blank" class="link" rel="noopener" aria-label="Instacam MIT license on Github">MIT License</a></strong>.</p>
           </div>
         </div>
       </div>
