@@ -36,16 +36,10 @@ export default class Instacam {
 
     // initialize the viewport
     this.viewport = viewport;
-    this.viewport.width = this._props.width;
-    this.viewport.height = this._props.height;
 
     // create the media element
     this._media = document.createElement('video');
-
-    // set some media element properties
     this._media.style.display = 'none';
-    this._media.width = this._props.width;
-    this._media.height = this._props.height;
 
     // attach the media element to the DOM
     this.viewport.parentNode.insertBefore(this._media, this.viewport.nextSibling);
@@ -104,10 +98,16 @@ export default class Instacam {
 
         // capture the blob stream
         this._media.srcObject = stream;
+        this._media.width = this._props.width;
+        this._media.height = this._props.height;
         this._media.play();
 
         // set the volume at start
         this.volume = this._props.volume;
+
+        // set the viewport size
+        this.viewport.width = this._props.width;
+        this.viewport.height = this._props.height;
 
         // animation loop used to properly render the viewport
         const loop = () => {
