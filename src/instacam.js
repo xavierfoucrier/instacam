@@ -86,6 +86,12 @@ export default class Instacam {
           }
 
           return {
+            width: {
+              ideal: this._props.width
+            },
+            height: {
+              ideal: this._props.height
+            },
             frameRate: this._props.framerate,
             aspectRatio: this._props.ratio,
             facingMode: this._props.mode === 'front' ? 'user' : 'environment'
