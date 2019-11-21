@@ -39,6 +39,7 @@ export default class Instacam {
 
     // create the media element
     this._media = document.createElement('video');
+    this._media.setAttribute('data-instacam-stream', '');
     this._media.style.display = 'none';
 
     // attach the media element to the DOM
@@ -124,6 +125,7 @@ export default class Instacam {
             // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
             if (typeof this._buffer === 'undefined') {
               this._buffer = document.createElement('canvas');
+              this._buffer.setAttribute('data-instacam-buffer', '');
               this._buffer.style.display = 'none';
               this._buffer.width = this._props.width;
               this._buffer.height = this._props.height;
@@ -182,6 +184,7 @@ export default class Instacam {
       // create the blending element
       if (typeof this._blend === 'undefined') {
         this._blend = document.createElement('div');
+        this._blend.setAttribute('data-instacam-blend', '');
 
         // prepend the blending element to the viewport
         this.viewport.parentNode.insertBefore(this._blend, this.viewport);
