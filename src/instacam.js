@@ -107,12 +107,14 @@ export default class Instacam {
         this._media.srcObject = stream;
         this._media.play();
 
+        // set the viewport size when the stream is ready
+        this._media.addEventListener('loadeddata', () => {
+          this.viewport.width = this._media.videoWidth;
+          this.viewport.height = this._media.videoHeight;
+        });
+
         // set the volume at start
         this.volume = this._props.volume;
-
-        // set the viewport size
-        this.viewport.width = this._props.width;
-        this.viewport.height = this._props.height;
 
         // animation loop used to properly render the viewport
         const loop = () => {
