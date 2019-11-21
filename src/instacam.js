@@ -104,8 +104,6 @@ export default class Instacam {
 
         // capture the blob stream
         this._media.srcObject = stream;
-        this._media.width = this._props.width;
-        this._media.height = this._props.height;
         this._media.play();
 
         // set the volume at start
