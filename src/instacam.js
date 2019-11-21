@@ -121,7 +121,7 @@ export default class Instacam {
 
           // render the viewport with or without custom filter
           if (typeof this._props.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
+            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
           } else {
 
             // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
@@ -129,13 +129,13 @@ export default class Instacam {
               this._buffer = document.createElement('canvas');
               this._buffer.setAttribute('data-instacam-buffer', '');
               this._buffer.style.display = 'none';
-              this._buffer.width = this._props.width;
-              this._buffer.height = this._props.height;
+              this._buffer.width = this.viewport.width;
+              this._buffer.height = this.viewport.height;
               this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
             }
 
-            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
-            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this._props.width, this._props.height)), 0, 0);
+            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
+            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.viewport.width, this.viewport.height)), 0, 0);
           }
 
           // make this function run at 60fps
