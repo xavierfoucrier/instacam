@@ -681,11 +681,13 @@ export default class Instacam {
     return {
       audio: typeof audio === 'undefined' ? null : {
         id: audio.id,
-        name: audio.label
+        name: audio.label,
+        track: audio
       },
       video: typeof video === 'undefined' ? null : {
         id: video.id,
-        name: video.label
+        name: video.label,
+        track: video
       }
     };
   }
