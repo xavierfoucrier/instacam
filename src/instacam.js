@@ -122,8 +122,8 @@ export default class Instacam {
             id: video.id,
             name: video.label,
             track: video,
-            width: video.track.getSettings().width,
-            height: video.track.getSettings().height
+            width: video.getSettings().width,
+            height: video.getSettings().height
           }
         };
 
