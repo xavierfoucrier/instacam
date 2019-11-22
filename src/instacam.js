@@ -107,14 +107,32 @@ export default class Instacam {
         this._media.srcObject = stream;
         this._media.play();
 
-        // set the viewport size when the stream is ready
-        this._media.addEventListener('loadeddata', () => {
-          this.viewport.width = this._media.videoWidth;
-          this.viewport.height = this._media.videoHeight;
-        });
-
         // set the volume at start
         this.volume = this._props.volume;
+
+        // get the current audio and video tracks
+        let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
+        let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
+
+        // save current track into the hardware property
+        this._hardware = {
+          audio: typeof audio === 'undefined' ? null : {
+            id: audio.id,
+            name: audio.label,
+            track: audio
+          },
+          video: typeof video === 'undefined' ? null : {
+            id: video.id,
+            name: video.label,
+            track: video,
+            width: video.track.getSettings().width,
+            height: video.track.getSettings().height
+          }
+        };
+
+        // set the viewport size when the stream is ready
+        this.viewport.width = this._hardware.video !== null ? this._hardware.video.width : 0;
+        this.viewport.height = this._hardware.video !== null ? this._hardware.video.height : 0;
 
         // animation loop used to properly render the viewport
         const loop = () => {
@@ -667,28 +685,6 @@ export default class Instacam {
     @return {Object} hardware informations from the current audio/video tracks
   */
   get hardware() {
-
-    // return null if no stream is active
-    if (typeof this._stream === 'undefined') {
-      return null;
-    }
-
-    // get the current audio and video tracks
-    let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
-    let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
-
-    // create the hardware object
-    return {
-      audio: typeof audio === 'undefined' ? null : {
-        id: audio.id,
-        name: audio.label,
-        track: audio
-      },
-      video: typeof video === 'undefined' ? null : {
-        id: video.id,
-        name: video.label,
-        track: video
-      }
-    };
+    return typeof this._stream === 'undefined' ? null : this._hardware;
   }
 }
