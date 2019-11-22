@@ -107,9 +107,6 @@ export default class Instacam {
         this._media.srcObject = stream;
         this._media.play();
 
-        // set the volume at start
-        this.volume = this._props.volume;
-
         // get the current audio and video tracks
         let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
         let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
@@ -134,34 +131,41 @@ export default class Instacam {
         this.viewport.width = this._hardware.video !== null ? this._hardware.video.width : 0;
         this.viewport.height = this._hardware.video !== null ? this._hardware.video.height : 0;
 
-        // animation loop used to properly render the viewport
-        const loop = () => {
+        // set the volume at start
+        this.volume = this._props.volume;
 
-          // render the viewport with or without custom filter
-          if (typeof this._props.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
-          } else {
+        // start the main requestAnimationFrame if the camera is enable
+        if (this._props.camera) {
 
-            // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
-            if (typeof this._buffer === 'undefined') {
-              this._buffer = document.createElement('canvas');
-              this._buffer.setAttribute('data-instacam-buffer', '');
-              this._buffer.style.display = 'none';
-              this._buffer.width = this.viewport.width;
-              this._buffer.height = this.viewport.height;
-              this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
+          // animation loop used to properly render the viewport
+          const loop = () => {
+
+            // render the viewport with or without custom filter
+            if (typeof this._props.filter !== 'function') {
+              this.viewport.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
+            } else {
+
+              // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
+              if (typeof this._buffer === 'undefined') {
+                this._buffer = document.createElement('canvas');
+                this._buffer.setAttribute('data-instacam-buffer', '');
+                this._buffer.style.display = 'none';
+                this._buffer.width = this.viewport.width;
+                this._buffer.height = this.viewport.height;
+                this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
+              }
+
+              this._buffer.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
+              this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.viewport.width, this.viewport.height)), 0, 0);
             }
 
-            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
-            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.viewport.width, this.viewport.height)), 0, 0);
-          }
+            // make this function run at 60fps
+            requestAnimationFrame(loop);
+          };
 
-          // make this function run at 60fps
+          // render the first frame
           requestAnimationFrame(loop);
-        };
-
-        // render the first frame
-        requestAnimationFrame(loop);
+        }
 
         if (typeof this._props.done === 'function') {
           this._props.done();
