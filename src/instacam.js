@@ -37,6 +37,8 @@ export default class Instacam {
     // initialize the viewport
     this.viewport = viewport;
     this.viewport.setAttribute('data-instacam-viewport', '');
+    this.viewport.width = this._props.width;
+    this.viewport.height = this._props.height;
 
     // create the media element
     this._media = document.createElement('video');
