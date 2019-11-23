@@ -51,6 +51,7 @@ export default class Instacam {
     // create the container
     this._container = document.createElement('div');
     this._container.setAttribute('data-instacam', '');
+    this._container.style = 'display:inline-flex;position:relative;overflow:hidden;vertical-align:bottom;';
 
     // attach the container element to the DOM
     this.viewport.parentNode.insertBefore(this._container, this.viewport);
@@ -213,11 +214,8 @@ export default class Instacam {
         this.viewport.parentNode.insertBefore(this._blend, this.viewport);
       }
 
-      // get the viewport bounds
-      const bounds = this.viewport.getBoundingClientRect();
-
       // set the blending styles
-      this._blend.style = `position:absolute;z-index:1;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._props.blend.mode};background:${this._props.blend.color};pointer-events:none;`;
+      this._blend.style = `position:absolute;z-index:1;width:100%;height:100%;mix-blend-mode:${this._props.blend.mode};background:${this._props.blend.color};pointer-events:none;`;
     } else if (typeof this._blend !== 'undefined') {
 
       // remove the blend layer from the DOM if there is no blending applied
