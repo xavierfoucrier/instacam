@@ -47,6 +47,7 @@
     "@studiomotio/micro-motion": "^0.1.2",
     "autoprefixer": "^9.7.2",
     "foundation-sites": "^6.5.3",
-    "instacam": "^1.10.2"
+    "instacam": "^1.10.2",
+    "postcss-loader": "^3.0.0"
   }
 }
