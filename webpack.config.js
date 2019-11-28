@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -36,6 +37,13 @@ module.exports = {
           loader: 'css-loader',
           options: {
             url: false
+          }
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [
+              autoprefixer()
+            ]
           }
         }, {
           loader: 'less-loader',
