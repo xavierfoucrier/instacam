@@ -28,12 +28,14 @@
   },
   "homepage": "https://github.com/xavierfoucrier/instacam#readme",
   "devDependencies": {
+    "autoprefixer": "^9.7.2",
     "css-loader": "^3.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "purgecss-webpack-plugin": "^1.6.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
@@ -45,9 +47,7 @@
   },
   "dependencies": {
     "@studiomotio/micro-motion": "^0.1.2",
-    "autoprefixer": "^9.7.2",
     "foundation-sites": "^6.5.3",
-    "instacam": "^1.10.2",
-    "postcss-loader": "^3.0.0"
+    "instacam": "^1.10.2"
   }
 }
