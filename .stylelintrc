@@ -35,6 +35,13 @@
     "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
     "selector-max-id": 0,
     "selector-max-universal": 0,
+    "selector-pseudo-element-no-unknown": [
+      true, {
+        "ignorePseudoElements": [
+          "/^range-/"
+        ]
+      }
+    ],
     "string-quotes": "single"
   }
 }
