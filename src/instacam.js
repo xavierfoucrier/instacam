@@ -105,7 +105,7 @@ export default class Instacam {
 
         // capture the blob stream
         this._media.srcObject = stream;
-        this._media.play();
+        this._state = this._media.play();
 
         // get the current audio and video tracks
         let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
@@ -329,6 +329,30 @@ export default class Instacam {
   }
 
   /**
+    Pause the camera audio/video streams
+  */
+  pause() {
+
+    // exit if no stream is active
+    if (typeof this._stream === 'undefined') {
+      return;
+    }
+
+    this._state.then(() => {
+      this._media.pause();
+      this._props.paused = true;
+    });
+  }
+
+  /**
+    Resume the camera audio/video streams
+  */
+  resume() {
+    this._media.play();
+    this._props.paused = false;
+  }
+
+  /**
     Mute the microphone
   */
   mute() {
@@ -368,6 +392,14 @@ export default class Instacam {
 
     // restart the capture
     this._capture();
+  }
+
+  /**
+    Get the camera audio/video pause state
+    @return {Boolean} true|false camera audio/video pause state
+  */
+  get paused() {
+    return this._media.paused;
   }
 
   /**
