@@ -325,6 +325,20 @@ export default class Instacam {
   }
 
   /**
+    Mute the microphone
+  */
+  mute() {
+    this._props.muted = this._media.muted = true;
+  }
+
+  /**
+    Unmute the microphone
+  */
+  unmute() {
+    this._props.muted = this._media.muted = false;
+  }
+
+  /**
     Snap and crop the viewport to return image data
     @param {Number} left - left position of the snapping area
     @param {Number} top - top position of the snapping area
@@ -350,20 +364,6 @@ export default class Instacam {
   */
   save(format = 'png', quality = 1) {
     return this.viewport.toDataURL('image/' + format, quality);
-  }
-
-  /**
-    Mute the microphone
-  */
-  mute() {
-    this._props.muted = this._media.muted = true;
-  }
-
-  /**
-    Unmute the microphone
-  */
-  unmute() {
-    this._props.muted = this._media.muted = false;
   }
 
   /**
