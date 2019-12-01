@@ -301,6 +301,30 @@ export default class Instacam {
   }
 
   /**
+    Pause the camera audio/video streams
+  */
+  pause() {
+
+    // exit if no stream is active
+    if (typeof this._stream === 'undefined') {
+      return;
+    }
+
+    this._state.then(() => {
+      this._media.pause();
+      this._props.paused = true;
+    });
+  }
+
+  /**
+    Resume the camera audio/video streams
+  */
+  resume() {
+    this._media.play();
+    this._props.paused = false;
+  }
+
+  /**
     Snap and crop the viewport to return image data
     @param {Number} left - left position of the snapping area
     @param {Number} top - top position of the snapping area
@@ -326,30 +350,6 @@ export default class Instacam {
   */
   save(format = 'png', quality = 1) {
     return this.viewport.toDataURL('image/' + format, quality);
-  }
-
-  /**
-    Pause the camera audio/video streams
-  */
-  pause() {
-
-    // exit if no stream is active
-    if (typeof this._stream === 'undefined') {
-      return;
-    }
-
-    this._state.then(() => {
-      this._media.pause();
-      this._props.paused = true;
-    });
-  }
-
-  /**
-    Resume the camera audio/video streams
-  */
-  resume() {
-    this._media.play();
-    this._props.paused = false;
   }
 
   /**
