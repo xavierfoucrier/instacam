@@ -62,6 +62,8 @@ As of May 2017, all major browsers have shipped a working implementation of **ES
 </script>
 ```
 
+> Note that you will need to **use the Instacam source files** as there is no ESM build today for this package
+
 ### Use with a CDN
 To rapidly **include the minified production** file in your webpage, load the latest build from a  **CDN** *(Content Delivery Network)* using a generic script markup:
 
