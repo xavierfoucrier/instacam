@@ -339,7 +339,7 @@ Instacam reference that details all methods of the class.
 #### start ( )
 Type: `Function`
 
-The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Note that both camera and sound will be started, depending on the properties you have defined.
+The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Both camera and sound will be started, depending on the properties you have defined.
 
 ```js
 camera.start();
@@ -348,10 +348,46 @@ camera.start();
 #### stop ( )
 Type: `Function`
 
-The stop method allows you to **stop the capture of the webcam stream**. Note that both camera and sound will be stopped.
+The stop method allows you to **stop the capture of the webcam stream**. Both camera and sound will be stopped.
 
 ```js
 camera.stop();
+```
+
+#### pause ( )
+Type: `Function`
+
+The pause method allows you to **pause the capture of the webcam stream**. Both camera and sound will be paused. Note that this method will only pause the `<video>` media element rather than physically disabling the camera and microphone.
+
+```js
+camera.pause();
+```
+
+#### resume ( )
+Type: `Function`
+
+The resume method allows you to **resume the capture of the webcam stream**. Both camera and sound will be resumed.
+
+```js
+camera.resume();
+```
+
+#### mute ( )
+Type: `Function`
+
+ The mute method allows you to **mute the microphone** of the camera. Note that this method will only mute the `<video>` media element rather than physically disabling the microphone.
+
+```js
+camera.mute();
+```
+
+#### unmute ( )
+Type: `Function`
+
+The unmute method allows your to **unmute the microphone** of the camera. Note that this method will only unmute the `<video>` media element rather than physically enabling the microphone.
+
+```js
+camera.unmute();
 ```
 
 #### snap ([ *left, top, width, height* ])
@@ -377,24 +413,6 @@ The save method allows you to **save the viewport in a specific image format**. 
 ```js
 // convert the viewport and returns a DOMString
 let data = camera.save('png', 0.75);
-```
-
-#### mute ( )
-Type: `Function`
-
- The mute method allows you to **mute the microphone** of the camera. Note that this method will only mute the `<video>` media element rather than disabling the microphone.
-
-```js
-camera.mute();
-```
-
-#### unmute ( )
-Type: `Function`
-
-The unmute method allows your to unmute the microphone of the camera. Note that this method will only mute the `<video>` media element rather than enabling the microphone.
-
-```js
-camera.unmute();
 ```
 
 
