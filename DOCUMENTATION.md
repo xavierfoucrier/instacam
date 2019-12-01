@@ -6,10 +6,11 @@ Here you will find the documentation describing how to use the module.
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
 3. [Usage](#usage)
-4. [Properties](#properties)
-5. [Methods](#methods)
-6. [Callbacks](#callbacks)
-7. [Demo](#demo)
+4. [Data attributes](#data-attributes)
+5. [Properties](#properties)
+6. [Methods](#methods)
+7. [Callbacks](#callbacks)
+8. [Demo](#demo)
 
 
 ## How it works
@@ -99,6 +100,16 @@ let camera = new Instacam(
   }
 );
 ```
+
+
+## Data attributes
+Instacam add a set of `data-instacam-*` attributes in the DOM to easily add custom styles/scripts in your application.
+
+- `data-instacam`
+- `data-instacam-viewport`
+- `data-instacam-stream`
+- `data-instacam-buffer`
+- `data-instacam-blend`
 
 
 ## Properties
