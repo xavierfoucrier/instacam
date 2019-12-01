@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/xavierfoucrier/instacam#readme",
   "devDependencies": {
-    "autoprefixer": "^9.7.2",
+    "autoprefixer": "^9.7.3",
     "css-loader": "^3.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
