@@ -136,13 +136,13 @@ Instacam reference that details all properties of the class.
 Type: `Length`
 Default: `400`
 
-The width represents **the width of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+This represents **the ideal requested width** for the viewport. Depending on hardware capabilities, the device will try to be as close as possible to this value. If the requested width is not supported, it will fall back to the closest available width.
 
 #### height
 Type: `Length`
 Default: `300`
 
-The height represents **the height of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+This represents **the ideal requested height** for the viewport. Depending on hardware capabilities, the device will try to be as close as possible to this value. If the requested height is not supported, it will fall back to the closest available height.
 
 #### autostart
 Type: `Boolean`
