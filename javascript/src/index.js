@@ -56,6 +56,8 @@ Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEac
     element.addEventListener(e, () => {
       value.innerHTML = element.value;
       value.classList.add('field-update');
+    }, {
+      passive: true
     });
   });
 
