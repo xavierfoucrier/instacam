@@ -36,16 +36,14 @@ export default class Instacam {
 
     // initialize the viewport
     this.viewport = viewport;
+    this.viewport.setAttribute('data-instacam-viewport', '');
     this.viewport.width = this._props.width;
     this.viewport.height = this._props.height;
 
     // create the media element
     this._media = document.createElement('video');
-
-    // set some media element properties
+    this._media.setAttribute('data-instacam-stream', '');
     this._media.style.display = 'none';
-    this._media.width = this._props.width;
-    this._media.height = this._props.height;
 
     // attach the media element to the DOM
     this.viewport.parentNode.insertBefore(this._media, this.viewport.nextSibling);
@@ -53,6 +51,7 @@ export default class Instacam {
     // create the container
     this._container = document.createElement('div');
     this._container.setAttribute('data-instacam', '');
+    this._container.style = 'display:inline-flex;position:relative;overflow:hidden;vertical-align:bottom;';
 
     // attach the container element to the DOM
     this.viewport.parentNode.insertBefore(this._container, this.viewport);
@@ -92,6 +91,8 @@ export default class Instacam {
           }
 
           return {
+            width: this._props.width,
+            height: this._props.height,
             frameRate: this._props.framerate,
             aspectRatio: this._props.ratio,
             facingMode: this._props.mode === 'front' ? 'user' : 'environment'
@@ -104,38 +105,67 @@ export default class Instacam {
 
         // capture the blob stream
         this._media.srcObject = stream;
-        this._media.play();
+        this._state = this._media.play();
+
+        // get the current audio and video tracks
+        let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
+        let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
+
+        // save current track into the hardware property
+        this._hardware = {
+          audio: typeof audio === 'undefined' ? null : {
+            id: audio.id,
+            name: audio.label,
+            track: audio
+          },
+          video: typeof video === 'undefined' ? null : {
+            id: video.id,
+            name: video.label,
+            track: video,
+            width: video.getSettings().width,
+            height: video.getSettings().height
+          }
+        };
+
+        // set the viewport size when the stream is ready
+        this.viewport.width = this._hardware.video !== null ? this._hardware.video.width : 0;
+        this.viewport.height = this._hardware.video !== null ? this._hardware.video.height : 0;
 
         // set the volume at start
         this.volume = this._props.volume;
 
-        // animation loop used to properly render the viewport
-        const loop = () => {
+        // start the main requestAnimationFrame if the camera is enable
+        if (this._props.camera) {
 
-          // render the viewport with or without custom filter
-          if (typeof this._props.filter !== 'function') {
-            this.viewport.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
-          } else {
+          // animation loop used to properly render the viewport
+          const loop = () => {
 
-            // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
-            if (typeof this._buffer === 'undefined') {
-              this._buffer = document.createElement('canvas');
-              this._buffer.style.display = 'none';
-              this._buffer.width = this._props.width;
-              this._buffer.height = this._props.height;
-              this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
+            // render the viewport with or without custom filter
+            if (typeof this._props.filter !== 'function') {
+              this.viewport.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
+            } else {
+
+              // use a buffer when applying a custom filter to prevent the viewport from blinking or flashing
+              if (typeof this._buffer === 'undefined') {
+                this._buffer = document.createElement('canvas');
+                this._buffer.setAttribute('data-instacam-buffer', '');
+                this._buffer.style.display = 'none';
+                this._buffer.width = this.viewport.width;
+                this._buffer.height = this.viewport.height;
+                this.viewport.parentNode.insertBefore(this._buffer, this.viewport.nextSibling);
+              }
+
+              this._buffer.getContext('2d').drawImage(this._media, 0, 0, this.viewport.width, this.viewport.height);
+              this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this.viewport.width, this.viewport.height)), 0, 0);
             }
 
-            this._buffer.getContext('2d').drawImage(this._media, 0, 0, this._props.width, this._props.height);
-            this.viewport.getContext('2d').putImageData(this._filter(this._buffer.getContext('2d').getImageData(0, 0, this._props.width, this._props.height)), 0, 0);
-          }
+            // make this function run at 60fps
+            requestAnimationFrame(loop);
+          };
 
-          // make this function run at 60fps
+          // render the first frame
           requestAnimationFrame(loop);
-        };
-
-        // render the first frame
-        requestAnimationFrame(loop);
+        }
 
         if (typeof this._props.done === 'function') {
           this._props.done();
@@ -178,16 +208,14 @@ export default class Instacam {
       // create the blending element
       if (typeof this._blend === 'undefined') {
         this._blend = document.createElement('div');
+        this._blend.setAttribute('data-instacam-blend', '');
 
         // prepend the blending element to the viewport
         this.viewport.parentNode.insertBefore(this._blend, this.viewport);
       }
 
-      // get the viewport bounds
-      const bounds = this.viewport.getBoundingClientRect();
-
       // set the blending styles
-      this._blend.style = `position:absolute;z-index:1;width:${bounds.width}px;height:${bounds.height}px;mix-blend-mode:${this._props.blend.mode};background:${this._props.blend.color};pointer-events:none;`;
+      this._blend.style = `position:absolute;z-index:1;width:100%;height:100%;mix-blend-mode:${this._props.blend.mode};background:${this._props.blend.color};pointer-events:none;`;
     } else if (typeof this._blend !== 'undefined') {
 
       // remove the blend layer from the DOM if there is no blending applied
@@ -273,6 +301,44 @@ export default class Instacam {
   }
 
   /**
+    Pause the camera audio/video streams
+  */
+  pause() {
+
+    // exit if no stream is active
+    if (typeof this._stream === 'undefined') {
+      return;
+    }
+
+    this._state.then(() => {
+      this._media.pause();
+      this._props.paused = true;
+    });
+  }
+
+  /**
+    Resume the camera audio/video streams
+  */
+  resume() {
+    this._media.play();
+    this._props.paused = false;
+  }
+
+  /**
+    Mute the microphone
+  */
+  mute() {
+    this._props.muted = this._media.muted = true;
+  }
+
+  /**
+    Unmute the microphone
+  */
+  unmute() {
+    this._props.muted = this._media.muted = false;
+  }
+
+  /**
     Snap and crop the viewport to return image data
     @param {Number} left - left position of the snapping area
     @param {Number} top - top position of the snapping area
@@ -301,20 +367,6 @@ export default class Instacam {
   }
 
   /**
-    Mute the microphone
-  */
-  mute() {
-    this._props.muted = this._media.muted = true;
-  }
-
-  /**
-    Unmute the microphone
-  */
-  unmute() {
-    this._props.muted = this._media.muted = false;
-  }
-
-  /**
     Get the camera facing mode
     @return {String} front|back facing mode of the camera
   */
@@ -340,6 +392,14 @@ export default class Instacam {
 
     // restart the capture
     this._capture();
+  }
+
+  /**
+    Get the camera audio/video pause state
+    @return {Boolean} true|false camera audio/video pause state
+  */
+  get paused() {
+    return this._media.paused;
   }
 
   /**
@@ -658,26 +718,6 @@ export default class Instacam {
     @return {Object} hardware informations from the current audio/video tracks
   */
   get hardware() {
-
-    // return null if no stream is active
-    if (typeof this._stream === 'undefined') {
-      return null;
-    }
-
-    // get the current audio and video tracks
-    let audio = this._stream.getAudioTracks().filter(track => track.readyState === 'live')[0];
-    let video = this._stream.getVideoTracks().filter(track => track.readyState === 'live')[0];
-
-    // create the hardware object
-    return {
-      audio: typeof audio === 'undefined' ? null : {
-        id: audio.id,
-        name: audio.label
-      },
-      video: typeof video === 'undefined' ? null : {
-        id: video.id,
-        name: video.label
-      }
-    };
+    return typeof this._stream === 'undefined' ? null : this._hardware;
   }
 }

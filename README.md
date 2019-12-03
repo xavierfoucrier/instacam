@@ -30,10 +30,11 @@ Here you will find the documentation describing **how to use** the library.
 1. [How it works](DOCUMENTATION.md#how-it-works) - how the library do the stuff
 2. [Markup](DOCUMENTATION.md#markup) - how should the HTML and CSS look like
 3. [Usage](DOCUMENTATION.md#usage) - how to use Instacam
-4. [Properties](DOCUMENTATION.md#properties) - all available properties
-5. [Methods](DOCUMENTATION.md#methods) - all available methods
-6. [Callbacks](DOCUMENTATION.md#callbacks) - all available callbacks
-7. [Demo](DOCUMENTATION.md#demo) - Instacam in action
+4. [Data attributes](DOCUMENTATION.md#data-attributes) - set of data attributes
+5. [Properties](DOCUMENTATION.md#properties) - all available properties
+6. [Methods](DOCUMENTATION.md#methods) - all available methods
+7. [Callbacks](DOCUMENTATION.md#callbacks) - all available callbacks
+8. [Demo](DOCUMENTATION.md#demo) - Instacam in action
 
 
 ## Contribute

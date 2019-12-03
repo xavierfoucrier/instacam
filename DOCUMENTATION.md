@@ -6,10 +6,11 @@ Here you will find the documentation describing how to use the module.
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
 3. [Usage](#usage)
-4. [Properties](#properties)
-5. [Methods](#methods)
-6. [Callbacks](#callbacks)
-7. [Demo](#demo)
+4. [Data attributes](#data-attributes)
+5. [Properties](#properties)
+6. [Methods](#methods)
+7. [Callbacks](#callbacks)
+8. [Demo](#demo)
 
 
 ## How it works
@@ -62,6 +63,8 @@ As of May 2017, all major browsers have shipped a working implementation of **ES
 </script>
 ```
 
+> Note that you will need to **use the Instacam source files** as there is no ESM build today for this package
+
 ### Use with a CDN
 To rapidly **include the minified production** file in your webpage, load the latest build from a  **CDN** *(Content Delivery Network)* using a generic script markup:
 
@@ -99,6 +102,16 @@ let camera = new Instacam(
 ```
 
 
+## Data attributes
+Instacam add a set of `data-instacam-*` attributes in the DOM to easily add custom styles/scripts in your application.
+
+- `data-instacam`
+- `data-instacam-viewport`
+- `data-instacam-stream`
+- `data-instacam-buffer`
+- `data-instacam-blend`
+
+
 ## Properties
 ### Getting property
 The class properties are stored in the private `_props` attribute but can be **retrieved easily**. If you want to get the current level of the saturation CSS filter, you can do the following:
@@ -123,13 +136,13 @@ Instacam reference that details all properties of the class.
 Type: `Length`
 Default: `400`
 
-The width represents **the width of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+This represents **the ideal requested width** for the viewport. Depending on hardware capabilities, the device will try to be as close as possible to this value. If the requested width is not supported, it will fall back to the closest available width.
 
 #### height
 Type: `Length`
 Default: `300`
 
-The height represents **the height of the viewport**. It must fit to the aspect ratio property, by default a **4:3 ratio**, to render a proper image of the media stream, depending on the webcam specifications.
+This represents **the ideal requested height** for the viewport. Depending on hardware capabilities, the device will try to be as close as possible to this value. If the requested height is not supported, it will fall back to the closest available height.
 
 #### autostart
 Type: `Boolean`
@@ -337,7 +350,7 @@ Instacam reference that details all methods of the class.
 #### start ( )
 Type: `Function`
 
-The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Note that both camera and sound will be started, depending on the properties you have defined.
+The start method allows you to **start the capture of the webcam stream**. If the `autostart` parameter is set to `true`, you don't need to call this method, Instacam will do it for you. Both camera and sound will be started, depending on the properties you have defined.
 
 ```js
 camera.start();
@@ -346,10 +359,46 @@ camera.start();
 #### stop ( )
 Type: `Function`
 
-The stop method allows you to **stop the capture of the webcam stream**. Note that both camera and sound will be stopped.
+The stop method allows you to **stop the capture of the webcam stream**. Both camera and sound will be stopped.
 
 ```js
 camera.stop();
+```
+
+#### pause ( )
+Type: `Function`
+
+The pause method allows you to **pause the capture of the webcam stream**. Both camera and sound will be paused. Note that this method will only pause the `<video>` media element rather than physically disabling the camera and microphone.
+
+```js
+camera.pause();
+```
+
+#### resume ( )
+Type: `Function`
+
+The resume method allows you to **resume the capture of the webcam stream**. Both camera and sound will be resumed.
+
+```js
+camera.resume();
+```
+
+#### mute ( )
+Type: `Function`
+
+ The mute method allows you to **mute the microphone** of the camera. Note that this method will only mute the `<video>` media element rather than physically disabling the microphone.
+
+```js
+camera.mute();
+```
+
+#### unmute ( )
+Type: `Function`
+
+The unmute method allows your to **unmute the microphone** of the camera. Note that this method will only unmute the `<video>` media element rather than physically enabling the microphone.
+
+```js
+camera.unmute();
 ```
 
 #### snap ([ *left, top, width, height* ])
@@ -375,24 +424,6 @@ The save method allows you to **save the viewport in a specific image format**. 
 ```js
 // convert the viewport and returns a DOMString
 let data = camera.save('png', 0.75);
-```
-
-#### mute ( )
-Type: `Function`
-
- The mute method allows you to **mute the microphone** of the camera. Note that this method will only mute the `<video>` media element rather than disabling the microphone.
-
-```js
-camera.mute();
-```
-
-#### unmute ( )
-Type: `Function`
-
-The unmute method allows your to unmute the microphone of the camera. Note that this method will only mute the `<video>` media element rather than enabling the microphone.
-
-```js
-camera.unmute();
 ```
 
 
