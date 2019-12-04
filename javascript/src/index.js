@@ -1,8 +1,5 @@
 'use strict';
 
-// import the library
-import Instacam from 'instacam';
-
 // get some elements
 let log = document.querySelector('.camera-log');
 let input = document.querySelector('.camera-input');
