@@ -182,6 +182,12 @@ Default: `false`
 
 The sound property allows you to **capture the audio stream from the microphone**. By default, Instacam only captures media stream from the webcam. If you want to capture both the microphone and the camera, you need to set this property to `true`.
 
+#### paused
+Type: `Boolean`
+Default: `false`
+
+The paused property **indicate if the camera audio/video are currently paused**.
+
 #### muted
 Type: `Boolean`
 Default: `false`
