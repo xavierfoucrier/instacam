@@ -51,7 +51,7 @@ export default class Instacam {
     // create the container
     this._container = document.createElement('div');
     this._container.setAttribute('data-instacam', '');
-    this._container.style = 'display:inline-flex;position:relative;overflow:hidden;vertical-align:bottom;';
+    this._container.style = 'position:relative;overflow:hidden;vertical-align:bottom;';
 
     // attach the container element to the DOM
     this.viewport.parentNode.insertBefore(this._container, this.viewport);
