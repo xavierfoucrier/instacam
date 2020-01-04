@@ -175,9 +175,8 @@ function save() {
 
   // create the exported image in the specified format and quality
   let image = document.createElement('img');
-  image.setAttribute('width', 400);
-  image.setAttribute('height', 300);
   image.setAttribute('src', data);
+  image.classList.add('camera-output-image');
 
   // append the image into the output area
   output.innerHTML = '';
