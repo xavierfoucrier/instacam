@@ -59,6 +59,10 @@ module.exports = {
       use: [{
         loader: 'sass-loader'
       }]
+    }, {
+      test: /\.js$/,
+      use: 'babel-loader',
+      exclude: /node_modules/
     }]
   },
   plugins: [
