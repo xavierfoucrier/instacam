@@ -1,7 +1,6 @@
 .idea
 .dev
 .editorconfig
-.eslintignore
 .eslintrc
 .gitattributes
 .gitignore
