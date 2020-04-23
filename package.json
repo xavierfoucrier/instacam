@@ -1,7 +1,7 @@
 {
   "name": "instacam",
   "year": "2020",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "Instant canvas video",
   "main": "dist/instacam.umd.js",
   "unpkg": "dist/instacam.umd.js",
