@@ -2,7 +2,9 @@
   "name": "instacam",
   "version": "1.11.7",
   "description": "Instant canvas video",
+  "source": "src/instacam.js",
   "main": "dist/instacam.umd.js",
+  "browser": "dist/instacam.umd.js",
   "unpkg": "dist/instacam.umd.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --progress"
