@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const { name, description, author, license, version } = require('./package.json');
 const TerserPlugin = require('terser-webpack-plugin');
