@@ -14,7 +14,7 @@ module.exports = {
     library: 'Instacam',
     libraryExport: 'default',
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   optimization: {
     minimizer: [
@@ -27,11 +27,11 @@ module.exports = {
           },
           mangle: {
             properties: {
-              regex: /^_/
-            }
-          }
+              regex: /^_/,
+            },
+          },
         },
       }),
-    ]
-  }
+    ],
+  },
 };
