@@ -1,5 +1,3 @@
-'use strict';
-
 // default properties
 export default {
 
