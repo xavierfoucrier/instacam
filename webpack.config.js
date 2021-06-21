@@ -3,7 +3,7 @@ const { name, description, author, license, version } = require('./package.json'
 const TerserPlugin = require('terser-webpack-plugin');
 
 // package preamble
-const preamble = `/*!\n  ${name} – ${description}\n  ${author.name} ${author.github} ${new Date().getFullYear()} ${license}\n  ${version}\n*/`;
+const preamble = `/*!\n  ${name} - ${description}\n  ${author.name} ${author.github} ${new Date().getFullYear()} ${license}\n  ${version}\n*/`;
 
 module.exports = {
   mode: 'production',
