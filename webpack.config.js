@@ -1,9 +1,11 @@
 'use strict';
 
 const path = require('path');
-const webpack = require('webpack');
 const pack = require('./package.json');
 const TerserPlugin = require('terser-webpack-plugin');
+
+// package preamble
+const preamble = `/*!\n  ${pack.name} – ${pack.description}\n  ${pack.author.name} ${pack.author.github} ${pack.year} ${pack.license}\n  ${pack.version}\n*/`;
 
 module.exports = {
   mode: 'production',
@@ -21,21 +23,17 @@ module.exports = {
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
+          output: {
+            comments: false,
+            preamble: preamble,
+          },
           mangle: {
             properties: {
               regex: /^_/
             }
           }
-        }
-      })
+        },
+      }),
     ]
-  },
-  plugins: [
-    new webpack.BannerPlugin({
-      raw: true,
-      banner: () => {
-        return `/*!\n  ${pack.name} – ${pack.description}\n  ${pack.author.name} ${pack.author.github} ${pack.year} ${pack.license}\n  ${pack.version}\n*/`;
-      }
-    })
-  ]
+  }
 };
