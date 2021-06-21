@@ -93,9 +93,9 @@ export default class Instacam {
             height: this._props.height,
             frameRate: this._props.framerate,
             aspectRatio: this._props.ratio,
-            facingMode: this._props.mode === 'front' ? 'user' : 'environment'
+            facingMode: this._props.mode === 'front' ? 'user' : 'environment',
           };
-        })()
+        })(),
       }).then((stream) => {
 
         // store the blob stream
@@ -114,15 +114,15 @@ export default class Instacam {
           audio: typeof audio === 'undefined' ? null : {
             id: audio.id,
             name: audio.label,
-            track: audio
+            track: audio,
           },
           video: typeof video === 'undefined' ? null : {
             id: video.id,
             name: video.label,
             track: video,
             width: video.getSettings().width,
-            height: video.getSettings().height
-          }
+            height: video.getSettings().height,
+          },
         };
 
         // set the viewport size when the stream is ready
@@ -173,7 +173,7 @@ export default class Instacam {
           this._props.fail(exception);
         }
       });
-    } catch(exception) {
+    } catch (exception) {
       if (typeof this._props.fail === 'function') {
         this._props.fail(exception);
       }
@@ -250,7 +250,7 @@ export default class Instacam {
             'red': data[offset],
             'green': data[offset + 1],
             'blue': data[offset + 2],
-            'alpha': data[offset + 3]
+            'alpha': data[offset + 3],
           });
 
           // apply the filter
@@ -262,7 +262,7 @@ export default class Instacam {
       }
 
       return image;
-    } catch(exception) {
+    } catch (exception) {
       throw new Error('Invalid filter, you need to return a valid [red, green, blue, alpha] pixel array');
     }
   }

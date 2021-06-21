@@ -74,5 +74,5 @@ export default {
   fail: null,
 
   // {Function} callback used when a browser doesn't support the requirements
-  unsupported: null
+  unsupported: null,
 };
