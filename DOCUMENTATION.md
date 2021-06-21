@@ -1,7 +1,6 @@
 # Instacam documentation
 Here you will find the documentation describing how to use the module.
 
-
 ## Summary
 1. [How it works](#how-it-works)
 2. [Markup](#markup)
@@ -12,10 +11,8 @@ Here you will find the documentation describing how to use the module.
 7. [Callbacks](#callbacks)
 8. [Demo](#demo)
 
-
 ## How it works
 Instacam allows you to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters: this means you can capture the webcam video stream *(media stream)* and broadcast it on an HTML5 `canvas` tag. Unlike the conventional HTML5 `video` tag, Instacam offers you the opportunity to **interact with the broadcasted media stream** by having the possibility to edit each pixels before they are drawn to the canvas. Moreover, Instacam can beautify the media stream by adding a fresh touch of CSS. Don't forget that Instacam only works on browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API.
-
 
 ## Markup
 ### Viewport
@@ -24,7 +21,6 @@ The viewport is a canvas representation of the media stream. Instacam captures t
 ```html
 <canvas id="canvas1"></canvas>
 ```
-
 
 ## Usage
 ### Use with Webpack
@@ -100,7 +96,6 @@ let camera = new Instacam(
   }
 );
 ```
-
 
 ## Data attributes
 Instacam add a set of `data-instacam-*` attributes in the DOM to easily add custom styles/scripts in your application.
@@ -348,7 +343,6 @@ Default: `null`
 
 The hardware property returns **a set of hardware informations** from the current audio/video tracks. Note that this property will only be available after camera initialization: if the capture fails, hardware informations won't be accessible.
 
-
 ## Methods
 ### API
 Instacam reference that details all methods of the class.
@@ -432,7 +426,6 @@ The save method allows you to **save the viewport in a specific image format**. 
 let data = camera.save('png', 0.75);
 ```
 
-
 ## Callbacks
 ### API
 Instacam reference that details all callbacks of the class.
@@ -486,7 +479,6 @@ let camera = new Instacam(
   }
 );
 ```
-
 
 ## Demo
 This site is hosted on Github pages and allow you to play with **most Instacam properties**: display the camera, add pretty CSS and custom filters simultaneously, capture and export the image in different formats. You will need to **allow the site to access your camera** in order to use the library.
