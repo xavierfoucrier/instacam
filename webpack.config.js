@@ -1,11 +1,11 @@
 'use strict';
 
 const path = require('path');
-const pack = require('./package.json');
+const { name, description, author, license, version } = require('./package.json');
 const TerserPlugin = require('terser-webpack-plugin');
 
 // package preamble
-const preamble = `/*!\n  ${pack.name} – ${pack.description}\n  ${pack.author.name} ${pack.author.github} ${pack.year} ${pack.license}\n  ${pack.version}\n*/`;
+const preamble = `/*!\n  ${name} – ${description}\n  ${author.name} ${author.github} ${new Date().getFullYear()} ${license}\n  ${version}\n*/`;
 
 module.exports = {
   mode: 'production',
