@@ -1,14 +1,13 @@
 # Instacam – [![npm](https://img.shields.io/npm/v/instacam)](https://www.npmjs.com/package/instacam) [![npm](https://img.shields.io/bundlephobia/min/instacam?label=size)](https://bundlephobia.com/result?p=instacam) [![dependencies](https://img.shields.io/librariesio/release/npm/instacam)](https://github.com/xavierfoucrier/instacam/network/dependencies)
+
 Instacam is a library to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
 [![Instacam](logo.png "Instacam")](https://instacam.js.org)
-
 
 ## Compatibility
 Instacam is fully tested on **Google Chrome** for desktop *(latest public released version)*. The library is compatible with browsers that natively support the HTML5 `canvas` tag, `requestAnimationFrame` API, `HTMLMediaElement` API, `navigator.mediaDevices` and `Promises` API. The CSS filtering requires the `CSS filter` features to properly work.
 
 Official support on **Chrome 52+, Firefox 52+, Edge 15+ and Opera 52+**. Many other browsers may work, but are not extensively tested. You can check at any time the [support table](https://caniuse.com) about the partial or full support of these features.
-
 
 ## Install
 Instacam is published on the **NPM** *(Node Package Manager)* registry, so you can install it through the command line interpreter using your favorite package manager:
@@ -23,7 +22,6 @@ yarn add instacam
 
 > For other implementation of Instacam in your project, see the [usage documentation](DOCUMENTATION.md#usage)
 
-
 ## Documentation
 Here you will find the documentation describing **how to use** the library.
 
@@ -36,10 +34,8 @@ Here you will find the documentation describing **how to use** the library.
 7. [Callbacks](DOCUMENTATION.md#callbacks) - all available callbacks
 8. [Demo](DOCUMENTATION.md#demo) - Instacam in action
 
-
 ## Contribute
-If you want to report a bug or if you just want to request for a new feature/improvement, please **read the project [contributors guidelines](CONTRIBUTING.md) before**. Thanks for taking time to contribute to Instacam.
-
+If you want to report a bug or request a new feature/improvement, please **read the project [contributors guidelines](CONTRIBUTING.md) before**. Thanks for taking time to contribute.
 
 ## License
 The project is developed under the **MIT** license:
@@ -49,7 +45,6 @@ The project is developed under the **MIT** license:
 - **Limitations**: Software is provided without warranty and the software author/license owner cannot be held liable for damages.
 
 Read the [full license](LICENSE.md) for more information about your rights.
-
 
 ## Questions?
 If you have any questions, please **feel free to contact me!**  
