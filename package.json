@@ -1,6 +1,6 @@
 {
   "name": "instacam",
-  "version": "1.11.7",
+  "version": "1.15.0",
   "description": "Instant canvas video",
   "source": "src/instacam.js",
   "main": "dist/instacam.umd.js",
