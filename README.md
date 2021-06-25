@@ -1,4 +1,4 @@
-# Instacam – [![npm](https://img.shields.io/npm/v/instacam)](https://www.npmjs.com/package/instacam) [![npm](https://img.shields.io/bundlephobia/min/instacam?label=size)](https://bundlephobia.com/result?p=instacam) [![dependencies](https://img.shields.io/librariesio/release/npm/instacam)](https://github.com/xavierfoucrier/instacam/network/dependencies)
+# Instacam – [![npm](https://img.shields.io/npm/v/instacam)](https://www.npmjs.com/package/instacam) [![npm](https://img.shields.io/bundlephobia/min/instacam?label=size)](https://bundlephobia.com/result?p=instacam)
 
 Instacam is a library to perform **instant canvas video** through the WebRTC API with a fresh touch of CSS filters.
 
