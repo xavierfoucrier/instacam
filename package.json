@@ -36,7 +36,6 @@
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-input-range": "^4.0.0",
     "postcss-loader": "^3.0.0",
