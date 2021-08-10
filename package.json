@@ -42,7 +42,7 @@
     "purgecss-webpack-plugin": "^2.1.0",
     "sass": "^1.26.2",
     "sass-loader": "^8.0.2",
-    "stylelint": "^13.2.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^2.3.5",
     "webpack": "^4.42.0",
