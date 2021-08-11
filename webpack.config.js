@@ -8,11 +8,11 @@ module.exports = {
   mode: 'production',
   entry: [
     './javascript/src/index.js',
-    './style/src/build.less'
+    './style/src/build.less',
   ],
   output: {
     filename: 'app.min.js',
-    path: path.resolve(__dirname, 'javascript')
+    path: path.resolve(__dirname, 'javascript'),
   },
   optimization: {
     minimizer: [
@@ -20,9 +20,9 @@ module.exports = {
         extractComments: false,
         terserOptions: {
           output: {
-            comments: false
-          }
-        }
+            comments: false,
+          },
+        },
       }),
       new CssMinimizerPlugin({
         minimizerOptions: {
@@ -35,7 +35,7 @@ module.exports = {
           ],
         },
       }),
-    ]
+    ],
   },
   module: {
     rules: [{
@@ -44,8 +44,8 @@ module.exports = {
         MiniCssExtractPlugin.loader, {
           loader: 'css-loader',
           options: {
-            url: false
-          }
+            url: false,
+          },
         }, {
           loader: 'postcss-loader',
           options: {
@@ -61,29 +61,29 @@ module.exports = {
         }, {
           loader: 'less-loader',
           options: {
-            relativeUrls: false
-          }
-        }
-      ]
+            relativeUrls: false,
+          },
+        },
+      ],
     }, {
       test: /\.(scss)$/,
       use: [{
-        loader: 'sass-loader'
-      }]
+        loader: 'sass-loader',
+      }],
     }, {
       test: /\.js$/,
       use: 'babel-loader',
-      exclude: /node_modules/
-    }]
+      exclude: /node_modules/,
+    }],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '../style/default.min.css'
+      filename: '../style/default.min.css',
     }),
     new PurgecssPlugin({
       paths: [
-        'index.html'
-      ]
-    })
-  ]
+        'index.html',
+      ],
+    }),
+  ],
 };

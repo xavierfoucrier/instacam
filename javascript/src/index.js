@@ -16,8 +16,8 @@ let camera = new Instacam(
     },
     unsupported: () => {
       log.innerHTML = 'Sorry, but it seems that your browser is not supporting requestAnimationFrame, mediaDevices or Promises. Try Instacam in another browser.';
-    }
-  }
+    },
+  },
 );
 
 // bind all property input to properly update the viewport
@@ -52,7 +52,7 @@ Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEac
       value.innerHTML = element.value;
       value.classList.add('field-update');
     }, {
-      passive: true
+      passive: true,
     });
   });
 
@@ -71,7 +71,7 @@ Array.from(document.querySelectorAll('[name="blend"]')).forEach((element) => {
     // apply the custom blend layer
     camera.blend = element.value === 'none' ? {} : {
       mode: element.value,
-      color: getComputedStyle(input).getPropertyValue('background-color')
+      color: getComputedStyle(input).getPropertyValue('background-color'),
     };
   });
 });
@@ -112,7 +112,7 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach((element) => {
 
           return [pixel.red, pixel.green, pixel.blue, 255];
         }
-      }
+      },
     };
 
     // apply the custom filter
