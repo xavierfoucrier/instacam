@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
@@ -23,7 +23,18 @@ module.exports = {
             comments: false
           }
         }
-      })
+      }),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default', {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
+        },
+      }),
     ]
   },
   module: {
@@ -66,15 +77,6 @@ module.exports = {
     }]
   },
   plugins: [
-    new OptimizeCSSAssetsPlugin({
-      cssProcessorPluginOptions: {
-        preset: ['default', {
-          discardComments: {
-            removeAll: true
-          }
-        }],
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: '../style/default.min.css'
     }),
