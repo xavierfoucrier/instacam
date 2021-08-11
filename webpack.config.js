@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const postcssInputRange = require('postcss-input-range');

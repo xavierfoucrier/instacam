@@ -1,5 +1,3 @@
-'use strict';
-
 // get some elements
 let log = document.querySelector('.camera-log');
 let input = document.querySelector('.camera-input');
