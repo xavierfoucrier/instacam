@@ -45,11 +45,11 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^20.0.0",
     "terser-webpack-plugin": "^2.3.8",
-    "webpack": "^4.42.0",
-    "webpack-command": "^0.5.1"
+    "webpack": "^4.42.0"
   },
   "dependencies": {
     "@studiomotio/micro-motion": "^0.1.2",
-    "foundation-sites": "^6.6.3"
+    "foundation-sites": "^6.6.3",
+    "webpack-cli": "^4.7.2"
   }
 }
