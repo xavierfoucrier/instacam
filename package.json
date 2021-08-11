@@ -39,7 +39,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.8",
     "postcss-input-range": "^4.0.0",
     "postcss-loader": "^6.1.1",
-    "purgecss-webpack-plugin": "^2.3.0",
+    "purgecss-webpack-plugin": "^4.0.3",
     "sass": "^1.26.2",
     "sass-loader": "^12.1.0",
     "stylelint": "^13.13.1",
