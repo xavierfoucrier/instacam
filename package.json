@@ -40,6 +40,6 @@
     "eslint": "^7.32.0",
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.51.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.8.0"
   }
 }
