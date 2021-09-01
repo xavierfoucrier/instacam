@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "@studiomotio/micro-motion": "^0.1.2",
-    "foundation-sites": "^6.6.3"
+    "foundation-sites": "^6.7.0"
   }
 }
