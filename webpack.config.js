@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
+const PostcssInputRangePlugin = require('postcss-input-range');
 
 module.exports = {
   mode: 'production',
@@ -52,10 +53,8 @@ module.exports = {
           options: {
             postcssOptions: {
               plugins: [
-                [
-                  'postcss-input-range',
-                  'autoprefixer',
-                ],
+                PostcssInputRangePlugin,
+                'autoprefixer',
               ],
             },
           },
