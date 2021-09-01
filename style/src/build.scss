@@ -1,7 +1,11 @@
+// enable purgecss
+@import 'utils/purge-on';
+
 // vendor libraries
 @import 'vendor/foundation.scss';
 
-/* purgecss start ignore */
+// disable purgecss
+@import 'utils/purge-off';
 
 // utils
 @import 'utils/mixin';
@@ -21,5 +25,3 @@
 @import 'component/link';
 @import 'component/size';
 @import 'component/camera';
-
-/* purgecss end ignore */
