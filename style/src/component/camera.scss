@@ -2,7 +2,11 @@
 
 .camera-container {
   position: sticky;
-  top: $grid-margin-gutters;
+  top: 0;
+
+  @include breakpoint(large up) {
+    top: $grid-margin-gutters;
+  }
 }
 
 .camera-log {
