@@ -1,11 +1,12 @@
 // vendor libraries
 @import 'vendor/foundation.scss';
-@import 'vendor/micro-motion';
 
 /* purgecss start ignore */
 
+// utils
+@import 'utils/mixin';
+
 // theme settings
-@import 'theme/grid';
 @import 'theme/color';
 @import 'theme/font';
 
@@ -20,9 +21,5 @@
 @import 'component/link';
 @import 'component/size';
 @import 'component/camera';
-
-// utils
-@import 'utils/device';
-@import 'utils/mixin';
 
 /* purgecss end ignore */

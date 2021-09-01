@@ -1,0 +1,136 @@
+@use '../theme/color';
+
+.link {
+  color: currentColor;
+  // .mm-highlight(@release: reverse; @color: @color[vibrant]; @height: 30%; @offset: 10%; @opacity: 0.5);
+
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  text-decoration: none;
+
+  @include no-tap;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 30%;
+    background: color.$vibrant;
+    opacity: 0.5;
+
+    // & when (@origin = left) {
+      // & when (@release = source) {
+      //   left: 0;
+      // }
+
+      // & when (@release = reverse) {
+        right: 0;
+      // }
+    // }
+
+    // & when (@origin = middle) {
+    //   margin: 0 auto;
+    //   left: 0;
+    //   right: 0;
+    // }
+
+    // & when (@origin = right) {
+    //   & when (@release = source) {
+    //     right: 0;
+    //   }
+    //
+    //   & when (@release = reverse) {
+    //     left: 0;
+    //   }
+    // }
+
+    // & when (@origin = bottom) {
+    //   & when (@release = source) {
+    //     bottom: @offset;
+    //   }
+    //
+    //   & when (@release = reverse) {
+    //     bottom: auto;
+    //     top: 100% - @offset - @height;
+    //   }
+    // }
+
+    // & when (@origin = top) {
+    //   & when (@release = source) {
+    //     top: @offset;
+    //   }
+    //
+    //   & when (@release = reverse) {
+    //     top: auto;
+    //     bottom: 100% - @offset - @height;
+    //   }
+    // }
+
+    // & when (@origin = left) or (@origin = middle) or (@origin = right) {
+      bottom: 10%;
+      width: 0;
+      transition: width 200ms ease;
+
+      // & when (@mm-performance = on) {
+        will-change: width;
+      // }
+    // }
+
+    // & when (@origin = bottom) or (@origin = top) {
+    //   left: 0;
+    //   width: 100%;
+    //   height: 0;
+    //   transition: height @duration @delay @easing;
+    //
+    //   & when (@mm-performance = on) {
+    //     will-change: height;
+    //   }
+    // }
+  }
+
+  &:hover::after,
+  &:focus::after {
+    // & when (@origin = left) or (@origin = middle) or (@origin = right) {
+      width: 100%;
+    // }
+
+    // & when (@origin = bottom) or (@origin = top) {
+    //   height: @height;
+    // }
+
+    // & when (@release = reverse) {
+      // & when (@origin = left) {
+        right: auto;
+        left: 0;
+      // }
+//
+      // & when (@origin = right) {
+        // left: auto;
+        // right: 0;
+      // }
+//
+      // & when (@origin = bottom) {
+        // top: auto;
+        // bottom: @offset;
+      // }
+//
+      // & when (@origin = top) {
+        // bottom: auto;
+        // top: @offset;
+      // }
+    // }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.link-author {
+  color: color.$vibrant;
+
+  &::after {
+    opacity: 0.25;
+  }
+}

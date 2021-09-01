@@ -1,8 +1,11 @@
+@use '../theme/color';
+@use '../theme/font';
+
 .form {
   svg {
     width: 24px;
     height: 24px;
-    fill: lighten(@color[base], 20%);
+    fill: lighten(color.$base, 20%);
   }
 }
 
@@ -14,15 +17,15 @@
 
 .form-fieldset-legend {
   margin-bottom: 5px;
-  font-family: @font[title];
+  font-family: font.$title;
   font-size: 20px;
-  color: @color[vibrant];
+  color: color.$vibrant;
   text-transform: uppercase;
 }
 
 .form-fieldset-description {
   display: inline-flex;
-  margin-bottom: @gutter[grid-margin] / 2;
+  margin-bottom: $grid-margin-gutters * 0.5;
   font-size: 12px;
   font-weight: 100;
   text-align: left;

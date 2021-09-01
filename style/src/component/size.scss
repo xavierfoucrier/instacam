@@ -1,8 +1,10 @@
+@use '../theme/color';
+
 .size {
   font-size: 40px;
 
   &.disabled {
-    color: @color[disable];
+    color: color.$disable;
   }
 }
 

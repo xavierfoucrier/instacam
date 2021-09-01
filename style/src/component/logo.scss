@@ -1,7 +1,9 @@
+@use '../theme/color';
+
 .logo-instacam {
   width: 170px;
   height: 95px;
-  fill: @color[vibrant];
+  fill: color.$vibrant;
 }
 
 .logo-github {

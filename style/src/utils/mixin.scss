@@ -1,0 +1,4 @@
+// disable tap highlight on touch screens
+@mixin no-tap {
+  -webkit-tap-highlight-color: transparent;
+}

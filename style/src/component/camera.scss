@@ -1,15 +1,17 @@
+@use '../theme/color';
+
 .camera-container {
   position: sticky;
-  top: @gutter[grid-margin];
+  top: $grid-margin-gutters;
 }
 
 .camera-log {
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  margin-top: @gutter[grid-padding];
+  margin-top: $grid-padding-gutters;
   padding: 8px 0 8px 14px;
-  color: @color[log];
+  color: color.$log;
   font-size: 13px;
   font-weight: 100;
   text-align: justify;
@@ -38,7 +40,7 @@
 }
 
 .camera-input {
-  background: @color[vibrant];
+  background: color.$vibrant;
 }
 
 .camera-input,
@@ -53,7 +55,7 @@
   box-sizing: border-box;
   padding: 2px;
 
-  @media @device[large] {
+  @include breakpoint(large up) {
     &:nth-child(4n-3) {
       padding-left: 0;
     }
@@ -63,7 +65,7 @@
     }
   }
 
-  @media @device[medium] {
+  @include breakpoint(medium only) {
     &:nth-child(3n-2) {
       padding-left: 0;
     }

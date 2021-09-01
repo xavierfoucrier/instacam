@@ -1,6 +1,8 @@
+@use '../theme/font';
+
 body {
   margin-top: 40px;
-  font-family: @font[base];
+  font-family: font.$base;
   font-size: 15px;
   font-weight: 400;
   text-align: justify;

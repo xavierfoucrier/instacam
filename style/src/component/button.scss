@@ -1,19 +1,22 @@
+@use '../theme/color';
+
 .button {
   display: flex;
   align-items: center;
   padding: 3px 10px;
   outline: none;
-  background: @color[vibrant];
+  background: color.$vibrant;
   font-size: 13px;
   border: none;
   border-radius: 15px;
   white-space: nowrap;
   cursor: pointer;
   transition: background-color 250ms ease;
-  .no-tap();
+
+  @include no-tap;
 
   &:hover {
-    background-color: darken(@color[vibrant], 5%);
+    background-color: darken(color.$vibrant, 5%);
   }
 
   svg {
