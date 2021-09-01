@@ -8,7 +8,7 @@ module.exports = {
   mode: 'production',
   entry: [
     './javascript/src/index.js',
-    './style/src/build.less',
+    './style/src/build.scss',
   ],
   output: {
     filename: 'app.min.js',
@@ -39,12 +39,13 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.(less|css)$/,
+      test: /\.scss$/,
       use: [
         MiniCssExtractPlugin.loader, {
           loader: 'css-loader',
           options: {
             url: false,
+            modules: 'icss',
           },
         }, {
           loader: 'postcss-loader',
@@ -59,17 +60,9 @@ module.exports = {
             },
           },
         }, {
-          loader: 'less-loader',
-          options: {
-            relativeUrls: false,
-          },
+          loader: 'sass-loader',
         },
       ],
-    }, {
-      test: /\.(scss)$/,
-      use: [{
-        loader: 'sass-loader',
-      }],
     }, {
       test: /\.js$/,
       use: 'babel-loader',
