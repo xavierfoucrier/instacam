@@ -39,7 +39,7 @@
     "postcss-input-range": "^4.0.0",
     "postcss-loader": "^6.1.1",
     "purgecss-webpack-plugin": "^4.0.3",
-    "sass": "^1.38.2",
+    "sass": "^1.39.0",
     "sass-loader": "^12.1.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
