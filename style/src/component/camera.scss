@@ -1,5 +1,13 @@
 @use '../theme/color';
 
+[data-instacam] {
+  &::after {
+    content: '';
+    padding-top: 75%;
+    display: block;
+  }
+}
+
 .camera-container {
   position: sticky;
   top: 0;
@@ -38,48 +46,40 @@
   font-weight: 700;
 }
 
-.camera-input-container {
+.camera-input-container,
+.camera-output-container {
   position: relative;
   overflow: hidden;
 }
 
 .camera-input {
-  background: color.$vibrant;
+  background: color.$base;
 }
 
-.camera-input,
-.camera-output {
+.camera-input {
   display: flex;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 
-.camera-thumbnail {
-  box-sizing: border-box;
-  padding: 2px;
+.camera-output {
+  position: relative;
+  overflow: hidden;
 
-  @include breakpoint(large up) {
-    &:nth-child(4n-3) {
-      padding-left: 0;
-    }
-
-    &:nth-child(4n) {
-      padding-right: 0;
-    }
-  }
-
-  @include breakpoint(medium only) {
-    &:nth-child(3n-2) {
-      padding-left: 0;
-    }
-
-    &:nth-child(3n) {
-      padding-right: 0;
-    }
+  &::after {
+    content: '';
+    padding-top: 75%;
+    display: block;
   }
 }
 
+.camera-thumbnail,
 .camera-output-image {
+  display: flex;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
   width: 100%;
 }

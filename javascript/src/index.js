@@ -135,15 +135,15 @@ document.querySelector('[name="snap"]').addEventListener('click', () => {
 
   // create a canvas to paste the snapshot
   let canvas = document.createElement('canvas');
-  canvas.setAttribute('width', 400);
-  canvas.setAttribute('height', 300);
+  canvas.setAttribute('width', camera.hardware.video.width);
+  canvas.setAttribute('height', camera.hardware.video.height);
   canvas.getContext('2d').putImageData(data, 0, 0);
   canvas.classList.add('cell', 'camera-thumbnail');
 
+  console.log(`${camera.hardware.video.width} x ${camera.hardware.video.height}`);
+
   // clean the area before displaying thumbnail
-  if (output.querySelector('img') !== null || (output.querySelectorAll('canvas').length >= 12)) {
-    output.innerHTML = '';
-  }
+  output.innerHTML = '';
 
   // append the snapshot into the export area
   output.appendChild(canvas);
