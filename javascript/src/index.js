@@ -43,7 +43,7 @@ let camera = new Instacam(
     sound: true,
     volume: 0,
     done: () => {
-      log.innerHTML = 'Instacam is working fine.';
+      log.innerHTML = `Instacam is working fine on<br>${camera.hardware.video.name}`;
     },
     fail: (exception) => {
       log.innerHTML = `Sorry, Instacam failed to start because you didn't accept the requested permissions to access your camera, or something went wrong. <strong class="camera-log-error">Error: ${exception.message}</strong>`;
