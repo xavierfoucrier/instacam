@@ -3,6 +3,41 @@ let log = document.querySelector('.camera-log');
 let input = document.querySelector('.camera-input');
 let output = document.querySelector('.camera-output');
 
+// define all custom filters
+const filters = {
+  'none': null,
+  'noise': (pixel) => {
+    let r = Math.random();
+    return [r * pixel.red, r * pixel.green, r * pixel.blue, pixel.alpha];
+  },
+  'grayscale': (pixel) => {
+    let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
+    return [g, g, g, pixel.alpha];
+  },
+  'invert': (pixel) => {
+    return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
+  },
+  'threshold': (pixel) => {
+    return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
+  },
+  'sobel': (pixel) => {
+    let v = Math.abs(pixel.x);
+    let h = Math.abs(pixel.y);
+    return [pixel.red + v, pixel.green + h, pixel.blue + (v + h) / 4, 255];
+  },
+  'pixel': (pixel) => {
+    if (pixel.offset % 10 !== 0) {
+      return [window.red, window.green, window.blue, 255];
+    } else {
+      window.red = pixel.red;
+      window.green = pixel.green;
+      window.blue = pixel.blue;
+
+      return [pixel.red, pixel.green, pixel.blue, 255];
+    }
+  },
+};
+
 // instantiate the class
 let camera = new Instacam(
   document.querySelector('canvas'), {
@@ -21,7 +56,7 @@ let camera = new Instacam(
 );
 
 // bind all property input to properly update the viewport
-Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEach((element) => {
+document.querySelectorAll('.field-property + [type="range"]').forEach((element) => {
   const value = element.parentNode.querySelector('.field-value');
 
   // define data default attribute automatically
@@ -65,7 +100,7 @@ Array.from(document.querySelectorAll('.field-property + [type="range"]')).forEac
 });
 
 // bind all custom blend input to properly update the viewport
-Array.from(document.querySelectorAll('[name="blend"]')).forEach((element) => {
+document.querySelectorAll('[name="blend"]').forEach((element) => {
   element.addEventListener('change', () => {
 
     // apply the custom blend layer
@@ -77,43 +112,8 @@ Array.from(document.querySelectorAll('[name="blend"]')).forEach((element) => {
 });
 
 // bind all custom filter input to properly update the viewport
-Array.from(document.querySelectorAll('[name="filter"]')).forEach((element) => {
+document.querySelectorAll('[name="filter"]').forEach((element) => {
   element.addEventListener('change', () => {
-
-    // define all custom filters
-    const filters = {
-      'none': null,
-      'noise': (pixel) => {
-        let r = Math.random();
-        return [r * pixel.red, r * pixel.green, r * pixel.blue, pixel.alpha];
-      },
-      'grayscale': (pixel) => {
-        let g = 0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue;
-        return [g, g, g, pixel.alpha];
-      },
-      'invert': (pixel) => {
-        return [255 - pixel.red, 255 - pixel.green, 255 - pixel.blue, pixel.alpha];
-      },
-      'threshold': (pixel) => {
-        return (0.2126 * pixel.red + 0.7152 * pixel.green + 0.0722 * pixel.blue >= 100) ? [255, 255, 255, 255] : [0, 0, 0, 255];
-      },
-      'sobel': (pixel) => {
-        let v = Math.abs(pixel.x);
-        let h = Math.abs(pixel.y);
-        return [pixel.red + v, pixel.green + h, pixel.blue + (v + h) / 4, 255];
-      },
-      'pixel': (pixel) => {
-        if (pixel.offset % 10 !== 0) {
-          return [window.red, window.green, window.blue, 255];
-        } else {
-          window.red = pixel.red;
-          window.green = pixel.green;
-          window.blue = pixel.blue;
-
-          return [pixel.red, pixel.green, pixel.blue, 255];
-        }
-      },
-    };
 
     // apply the custom filter
     camera.filter = filters[element.value];
@@ -121,7 +121,7 @@ Array.from(document.querySelectorAll('[name="filter"]')).forEach((element) => {
 });
 
 // apply the mirror mode to the viewport
-Array.from(document.querySelectorAll('[name="mirror"]')).forEach((element) => {
+document.querySelectorAll('[name="mirror"]').forEach((element) => {
   element.addEventListener('change', () => {
     camera.mirror = element.value === '1';
   });
@@ -150,7 +150,7 @@ document.querySelector('[name="snap"]').addEventListener('click', () => {
 });
 
 // save the viewport when the exported format is changing
-Array.from(document.querySelectorAll('[name="format"]')).forEach((element) => {
+document.querySelectorAll('[name="format"]').forEach((element) => {
   element.addEventListener('change', () => {
     save();
   });
