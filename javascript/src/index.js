@@ -1,6 +1,5 @@
 // get some elements
 let log = document.querySelector('.camera-log');
-let input = document.querySelector('.camera-input');
 let output = document.querySelector('.camera-output');
 
 // define all custom filters
@@ -106,7 +105,7 @@ document.querySelectorAll('[name="blend"]').forEach((element) => {
     // apply the custom blend layer
     camera.blend = element.value === 'none' ? {} : {
       mode: element.value,
-      color: getComputedStyle(input).getPropertyValue('background-color'),
+      color: '#ffc000',
     };
   });
 });
