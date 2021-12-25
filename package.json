@@ -38,7 +38,7 @@
   "homepage": "https://instacam.js.org",
   "devDependencies": {
     "eslint": "^8.5.0",
-    "terser-webpack-plugin": "^5.2.5",
+    "terser-webpack-plugin": "^5.3.0",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   }
