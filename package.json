@@ -36,6 +36,10 @@
     "url": "https://github.com/xavierfoucrier/instacam/issues"
   },
   "homepage": "https://instacam.js.org",
+  "engines": {
+    "node": "^18",
+    "npm": "^8"
+  },
   "devDependencies": {
     "eslint": "^8.26.0",
     "terser-webpack-plugin": "^5.3.6",
