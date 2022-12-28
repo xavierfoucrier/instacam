@@ -1,8 +1,8 @@
 const path = require('path');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 const PostcssInputRangePlugin = require('postcss-input-range');
 
 module.exports = {
@@ -72,7 +72,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '../style/default.min.css',
     }),
-    new PurgecssPlugin({
+    new PurgeCSSPlugin({
       paths: [
         'index.html',
       ],
