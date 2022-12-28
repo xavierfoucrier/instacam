@@ -39,7 +39,7 @@
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^3.0.2",
     "eslint": "^7.32.0",
-    "mini-css-extract-plugin": "^2.2.2",
+    "mini-css-extract-plugin": "^2.7.2",
     "postcss-input-range": "^4.0.0",
     "postcss-loader": "^6.2.1",
     "purgecss-webpack-plugin": "^4.1.3",
