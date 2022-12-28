@@ -46,7 +46,7 @@
     "sass": "^1.57.1",
     "sass-loader": "^12.6.0",
     "stylelint": "^14.16.0",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint-config-standard": "^29.0.0",
     "terser-webpack-plugin": "^5.3.6",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
