@@ -21,7 +21,7 @@ module.exports = {
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
-          output: {
+          format: {
             comments: false,
             preamble: preamble,
           },
