@@ -27,6 +27,10 @@
     "url": "https://github.com/xavierfoucrier/instacam/issues"
   },
   "homepage": "https://github.com/xavierfoucrier/instacam#readme",
+  "engines": {
+    "node": "^18",
+    "npm": "^8"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",
