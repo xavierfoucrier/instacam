@@ -38,7 +38,7 @@
   "homepage": "https://instacam.js.org",
   "engines": {
     "node": "^18",
-    "npm": "^8"
+    "npm": "^9"
   },
   "devDependencies": {
     "eslint": "^8.30.0",
