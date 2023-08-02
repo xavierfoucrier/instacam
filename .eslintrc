@@ -101,8 +101,11 @@
       "error"
     ],
     "space-before-function-paren": [
-      "error",
-      "never"
+      "error", {
+        "anonymous": "always",
+        "asyncArrow": "always",
+        "named": "never"
+      }
     ],
     "space-in-parens": [
       "error"
