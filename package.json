@@ -37,7 +37,7 @@
   },
   "homepage": "https://instacam.js.org",
   "engines": {
-    "node": "^18",
+    "node": "^20",
     "npm": "^9"
   },
   "devDependencies": {
