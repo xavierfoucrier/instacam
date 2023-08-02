@@ -290,7 +290,7 @@ export default class Instacam {
     }
 
     // loop through all stream tracks (audio + video) and stop them
-    this._stream.getTracks().forEach(function(track) {
+    this._stream.getTracks().forEach(function (track) {
       track.stop();
     });
 
@@ -384,7 +384,7 @@ export default class Instacam {
     this._props.mode = mode;
 
     // stop all video tracks
-    this._stream.getVideoTracks().forEach(function(track) {
+    this._stream.getVideoTracks().forEach(function (track) {
       track.stop();
     });
 
