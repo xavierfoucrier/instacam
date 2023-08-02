@@ -15,6 +15,9 @@
     "arrow-spacing": [
       "error"
     ],
+    "brace-style": [
+      "error"
+    ],
     "comma-dangle": [
       "error",
       "always-multiline"
