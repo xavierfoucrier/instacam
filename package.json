@@ -43,7 +43,7 @@
   "devDependencies": {
     "eslint": "^8.53.0",
     "terser-webpack-plugin": "^5.3.9",
-    "webpack": "^5.88.2",
+    "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }
 }
