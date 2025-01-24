@@ -1,16 +1,12 @@
-const path = require('path');
-const { name, description, author, license, version } = require('./package.json');
-const TerserPlugin = require('terser-webpack-plugin');
+import path from 'node:path';
+import TerserPlugin from 'terser-webpack-plugin';
 
-// package preamble
-const preamble = `/*!\n  ${name} - ${description}\n  ${author.name} ${author.github} ${new Date().getFullYear()} ${license}\n  ${version}\n*/`;
-
-module.exports = {
+export default () => ({
   mode: 'production',
   entry: './src/instacam.js',
   output: {
     filename: 'instacam.umd.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(import.meta.dirname, 'dist'),
     library: 'Instacam',
     libraryExport: 'default',
     libraryTarget: 'umd',
@@ -23,7 +19,6 @@ module.exports = {
         terserOptions: {
           format: {
             comments: false,
-            preamble: preamble,
           },
           mangle: {
             properties: {
@@ -34,4 +29,4 @@ module.exports = {
       }),
     ],
   },
-};
+});

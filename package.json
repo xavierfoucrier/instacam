@@ -2,6 +2,7 @@
   "name": "instacam",
   "version": "1.18.0",
   "description": "Instant canvas video",
+  "type": "module",
   "source": "src/instacam.js",
   "main": "dist/instacam.umd.js",
   "browser": "dist/instacam.umd.js",
