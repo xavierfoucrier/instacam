@@ -240,6 +240,7 @@ export default class Instacam {
         for (let x = 0; x < this._props.width; x++) {
 
           // detect the pixel offset
+          // eslint-disable-next-line
           const offset = ((this._props.width * y) + x) * 4;
 
           // call the filter
@@ -262,7 +263,7 @@ export default class Instacam {
       }
 
       return image;
-    } catch (exception) {
+    } catch {
       throw new Error('Invalid filter, you need to return a valid [red, green, blue, alpha] pixel array');
     }
   }
@@ -377,6 +378,8 @@ export default class Instacam {
     @param {String} mode - front|back facing mode of the camera
   */
   set mode(mode) {
+
+    // eslint-disable-next-line
     if (typeof mode !== 'string' || (mode !== 'front' && mode !== 'back')) {
       throw new Error('Invalid facing mode, you need to give a valid string front|back');
     }
